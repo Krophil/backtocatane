@@ -2,7 +2,7 @@ package model;
 
 public class ModelStructure {
 
-  private int IDJoueur;
+	private int IDJoueur;
 
 
 }

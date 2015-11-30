@@ -3,29 +3,29 @@ import java.util.List;
 
 public class ModelJoueur {
 
-  private int IDJoueur;
+	private int IDJoueur;
 
-  private List<ModelRessource> Ressources;
+	private List<ModelRessource> Ressources;
 
-  private List<ModelDeveloppement> Developpements;
+	private List<ModelDeveloppement> Developpements;
 
-  private int IDplateau;
+	private int IDplateau;
 
-  public void activeDev() {
-  }
+	public void activeDev() {
+	}
 
-  public Integer lancerDes() {
-  return null;
-  }
+	public Integer lancerDes() {
+		return null;
+	}
 
-  public void echange(ModelJoueur joueur) {
-  }
+	public void echange(ModelJoueur joueur) {
+	}
 
-  public Integer constructionPossible() {
-  return null;
-  }
+	public Integer constructionPossible() {
+		return null;
+	}
 
-  public void construire() {
-  }
+	public void construire() {
+	}
 
 }

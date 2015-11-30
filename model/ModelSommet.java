@@ -4,11 +4,11 @@ import java.util.List;
 
 public class ModelSommet {
 
-  private int coord;
-  
-  private List<ModelStructure> mystructure;
+	private int coord;
 
-  public void construire(ModelStructure struct) {
-  }
+	private List<ModelStructure> mystructure;
+
+	public void construire(ModelStructure struct) {
+	}
 
 }

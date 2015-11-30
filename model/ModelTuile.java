@@ -4,11 +4,11 @@ import java.util.List;
 
 public class ModelTuile {
 
-  private int coord;
+	private int coord;
 
-  private int valeur;
+	private int valeur;
 
-  private boolean tannen;
+	private boolean tannen;
 
-  private List<ModelSommet> mysommet;
+	private List<ModelSommet> mysommet;
 }
