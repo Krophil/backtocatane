@@ -1,4 +1,5 @@
 package model;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
@@ -50,8 +51,18 @@ public class ModelJoueur {
         return de1+de2;
 	}
 
-	public void echange(ModelJoueur joueur) {
-	}
+	public void echange(ModelJoueur joueur, ArrayList<String> askedRes, ArrayList<String> givRes) {
+        for(String a: askedRes){
+            this.Ressources.add(a);
+            joueur.Ressources.remove(a);
+            askedRes.remove(a);
+        }
+        for(String g: givRes){
+            joueur.Ressources.add(g);
+            this.Ressources.remove(g);
+            askedRes.remove(g);
+        }
+    }
 
 	public ArrayList<String> constructionPossible() {
 		ArrayList<String> constructions = new ArrayList<>();
@@ -91,5 +102,16 @@ public class ModelJoueur {
 
 	public void construire() {
 	}
+
+    public String toString(){
+        String str = "Joueur";
+        str+=IDJoueur+"\n";
+        for(String r: Ressources){
+            str+=r+"\n";
+        }
+        if(hasDelorean)
+            str+="He has the Delorean !";
+        return str;
+    }
 
 }
