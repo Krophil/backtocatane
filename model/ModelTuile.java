@@ -1,5 +1,6 @@
 package model;
-import java.util.List;
+
+import java.util.ArrayList;
 
 
 public class ModelTuile {
@@ -10,5 +11,5 @@ public class ModelTuile {
 
 	private boolean tannen;
 
-	private List<ModelSommet> mysommet;
+	private ArrayList<ModelSommet> mysommet;
 }

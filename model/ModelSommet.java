@@ -1,14 +1,35 @@
 package model;
-import java.util.List;
+import java.util.ArrayList;
 
 
 public class ModelSommet {
 
-	private int coord;
+	//Attributs
+	private int[] id;	//tableau identification du sommet (ex: X,Y,Z)
+	private boolean type; //0=type1 ; 1=type2
 
-	private List<ModelStructure> mystructure;
+	private ArrayList<ModelStructure> mystructure;
 
+
+	//Corps de la classe
 	public void construire(ModelStructure struct) {
+	}
+
+	//accesseur
+	public int[] getId() {
+		return id;
+	}
+
+	public void setId(int[] id) {
+		this.id = id;
+	}
+
+	public boolean getType(){
+		return type;
+	}
+
+	public void setType(boolean type){
+		this.type = type;
 	}
 
 }
