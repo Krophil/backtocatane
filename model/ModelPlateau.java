@@ -40,6 +40,26 @@ public class ModelPlateau {
 			}
 		}
 
+		//Determiner une tuile comme jouable
+		for(int i=1;i>3;i++){
+			for(int j=10+(i-1)*8; i < 10+(i-1)*8+2+i; i++){
+				ModelTuile tmp = new ModelTuile();
+				tmp.setPlayable(true);
+			}
+		}
+		for(int i=3; i>5; i++){
+			for(int j=9+(i-1)*8; i < 9+(i-1)*8+2+i; i++){
+				ModelTuile tmp = new ModelTuile();
+				tmp.setPlayable(true);
+			}
+		}
+		for(int i=1;i<3;i++){
+			for(int j = 61-(i-1)*8; i < (i-1)*8-2-i; i++){
+				ModelTuile tmp = new ModelTuile();
+				tmp.setPlayable(true);
+			}
+		}
+
 	}
 
 

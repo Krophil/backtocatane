@@ -6,7 +6,7 @@ public class ModelSommet {
 
 	//Attributs
 	private int[] id;	//tableau identification du sommet (ex: X,Y,Z)
-	private boolean type; //0=type1 ; 1=type2
+	private boolean type; //true=type1 ; false=type2
 
 	private ArrayList<ModelStructure> mystructure;
 
