@@ -14,7 +14,7 @@ public class ModelPlateau {
 
 	public ModelPlateau(){
 
-		//Tableau de sommet de type 1
+		//Sommet de type 1 & ajout au tableau de sommets
 		for(int i=1; i<62; i++){
 			if((i%8 == 0 && (i/8)%2!=0) || i%8 == 7 && (i/8)%2 == 0 || i%8>0 && i%8<7){
 				ModelSommet tmp = new ModelSommet();
@@ -27,7 +27,7 @@ public class ModelPlateau {
 			}
 		}
 
-		//Tableau de sommet de type 2
+		//Sommet de type 2 & ajout au tableau de sommets
 		for(int i=0; i<62; i++){
 			if( (i+1)%8 != 0){
 				ModelSommet tmp = new ModelSommet();
