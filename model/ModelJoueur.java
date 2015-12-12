@@ -43,6 +43,11 @@ public class ModelJoueur {
 	public void activeDev() {
 	}
 
+    /**
+     * Launches dices
+     *
+     * @return a result between 2 and 12, simulation of a dice
+     */
 	public int lancerDes() {
 		//nextInt is normally exclusive of the top value,
 		//so add 1 to make it inclusive
@@ -51,6 +56,31 @@ public class ModelJoueur {
         return de1+de2;
 	}
 
+    /**
+     * Checks if the player has all the ressources given in the list
+     *
+     * @param ressources : list of possible ressources
+     * @return if the player has every ressource of the list ressources
+     */
+    public boolean hasRessources(ArrayList<String> ressources) {
+        ArrayList<String> tmp = new ArrayList<>(this.Ressources);
+        int i=0;
+        for(String r: ressources) {
+            if(tmp.contains(r)) {
+                tmp.remove(r);
+                i++;
+            }
+        }
+        return (ressources.size() == i);
+    }
+
+    /**
+     * exchange method between two players
+     *
+     * @param joueur : player who accepted or requested exchange
+     * @param askedRes : Ressources asked by the player
+     * @param givRes : Ressources proposed by the player
+     */
 	public void echange(ModelJoueur joueur, ArrayList<String> askedRes, ArrayList<String> givRes) {
         for(String a: askedRes){
             this.Ressources.add(a);
@@ -64,6 +94,10 @@ public class ModelJoueur {
         }
     }
 
+    /**
+     *
+     * @return a list of possibilities for the player
+     */
 	public ArrayList<String> constructionPossible() {
 		ArrayList<String> constructions = new ArrayList<>();
         if(Ressources.contains("bois")) {
@@ -103,6 +137,10 @@ public class ModelJoueur {
 	public void construire() {
 	}
 
+    /**
+     *
+     * @return a string of the Player object
+     */
     public String toString(){
         String str = "Joueur";
         str+=IDJoueur+"\n";
