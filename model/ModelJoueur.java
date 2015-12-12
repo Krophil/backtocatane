@@ -44,6 +44,7 @@ public class ModelJoueur {
 	}
 
     /**
+     * Launches dices
      *
      * @return a result between 2 and 12, simulation of a dice
      */
@@ -56,6 +57,7 @@ public class ModelJoueur {
 	}
 
     /**
+     * Checks if the player has all the ressources given in the list
      *
      * @param ressources : list of possible ressources
      * @return if the player has every ressource of the list ressources
@@ -73,10 +75,11 @@ public class ModelJoueur {
     }
 
     /**
+     * exchange method between two players
      *
-     * @param joueur : joueur
-     * @param askedRes
-     * @param givRes
+     * @param joueur : player who accepted or requested exchange
+     * @param askedRes : Ressources asked by the player
+     * @param givRes : Ressources proposed by the player
      */
 	public void echange(ModelJoueur joueur, ArrayList<String> askedRes, ArrayList<String> givRes) {
         for(String a: askedRes){
