@@ -126,17 +126,6 @@ public class ModelJoueur {
         }
 
 
-
-        /*for(String a: askedRes){
-			this.Ressources.add(a);
-			joueur.Ressources.remove(a);
-			askedRes.remove(a);
-		}
-		for(String g: givRes){
-			joueur.Ressources.add(g);
-			this.Ressources.remove(g);
-			askedRes.remove(g);
-		}*/
 	}
 
 	/**
