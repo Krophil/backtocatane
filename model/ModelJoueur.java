@@ -96,7 +96,38 @@ public class ModelJoueur {
 	 * @param givRes : Ressources proposed by the player
 	 */
 	public void echange(ModelJoueur joueur, ArrayList<String> askedRes, ArrayList<String> givRes) {
-		for(String a: askedRes){
+
+
+        for(String a: askedRes){
+            this.Ressources.add(a);
+        }
+
+        for(String g: givRes){
+            joueur.Ressources.add(g);
+        }
+
+        for(int i=0; i<askedRes.size();i++){
+            String Ressource = askedRes.get(i);
+            int j =0;
+            System.out.println(Ressource.equals(joueur.Ressources.get(j)));
+            while(!joueur.Ressources.get(j).equals(Ressource)){
+                j++;
+            }
+            joueur.Ressources.remove(j);
+        }
+
+        for(int i=0; i<givRes.size();i++){
+            String Ressource = givRes.get(i);
+            int j =0;
+            while(!this.Ressources.get(j).equals(Ressource)){
+                j++;
+            }
+            this.Ressources.remove(j);
+        }
+
+
+
+        /*for(String a: askedRes){
 			this.Ressources.add(a);
 			joueur.Ressources.remove(a);
 			askedRes.remove(a);
@@ -105,7 +136,7 @@ public class ModelJoueur {
 			joueur.Ressources.add(g);
 			this.Ressources.remove(g);
 			askedRes.remove(g);
-		}
+		}*/
 	}
 
 	/**
