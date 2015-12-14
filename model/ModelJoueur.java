@@ -1,5 +1,6 @@
 package model;
 import java.util.ArrayList;
+import java.util.StringJoiner;
 import java.util.concurrent.ThreadLocalRandom;
 
 
@@ -36,10 +37,10 @@ public class ModelJoueur {
 	public ModelJoueur(int newId, ArrayList<String> newRessources, ArrayList<ModelDeveloppement> newDeveloppements, int newIDplateau, boolean hasDelorean){
 		this.IDJoueur = newId;
 		for(int i=0; i<newRessources.size(); i++) {
-			this.Ressources.add(newRessources.get(i));
+			this.Ressources = new ArrayList<String>(newRessources);
 		}
 		for(int i=0; i<newDeveloppements.size(); i++) {
-			this.Developpements.add(newDeveloppements.get(i));
+			this.Developpements = new ArrayList<ModelDeveloppement>(newDeveloppements);
 		}
 		this.IDPlateauJoueur = newIDplateau;
 		this.hasDelorean = hasDelorean;
