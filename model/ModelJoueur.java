@@ -109,7 +109,6 @@ public class ModelJoueur {
         for(int i=0; i<askedRes.size();i++){
             String Ressource = askedRes.get(i);
             int j =0;
-            System.out.println(Ressource.equals(joueur.Ressources.get(j)));
             while(!joueur.Ressources.get(j).equals(Ressource)){
                 j++;
             }
