@@ -12,11 +12,16 @@ public class ModelJoueur {
 	private ArrayList<ModelDeveloppement> Developpements;
 	private int IDPlateauJoueur;
 	private boolean hasDelorean;
+	private boolean garrageDelorean;
 
 	//Coprs de la classe
 
 	public void setIDPlateauJoueur(int newIDPlateauJ){
 		this.IDPlateauJoueur = newIDPlateauJ;
+	}
+
+	public void setGarrageDelorean(boolean state){
+		this.garrageDelorean = state;
 	}
 
 	public ModelJoueur(){
@@ -166,7 +171,8 @@ public class ModelJoueur {
 	}
 
 	public void changerPlateau(int newIDPlateau){
-		setIDPlateauJoueur(newIDPlateau);
+		setIDPlateauJoueur(newIDPlateau); //changement de plateau opéré
+		setGarrageDelorean(false);	//Delorean Cassé (comme dans les films)
 	}
 
 }
