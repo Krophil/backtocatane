@@ -12,7 +12,7 @@ public class ModelJoueur {
 	private ArrayList<ModelDeveloppement> Developpements;
 	private int IDPlateauJoueur;
 	private boolean hasDelorean; //possess Delorean (0=No; 1=Yes)
-	private boolean garrageDelorean; //state of Delorean (0=broken; 1=usable)
+	private boolean garageDelorean; //state of Delorean (0=broken; 1=usable)
 
 	//Coprs de la classe
 
@@ -20,8 +20,8 @@ public class ModelJoueur {
 		this.IDPlateauJoueur = newIDPlateauJ;
 	}
 
-	public void setGarrageDelorean(boolean state){
-		this.garrageDelorean = state;
+	public void setGarageDelorean(boolean state){
+		this.garageDelorean = state;
 	}
 
 	public ModelJoueur(){
@@ -150,8 +150,6 @@ public class ModelJoueur {
 		return constructions;
 	}
 
-	public void construire() {
-	}
 
 	/**
 	 *
@@ -172,7 +170,7 @@ public class ModelJoueur {
 
 	public void changerPlateau(int newIDPlateau){
 		setIDPlateauJoueur(newIDPlateau); //changement de plateau opéré
-		setGarrageDelorean(false);	//Delorean Cassé (comme dans les films)
+		setGarageDelorean(false);	//Delorean Cassé (comme dans les films)
 	}
 
 }
