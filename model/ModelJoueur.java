@@ -27,8 +27,12 @@ public class ModelJoueur {
 
 	public ModelJoueur(int newId, ArrayList<String> newRessources, ArrayList<ModelDeveloppement> newDeveloppements, int newIDplateau, boolean hasDelorean){
 		this.IDJoueur = newId;
-		this.Ressources = newRessources;
-		this.Developpements = newDeveloppements;
+        for(int i=0; i<newRessources.size(); i++) {
+            this.Ressources.add(newRessources.get(i));
+        }
+        for(int i=0; i<newDeveloppements.size(); i++) {
+            this.Developpements.add(newDeveloppements.get(i));
+        }
 		this.IDplateau = newIDplateau;
         this.hasDelorean = hasDelorean;
 	}
@@ -39,6 +43,7 @@ public class ModelJoueur {
             this.Ressources.add(joueur.Ressources.get(i));
 		}
 	}
+
 
 	public void activeDev() {
 	}
