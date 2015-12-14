@@ -12,6 +12,14 @@ public class ModelPlateau {
 
 	//Corps de la classe
 
+	public int getIDPlateau(){
+		return IDPlateau;
+	}
+
+	public void setIDPlateau(int newIDPlateau){
+		this.IDPlateau = newIDPlateau;
+	}
+
 	public ModelPlateau(){
 
 		//Sommet de type 1 & ajout au tableau de sommets
