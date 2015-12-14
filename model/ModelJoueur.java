@@ -11,8 +11,8 @@ public class ModelJoueur {
 	private ArrayList<String> Ressources;
 	private ArrayList<ModelDeveloppement> Developpements;
 	private int IDPlateauJoueur;
-	private boolean hasDelorean;
-	private boolean garrageDelorean;
+	private boolean hasDelorean; 
+	private boolean garrageDelorean; //state of Delorean (0=broken; 1=usable)
 
 	//Coprs de la classe
 
