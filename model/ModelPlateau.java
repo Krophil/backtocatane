@@ -21,32 +21,36 @@ public class ModelPlateau {
 	}
 
 	public ModelPlateau(){
-
+		sommets = new ArrayList<ModelSommet>();
 		//Sommet de type 1 & ajout au tableau de sommets
 		for(int i=1; i<62; i++){
-			if((i%8 == 0 && (i/8)%2!=0) || i%8 == 7 && (i/8)%2 == 0 || i%8>0 && i%8<7){
-				ModelSommet tmp = new ModelSommet();
-				if((i/8)%2 == 0){
-					tmp.setId(new int[]{i, i+8, i+7});
-					tmp.setType(true);
-				} else{
-					tmp.setId(new int[]{i, i+9, i+8});
+			if( (i%8 == 0 && (i/8)%2!=0) || (i%8 == 7 && (i/8)%2 == 0) || (i%8<7 && i%8>0) ){
+				if ((i / 8) % 2 == 0) {
+						ModelSommet somtmp = new ModelSommet(true, new int[]{i, i + 8, i + 7});
+						sommets.add(somtmp);
+				} else {
+						ModelSommet somtmp = new ModelSommet(true, new int[]{i, i + 9, i + 8});
+						sommets.add(somtmp);
 				}
+
 			}
 		}
 
 		//Sommet de type 2 & ajout au tableau de sommets
 		for(int i=0; i<62; i++){
-			if( (i+1)%8 != 0){
-				ModelSommet tmp = new ModelSommet();
+			if((i+1)%8 != 0){
 				if( (i/8)%2 != 0){
-					tmp.setId(new int[]{i+9, i, i+1});
-					tmp.setType(false);
+					ModelSommet somtmp = new ModelSommet(false, new int[]{i+9, i, i+1});
+					sommets.add(somtmp);
 				} else{
-					tmp.setId(new int[]{i+8, i, i+1});
+					ModelSommet somtmp = new ModelSommet(false, new int[]{i+8, i, i+1});
+					sommets.add(somtmp);
 				}
+
+
 			}
 		}
+
 
 		//Determiner une tuile comme jouable
 		for(int i=1;i>3;i++){
@@ -70,6 +74,12 @@ public class ModelPlateau {
 
 	}
 
+	public ModelSommet getSommet(int a){
+		return sommets.get(a);
+	}
 
+	public int getSizeSommets(){
+		return sommets.size();
+	}
 
 }

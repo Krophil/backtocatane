@@ -30,6 +30,8 @@ public class Main {
         ArrayList<String> asklist = new ArrayList<String>();
         ArrayList<String> givlist = new ArrayList<String>();
 
+
+
         ArrayList<ModelDeveloppement> DevListe1 = new ArrayList<ModelDeveloppement>();
         ArrayList<ModelDeveloppement> DevListe2 = new ArrayList<ModelDeveloppement>();
 
@@ -48,9 +50,10 @@ public class Main {
         asklist.add("brique");
         asklist.add("res1");
 
+        ModelPlateau p1 = new ModelPlateau();
+
         ModelJoueur J1;
         ModelJoueur J2;
-
 
         J1 = new ModelJoueur(1,ResListe1,DevListe1,1,false);
         J2 = new ModelJoueur(2,ResListe2,DevListe2,1,true);
@@ -75,6 +78,22 @@ public class Main {
         System.out.println("\n\nTEST DE LANCER DE DES:\n");
         System.out.println(J1.lancerDes());
 
+
+        for(int a=0;a<p1.getSizeSommets();a++){
+            System.out.println("Sommet n°"+(1+a));
+            for(int id: p1.getSommet(a).getId()){
+                System.out.println(id);
+            }
+            for(int i=0;i<3;i++){
+                System.out.println("Sommet voisin n°"+(i+1));
+                for(int j=0;j<3;j++){
+                    System.out.println("Tuile voisine n°"+(j+1));
+                    System.out.println(p1.getSommet(a).getVoisin(i,j));
+                }
+            }
+
+
+        }
 
 
 
