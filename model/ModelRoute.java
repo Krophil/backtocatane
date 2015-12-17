@@ -9,6 +9,11 @@ public class ModelRoute extends ModelStructure{
 		this.B = null;
 	}
 
+    /**
+     *
+     * @param newA Sommet de départ
+     * @param newB Sommet d'arrivée
+     */
 	public ModelRoute(ModelSommet newA, ModelSommet newB){
 		this.A = newA;
 		this.B = newB;
