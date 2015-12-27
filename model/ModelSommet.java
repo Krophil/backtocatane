@@ -6,9 +6,10 @@ public class ModelSommet {
 
 	//Attributs
 	private int[] id;	//tableau identification du sommet (ex: X,Y,Z)
-	private boolean type; //true=type1 ; false=type2
-
 	private int[][] voisin;	//Tableau
+	private boolean type; //true=type1 ; false=type2
+	private boolean busy; //true=occupé; false=pas de construction
+
 	private ArrayList<ModelStructure> mystructure;
 
 
@@ -16,7 +17,7 @@ public class ModelSommet {
 	public ModelSommet(boolean type, int[] tab){
 		//Generation des sommets voisins d'un sommet donné
 		this.setType(type);
-		
+
 		id = tab;
 		voisin = new int[3][3];
 		for(int i=0; i<3; i++){
@@ -24,7 +25,7 @@ public class ModelSommet {
 				voisin[i][j] = 0;
 			}
 		}
-		
+
 		int b;
 
 		if(this.type==true){
@@ -70,6 +71,15 @@ public class ModelSommet {
 
 	}
 
+	@Override
+	public String toString(){
+		String str = "Sommet"+this.id;
+
+
+
+		return str;
+	}
+
 	//accesseur
 	public int[] getId() {
 		return id;
@@ -91,14 +101,13 @@ public class ModelSommet {
 		return voisin[id][idTuiles];
 	}
 
-	public String toString(){
-		String str = "Sommet"+this.id;
-
-
-
-		return str;
+	public boolean getBusy(){
+		return busy;
 	}
 
+	public ArrayList<ModelStructure> getMystructure(){
+		return mystructure;
+	}
 
 
 

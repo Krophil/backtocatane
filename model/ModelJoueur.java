@@ -1,21 +1,35 @@
 package model;
 import java.util.ArrayList;
-import java.util.StringJoiner;
 import java.util.concurrent.ThreadLocalRandom;
 
 
 
 public class ModelJoueur {
 
-	//Attribut
+	//Attributs
 	private int IDJoueur;
+	private int IDPlateauJoueur;
+
 	private ArrayList<String> Ressources;
 	private ArrayList<ModelDeveloppement> Developpements;
-	private int IDPlateauJoueur;
+
 	private boolean hasDelorean; //possess Delorean (0=No; 1=Yes)
 	private boolean garageDelorean; //state of Delorean (0=broken; 1=usable)
 
-	//Coprs de la classe
+
+	//Accesseurs
+	public ArrayList<String> getRessources(){
+		return Ressources;
+	}
+	public int getIDPlateauJoueur(){
+		return IDPlateauJoueur;
+	}
+
+	public int getIDJoueur(){
+		return IDJoueur;
+	}
+
+	//Corps de la classe
 
 	public void setIDPlateauJoueur(int newIDPlateauJ){
 		this.IDPlateauJoueur = newIDPlateauJ;
@@ -98,31 +112,31 @@ public class ModelJoueur {
 	public void echange(ModelJoueur joueur, ArrayList<String> askedRes, ArrayList<String> givRes) {
 
 
-        for(String a: askedRes){
-            this.Ressources.add(a);
-        }
+		for(String a: askedRes){
+			this.Ressources.add(a);
+		}
 
-        for(String g: givRes){
-            joueur.Ressources.add(g);
-        }
+		for(String g: givRes){
+			joueur.Ressources.add(g);
+		}
 
-        for(int i=0; i<askedRes.size();i++){
-            String Ressource = askedRes.get(i);
-            int j =0;
-            while(!joueur.Ressources.get(j).equals(Ressource)){
-                j++;
-            }
-            joueur.Ressources.remove(j);
-        }
+		for(int i=0; i<askedRes.size();i++){
+			String Ressource = askedRes.get(i);
+			int j =0;
+			while(!joueur.Ressources.get(j).equals(Ressource)){
+				j++;
+			}
+			joueur.Ressources.remove(j);
+		}
 
-        for(int i=0; i<givRes.size();i++){
-            String Ressource = givRes.get(i);
-            int j =0;
-            while(!this.Ressources.get(j).equals(Ressource)){
-                j++;
-            }
-            this.Ressources.remove(j);
-        }
+		for(int i=0; i<givRes.size();i++){
+			String Ressource = givRes.get(i);
+			int j =0;
+			while(!this.Ressources.get(j).equals(Ressource)){
+				j++;
+			}
+			this.Ressources.remove(j);
+		}
 
 
 	}

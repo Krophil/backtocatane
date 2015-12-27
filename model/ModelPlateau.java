@@ -6,9 +6,22 @@ public class ModelPlateau {
 	//Attribut
 	private int IDPlateau;
 
+
 	private ArrayList<ModelTuile> tuiles;
 	private ArrayList<ModelSommet> sommets;
 
+	//Accesseur
+	public ArrayList<ModelSommet> getSommets(){
+		return sommets;
+	}
+
+	public ModelSommet getSommet(int a){
+		return sommets.get(a);
+	}
+
+	public int getSizeSommets(){
+		return sommets.size();
+	}
 
 	//Corps de la classe
 
@@ -26,11 +39,11 @@ public class ModelPlateau {
 		for(int i=1; i<62; i++){
 			if( (i%8 == 0 && (i/8)%2!=0) || (i%8 == 7 && (i/8)%2 == 0) || (i%8<7 && i%8>0) ){
 				if ((i / 8) % 2 == 0) {
-						ModelSommet somtmp = new ModelSommet(true, new int[]{i, i + 8, i + 7});
-						sommets.add(somtmp);
+					ModelSommet somtmp = new ModelSommet(true, new int[]{i, i + 8, i + 7});
+					sommets.add(somtmp);
 				} else {
-						ModelSommet somtmp = new ModelSommet(true, new int[]{i, i + 9, i + 8});
-						sommets.add(somtmp);
+					ModelSommet somtmp = new ModelSommet(true, new int[]{i, i + 9, i + 8});
+					sommets.add(somtmp);
 				}
 
 			}
@@ -74,12 +87,6 @@ public class ModelPlateau {
 
 	}
 
-	public ModelSommet getSommet(int a){
-		return sommets.get(a);
-	}
 
-	public int getSizeSommets(){
-		return sommets.size();
-	}
 
 }
