@@ -34,21 +34,7 @@ public class ModelTown extends ModelStructure {
 		this.update = true;
 	}
 
-	/**
-	 * A partir de l'époque du plateau, on va répercuter sa création dans les plateaux suivants.
-	 * @param P
-	 */
-	public void repercution(ModelStructure S, ModelJoueur J, ModelPlateau P, ModelSommet Som, ModelGestPlat GP){
 
-		if(S.getIDJoueur() == J.getIDJoueur()){
-			for(int i = J.getIDPlateauJoueur(); i<4; i++){
-				if(Som.getBusy() == false){
-					int idsearch = GP.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-					GP.getTabPlat(i).getSommets().get(idsearch).getMystructure().add(new ModelTown());
-				}
-			}
-		}
-	}
 
 
 
