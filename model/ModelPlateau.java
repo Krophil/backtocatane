@@ -1,5 +1,5 @@
 package model;
-import com.sun.javafx.sg.prism.NGShape;
+//import com.sun.javafx.sg.prism.NGShape;
 
 import java.util.ArrayList;
 
@@ -21,15 +21,16 @@ public class ModelPlateau {
 		return sommets.get(a);
 	}
 
-    public ModelSommet getSommet(int[] id){
-        ModelSommet som = new ModelSommet();
-        for(ModelSommet s:this.sommets){
-            if(id == s.getId()){
-                som = s;
-            }
-        }
-        return som;
-    }
+	//Trouve un sommet du plateau sur lequel le joueur se trouve en fournissant un tableau d'identifiant
+	public ModelSommet getSommet(int[] id){
+		ModelSommet som = new ModelSommet();
+		for(ModelSommet s:this.sommets){
+			if(id == s.getId()){
+				som = s;
+			}
+		}
+		return som;
+	}
 
 	public int getSizeSommets(){
 		return sommets.size();

@@ -17,7 +17,7 @@ public class ModelTown extends ModelStructure {
 		return update;
 	}
 
-	public void contruire(ModelJoueur J){
+	public void contruire(ModelJoueur J, ModelSommet S, ModelPlateau P){
 		/**
 		 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
 		 */
@@ -27,6 +27,12 @@ public class ModelTown extends ModelStructure {
 		s.add("res1");
 
 		J.getRessources().removeAll(s);
+
+		for(int i=0; i<3; i++){
+			P.getSommet(S.getVoisin(i)).setBusy(true);
+
+		}
+
 
 	}
 
