@@ -1,4 +1,6 @@
 package model;
+import com.sun.javafx.sg.prism.NGShape;
+
 import java.util.ArrayList;
 
 public class ModelPlateau {
@@ -18,6 +20,14 @@ public class ModelPlateau {
 	public ModelSommet getSommet(int a){
 		return sommets.get(a);
 	}
+
+    public ModelSommet getSommet(int[] id, int plateau){
+        for(ModelSommet s:this.sommets){
+            if(id == s.getId()){
+                return s;
+            }
+        }
+    }
 
 	public int getSizeSommets(){
 		return sommets.size();
