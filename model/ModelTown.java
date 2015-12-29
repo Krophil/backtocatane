@@ -6,16 +6,26 @@ public class ModelTown extends ModelStructure {
 
 	//Attributs
 	private boolean update;
-
+    private ModelSommet place;
 	//Corps de la classe
 
 	public ModelTown() {
 		update = false;
+        place = new ModelSommet();
 	}
+
+    public ModelTown(ModelSommet p){
+        update=false;
+        place=p;
+    }
 
 	public boolean getUpdate() {
 		return update;
 	}
+
+    public ModelSommet getPlace(){
+        return place;
+    }
 
 	public void contruire(ModelJoueur J){
 		/**
