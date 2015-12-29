@@ -5,16 +5,17 @@ import java.util.ArrayList;
 public class ModelTown extends ModelStructure {
 
 	//Attributs
-	private boolean update;
+	private boolean update; //true == Ville; false == colonnie
+
+	//Accesseurs
+	public boolean getUpdate() {
+		return update;
+	}
 
 	//Corps de la classe
 
 	public ModelTown() {
 		update = false;
-	}
-
-	public boolean getUpdate() {
-		return update;
 	}
 
 	public void contruire(ModelJoueur J, ModelSommet S, ModelPlateau P){

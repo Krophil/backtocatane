@@ -1,6 +1,5 @@
 package model;
 import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
 
 
 
@@ -21,6 +20,11 @@ public class ModelJoueur {
 	public ArrayList<String> getRessources(){
 		return Ressources;
 	}
+
+	public void setRessources(String R){
+		Ressources.add(R);
+	}
+
 	public int getIDPlateauJoueur(){
 		return IDPlateauJoueur;
 	}
@@ -69,19 +73,6 @@ public class ModelJoueur {
 
 
 	public void activeDev() {
-	}
-
-	/**
-	 * Launches dices
-	 *
-	 * @return a result between 2 and 12, simulation of a dice
-	 */
-	public int lancerDes() {
-		//nextInt is normally exclusive of the top value,
-		//so add 1 to make it inclusive
-		int de1 = ThreadLocalRandom.current().nextInt(1, 7);
-		int de2 = ThreadLocalRandom.current().nextInt(1, 7);
-		return de1+de2;
 	}
 
 	/**
