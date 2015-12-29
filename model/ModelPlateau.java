@@ -22,11 +22,13 @@ public class ModelPlateau {
 	}
 
     public ModelSommet getSommet(int[] id){
+        ModelSommet som = new ModelSommet();
         for(ModelSommet s:this.sommets){
             if(id == s.getId()){
-                return s;
+                som = s;
             }
         }
+        return som;
     }
 
 	public int getSizeSommets(){
