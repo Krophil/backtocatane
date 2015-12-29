@@ -21,7 +21,7 @@ public class ModelPlateau {
 		return sommets.get(a);
 	}
 
-    public ModelSommet getSommet(int[] id, int plateau){
+    public ModelSommet getSommet(int[] id){
         for(ModelSommet s:this.sommets){
             if(id == s.getId()){
                 return s;
