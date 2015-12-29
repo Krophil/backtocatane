@@ -1,5 +1,6 @@
 package model;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class ModelSommet {
@@ -13,8 +14,6 @@ public class ModelSommet {
 
 	private boolean[] routes; //true=occupé; false=pas de route vers ce sommet
 	private ArrayList<ModelStructure> mystructure;
-
-
 
 
 	//Corps de la classe
@@ -89,11 +88,19 @@ public class ModelSommet {
 	@Override
 	public String toString(){
 		String str = "Sommet"+this.id;
-
-
-
 		return str;
 	}
+
+	public int numVoisin(int[] In){
+		int index = -1;
+		for(int i=0; i<3; i++){
+			if(In == this.id){
+				index = Arrays.asList(this.id).indexOf(id);
+			}
+		}
+		return index;
+	}
+
 
 	//accesseur
 	public int[] getId() {
