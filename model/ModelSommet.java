@@ -16,6 +16,13 @@ public class ModelSommet {
 
 
 	//Corps de la classe
+    public ModelSommet(){
+        this.setType(false);
+        routes = new boolean[3];
+        id = new int[]{0,0,0};
+        voisin = new int[3][3];
+    }
+
 	public ModelSommet(boolean type, int[] tab){
 		//Generation des sommets voisins d'un sommet donné
 		this.setType(type);
