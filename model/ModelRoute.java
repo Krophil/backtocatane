@@ -36,9 +36,9 @@ public class ModelRoute extends ModelStructure{
         J.getRessources().removeAll(s);
     }
 
-    public void repercution(ModelStructure S, ModelJoueur J, ModelPlateau P, ModelSommet Som, ModelGestPlat GP){
+    /*public void repercution(ModelStructure S, ModelJoueur J, ModelPlateau P, ModelSommet Som, ModelGestPlat GP){
 
-    }
+    }*/
 
 }
 
