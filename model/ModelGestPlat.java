@@ -61,11 +61,12 @@ public class ModelGestPlat {
 						compteur++;
 					}
 				}
+                /**
+                 * Demander au joueur la tuile,
+                 */
+                //deplacerVoleur(t, J);
 			}
 		}
-
-		deplacerVoleur();
-
 	}
 
 	/**
@@ -95,5 +96,56 @@ public class ModelGestPlat {
 			}
 		}
 	}
+
+    public void activateDev(ModelJoueur J, ModelDeveloppement d){
+        switch (d.getIDDeveloppement()){
+            case 1:
+                /**
+                 * interaction avec le joueur pour déplacer le Tannen
+                 */
+                break;
+            case 2:
+                /**
+                 * interaction pour la création de 2 routes
+                 */
+                break;
+            case 3:
+                /**
+                 * interaction pour récupérer 2 ressources supplémentaires
+                 */
+                break;
+            case 4:
+                J.setCompteurPtCache(J.getCompteurPtCache()+1);
+        }
+    }
+
+    public boolean deplacerVoleur(ModelTuile newTannen, ModelJoueur J){
+        Boolean hasMoved = false;
+        for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){
+            if(t.isTannen()) {//On cherche la tuile possédant précédemment le voleur
+                if (t.getCoord() == newTannen.getCoord()) {//Est-ce la même tuile qu'avant ?
+                    /**
+                     * Déplacer sur la tuile newTannen
+                     * Penser à le déplacer aussi dans les autres plateaux
+                     * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
+                     */
+                    hasMoved = true;
+                } else {//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
+                    hasMoved = false;
+                }
+            }
+        }
+        if(hasMoved == false){//Est-ce la même tuile qu'avant ?
+            /**
+             * Déplacer sur la tuile newTannen
+             * Penser à le déplacer aussi dans les autres plateaux
+             * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
+             */
+            hasMoved = true;
+        }else{//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
+            hasMoved = false;
+        }
+        return hasMoved;
+    }
 
 }

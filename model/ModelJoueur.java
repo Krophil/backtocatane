@@ -15,8 +15,29 @@ public class ModelJoueur {
 	private boolean hasDelorean; //possess Delorean (0=No; 1=Yes)
 	private boolean garageDelorean; //state of Delorean (0=broken; 1=usable)
 
+    private int compteurPt=0;
+    private int compteurPtCache=0;
+
+    public boolean playing=false;//true : the player is currently playing
+
 
 	//Accesseurs
+    public int getCompteurPt(){
+        return compteurPt;
+    }
+
+    public int getCompteurPtCache(){
+        return compteurPtCache;
+    }
+
+    public void setCompteurPt(int i){
+        compteurPt = i;
+    }
+
+    public void setCompteurPtCache(int i){
+        compteurPtCache = i;
+    }
+
 	public ArrayList<String> getRessources(){
 		return Ressources;
 	}
@@ -32,6 +53,7 @@ public class ModelJoueur {
 	public int getIDJoueur(){
 		return IDJoueur;
 	}
+
 
 	//Corps de la classe
 

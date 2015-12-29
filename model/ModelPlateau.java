@@ -21,6 +21,14 @@ public class ModelPlateau {
 		return sommets.get(a);
 	}
 
+    public ArrayList<ModelTuile> getTuiles(){
+        return tuiles;
+    }
+
+    public ModelTuile getTuile(int a){
+        return tuiles.get(a);
+    }
+
 	//Trouve un sommet du plateau sur lequel le joueur se trouve en fournissant un tableau d'identifiant
 	public ModelSommet getSommet(int[] id){
 		ModelSommet som = new ModelSommet();
