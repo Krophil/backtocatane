@@ -1,4 +1,4 @@
-package model;
+package src.model;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -130,7 +130,7 @@ public class ModelGestPlat {
 					 * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
 					 */
 					hasMoved = true;
-				} else {//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
+				} else {//c'est la même tuile, le joueur devra recommencer (c'est dans la src.view)
 					hasMoved = false;
 				}
 			}

@@ -1,8 +1,5 @@
-package model;
+package src.model;
 
-import com.sun.deploy.util.ArrayUtil;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ModelRoute extends ModelStructure{

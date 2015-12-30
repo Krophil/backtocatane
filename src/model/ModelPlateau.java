@@ -1,4 +1,4 @@
-package model;
+package src.model;
 //import com.sun.javafx.sg.prism.NGShape;
 
 import java.util.ArrayList;
