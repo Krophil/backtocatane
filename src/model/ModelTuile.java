@@ -44,10 +44,6 @@ public class ModelTuile {
 		return coord;
 	}
 
-	public int getCoord(int i){
-		return coord;
-	}
-
 	public void setCoord(int i){
 		coord = i;
 	}

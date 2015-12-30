@@ -21,7 +21,24 @@ public class ModelGestPlat {
 		tabResSup[1] = "brique";
 		tabResSup[2] = "res1";
 		tabResSup[3] = "res2";
+
+		TabJ = null;
+		TabPlat = null;
+
 	}
+
+	public ModelGestPlat(ArrayList<ModelPlateau> newTabPlat, ArrayList<ModelJoueur> newTabJ){
+		tabResSup[0] = "bois";
+		tabResSup[1] = "brique";
+		tabResSup[2] = "res1";
+		tabResSup[3] = "res2";
+
+		TabJ = newTabJ;
+		TabPlat = newTabPlat;
+
+	}
+
+
 
 	public ModelPlateau getTabPlat(int i){
 		return TabPlat.get(i);
