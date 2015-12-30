@@ -22,4 +22,8 @@ public abstract class ModelStructure {
 	public ModelStructure(int idJ){
 		this.IDJoueur = idJ;
 	}
+
+    public void setIDJoueur(int IDJoueur){
+        this.IDJoueur = IDJoueur;
+    }
 }
