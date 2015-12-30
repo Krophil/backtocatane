@@ -25,6 +25,11 @@ public class ModelGestPlat {
 
 		TabJ = new ArrayList<ModelJoueur>();
 		TabPlat = new ArrayList<ModelPlateau>();
+        for(int i=0;i<4;i++){
+            TabJ.add(new ModelJoueur(i));
+            TabPlat.add(new ModelPlateau(i));
+        }
+
 
 	}
 
@@ -37,7 +42,10 @@ public class ModelGestPlat {
 
 		TabJ = new ArrayList<ModelJoueur>(newTabJ);
 		TabPlat = new ArrayList<ModelPlateau>(newTabPlat);
-
+        for(int i=0;i<4;i++){
+            TabJ.add(new ModelJoueur(i));
+            TabPlat.add(new ModelPlateau(i));
+        }
 	}
 
 

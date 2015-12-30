@@ -79,8 +79,8 @@ public class ModelJoueur {
 	}
 
 	//Corps de la classe
-	public ModelJoueur(){
-		this.IDJoueur = 0;
+	public ModelJoueur(int i){
+		this.IDJoueur = i;
 		this.Ressources = null;
 		this.Developpements = null;
 		this.IDPlateauJoueur = 0;

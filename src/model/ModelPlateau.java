@@ -53,7 +53,8 @@ public class ModelPlateau {
 		return som;
 	}
 
-	public ModelPlateau(){
+	public ModelPlateau(int id){
+        IDPlateau = id;
         tuiles = new ArrayList<ModelTuile>();
         MyAliases aliases = new MyAliases();
         for(int i=0;i<8;i++){
