@@ -121,9 +121,9 @@ public class ModelGestPlat {
 
 	public boolean deplacerVoleur(ModelTuile newTannen, ModelJoueur J){
 		Boolean hasMoved = false;
-		for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){
+		for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){ //Parcours les tuiles du plateau
 			if(t.isTannen()) {//On cherche la tuile possédant précédemment le voleur
-				if (t.getCoord() == newTannen.getCoord()) {//Est-ce la même tuile qu'avant ?
+				if (t.getCoord() != newTannen.getCoord()) {//La nouvelle tuile tiré pour le voleur est la meme qu'avant
 					/**
 					 * Déplacer sur la tuile newTannen
 					 * Penser à le déplacer aussi dans les autres plateaux
@@ -134,16 +134,6 @@ public class ModelGestPlat {
 					hasMoved = false;
 				}
 			}
-		}
-		if(hasMoved == false){//Est-ce la même tuile qu'avant ?
-			/**
-			 * Déplacer sur la tuile newTannen
-			 * Penser à le déplacer aussi dans les autres plateaux
-			 * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
-			 */
-			hasMoved = true;
-		}else{//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
-			hasMoved = false;
 		}
 		return hasMoved;
 	}
