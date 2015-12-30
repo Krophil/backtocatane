@@ -54,6 +54,19 @@ public class ModelPlateau {
 	}
 
 	public ModelPlateau(){
+        tuiles = new ArrayList<ModelTuile>();
+        MyAliases aliases = new MyAliases();
+        for(int i=0;i<8;i++){
+            String tmp;
+            for(int j=0;j<8;j++){
+                if(aliases.mapTuiles.containsKey(8*i+j)){
+                    tuiles.add(new ModelTuile(8*i+j, aliases.mapTuiles.get(8*i+j), aliases.ResDResource.get(8*i+j)));
+                } else {
+                    tuiles.add(new ModelTuile(8*i+j, 1, "neither"));
+                }
+
+            }
+        }
 		sommets = new ArrayList<ModelSommet>();
 		//Sommet de type 1 & ajout au tableau de sommets
 		for(int i=1; i<62; i++){
@@ -86,13 +99,13 @@ public class ModelPlateau {
 
 
 		//Determiner une tuile comme jouable
-		for(int i=1;i>3;i++){
+		for(int i=1;i<3;i++){
 			for(int j=10+(i-1)*8; i < 10+(i-1)*8+2+i; i++){
 				ModelTuile tmp = new ModelTuile();
 				tmp.setPlayable(true);
 			}
 		}
-		for(int i=3; i>5; i++){
+		for(int i=3; i<5; i++){
 			for(int j=9+(i-1)*8; i < 9+(i-1)*8+2+i; i++){
 				ModelTuile tmp = new ModelTuile();
 				tmp.setPlayable(true);

@@ -8,7 +8,7 @@ public class ModelTuile {
 	//Attributs
 	private int coord;
 	private int valeur;
-	private boolean playable; //true = playable; false = notplayabe
+	private boolean playable; //true = playable; false = notplayable
 
 	private boolean tannen;//true = is tannen; false = not Tannen
 	private String typeRes;
@@ -70,6 +70,11 @@ public class ModelTuile {
 		this.typeRes = R;
 	}
 
+    public ModelTuile(int coord, int valeur, String R){
+        this.coord = coord;
+        this.valeur = valeur;
+        this.typeRes = R;
+    }
 
 
 }
