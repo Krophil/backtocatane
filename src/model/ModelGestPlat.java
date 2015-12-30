@@ -5,8 +5,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ModelGestPlat {
 
-	//int[][] tuiles = new int[4][37];  //37 tuiles jouables
-	//int[][] sommets = new int [4][54];
 	private ArrayList<ModelPlateau> TabPlat;
 	private ArrayList<ModelJoueur> TabJ;
 	private String[] tabResSup;
@@ -28,6 +26,8 @@ public class ModelGestPlat {
 	public ModelPlateau getTabPlat(int i){
 		return TabPlat.get(i);
 	}
+
+	//Corps de la classe
 
 	public void lancerDes(ModelJoueur J, ModelTown Tow, ModelTuile Tui) {
 
@@ -70,8 +70,7 @@ public class ModelGestPlat {
 	}
 
 	/**
-	 * A partir de l'époque du plateau, on va répercuter sa création dans les plateaux suivants.
-	 * @param P
+	 * A partir de l'époque du plateau, on repercute la création de la ville dans les plateaux suivants.
 	 */
 	public void repercution(ModelStructure S, ModelJoueur J, ModelPlateau P, ModelSommet Som, ModelGestPlat GP){
 
@@ -97,6 +96,69 @@ public class ModelGestPlat {
 		}
 	}
 
+	/**
+	 * A partir de l'époque du plateau, on repercute Tannen dans les plateaux suivants.
+	 */
+	public void repercutTannen(int coordTanFournie){
+		/**
+		 * on a la tuile ou se trouve Tannen dans le tableau donné.
+		 * On doit le répercuter dans tous les autre tableau peut importe l'ordre.		 * 
+		 */
+		for (int i=0; i<4;i++){
+			if(this.TabPlat.get(i).getTuile(coordTanFournie).getTannen() == false){ //si dans un autre tableau, la tuile n'as pas de tannen, on lui met le boolean Tannen à true
+				this.TabPlat.get(i).getTuile(coordTanFournie).setTannen(true);
+			}
+		}
+
+	}
+
+	public boolean deplacerVoleur(ModelTuile newTannen, ModelJoueur J){
+		Boolean hasMoved = false;
+		for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){ //Parcours les tuiles du plateau
+			if(t.isTannen()) {//On cherche la tuile possédant précédemment le voleur
+				if (t.getCoord() != newTannen.getCoord()) {//La nouvelle tuile tiré a une coordonnée diiférente que celle ou se trouve le voleur
+
+					//Déplacer sur la tuile newTannen
+					t.setTannen(false);
+					newTannen.setTannen(true);
+
+					repercutTannen(newTannen.getCoord()); //Deplacer Tannen dans les autres plateaux
+
+					/**
+					 * tannen vole une ressource
+					 * Pour une tuile donné repercuté a chaque tableau, on regarde ses sommets,
+					 * si un sommets est occupé par une ville, on prend une resource au joueur concerné.
+					 */
+					for(int i=0; i<4;i++){
+						for(int j=0; j<this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet().size(); j++ ){
+							if(this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet().get(j).getBusy() == true)
+							{
+								for(ModelStructure s:this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet().get(j).getMystructure()){
+									if (s.getClass().getName().equals("ModelTown"))
+									{
+										s.getIDJoueur();
+										int a = ThreadLocalRandom.current().nextInt(1, 4);
+
+										for(int w=0; w< J.getJoueur(s.getIDJoueur()).getRessources().size(); w++){
+											if(J.getJoueur(s.getIDJoueur()).getRessources().get(w) == tabResSup[a]){
+												J.getJoueur(s.getIDJoueur()).getRessources().remove(w);
+											}
+										}										
+									}									
+								}					
+							}
+						}
+					}
+					hasMoved = true;
+
+				} else {//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
+					hasMoved = false;
+				}
+			}
+		}
+		return hasMoved;
+	}
+
 	public void activateDev(ModelJoueur J, ModelDeveloppement d){
 		switch (d.getIDDeveloppement()){
 		case 1:
@@ -117,25 +179,6 @@ public class ModelGestPlat {
 		case 4:
 			J.setCompteurDev(J.getCompteurDev()+1);
 		}
-	}
-
-	public boolean deplacerVoleur(ModelTuile newTannen, ModelJoueur J){
-		Boolean hasMoved = false;
-		for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){ //Parcours les tuiles du plateau
-			if(t.isTannen()) {//On cherche la tuile possédant précédemment le voleur
-				if (t.getCoord() != newTannen.getCoord()) {//La nouvelle tuile tiré pour le voleur est la meme qu'avant
-					/**
-					 * Déplacer sur la tuile newTannen
-					 * Penser à le déplacer aussi dans les autres plateaux
-					 * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
-					 */
-					hasMoved = true;
-				} else {//c'est la même tuile, le joueur devra recommencer (c'est dans la src.view)
-					hasMoved = false;
-				}
-			}
-		}
-		return hasMoved;
 	}
 
 	public void creerDelorean(ModelJoueur J){

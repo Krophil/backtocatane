@@ -10,31 +10,55 @@ public class ModelTuile {
 	private int valeur;
 	private boolean playable; //true = playable; false = notplayabe
 
-    private boolean tannen;
+	private boolean tannen;//true = is tannen; false = not Tannen
 	private String typeRes;
 
 	private ArrayList<ModelSommet> mysommet;
 
 	//Accesseurs
+	public ArrayList<ModelSommet> getMysommet(){
+		return mysommet;
+	}
+
+	public boolean getTannen(){
+		return tannen;
+	}
+
+	public void setTannen(boolean T){
+		this.tannen = true;
+	}
+
 	public String getTypeRes(){
 		return typeRes;
 	}
 
-    public boolean isTannen() {
-        return tannen;
-    }
+	public boolean isTannen() {
+		return tannen;
+	}
 
 	public void setTypeRes(String R){
 		this.typeRes = R;
 	}
 
-    public int getCoord(){
-        return coord;
-    }
+	public int getCoord(){
+		return coord;
+	}
 
-    public void setCoord(int i){
-        coord = i;
-    }
+	public int getCoord(int i){
+		return coord;
+	}
+
+	public void setCoord(int i){
+		coord = i;
+	}
+
+	public boolean getPlayable(){
+		return playable ;
+	}
+
+	public void setPlayable(boolean playable){
+		this.playable = playable;
+	}
 
 	//Corps de la classe
 
@@ -46,12 +70,6 @@ public class ModelTuile {
 		this.typeRes = R;
 	}
 
-	public boolean getPlayable(){
-		return playable ;
-	}
 
-	public void setPlayable(boolean playable){
-		this.playable = playable;
-	}
 
 }

@@ -9,7 +9,7 @@ public class ModelJoueur {
 	private int IDJoueur;
 	private int IDPlateauJoueur;
 
-	private ArrayList<String> Ressources;
+	private ArrayList<String> Ressources; //main du joueur
 	private ArrayList<ModelDeveloppement> Developpements;
 
 	private boolean hasDelorean; //possess Delorean (0=No; 1=Yes)
@@ -70,14 +70,15 @@ public class ModelJoueur {
 		return IDJoueur;
 	}
 
+	public ModelJoueur getJoueur(int i){
+		return getJoueur(i);
+	}
+
 	public void setIDPlateauJoueur(int newIDPlateauJ){
 		this.IDPlateauJoueur = newIDPlateauJ;
 	}
 
 	//Corps de la classe
-
-
-
 	public ModelJoueur(){
 		this.IDJoueur = 0;
 		this.Ressources = null;
