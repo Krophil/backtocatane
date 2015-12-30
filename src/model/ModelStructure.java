@@ -15,6 +15,10 @@ public abstract class ModelStructure {
 		this.IDJoueur = 0;
 	}
 
+    /**
+     *
+     * @param idJ : Id du joueur possédant la structure
+     */
 	public ModelStructure(int idJ){
 		this.IDJoueur = idJ;
 	}
