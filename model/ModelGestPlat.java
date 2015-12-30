@@ -148,7 +148,20 @@ public class ModelGestPlat {
 		return hasMoved;
 	}
 
-	public void créerDelorean(ModelJoueur J){
+	public void creerDelorean(ModelJoueur J){
+		/**
+		 *  Suppression des ressources correspondants à la construction de la Delorean dans la main du joueur concerné.
+		 */
+		ArrayList<String> C = new ArrayList<>();
+		C.add("res1");
+		C.add("res1");
+		C.add("res2");
+
+		J.getRessources().removeAll(C);
+		J.setHasDelorean(true);
+	}
+
+	public void reparerDelorean(ModelJoueur J){
 		/**
 		 *  Suppression des ressources correspondants à la construction de la Delorean dans la main du joueur concerné.
 		 */
@@ -158,10 +171,8 @@ public class ModelGestPlat {
 		R.add("res2");
 
 		J.getRessources().removeAll(R);
-		J.setHasDelorean(true);
+		J.setGarageDelorean(true);
 	}
-
-
 
 
 

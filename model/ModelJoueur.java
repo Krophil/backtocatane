@@ -22,6 +22,14 @@ public class ModelJoueur {
 
 
 	//Accesseurs
+	public boolean getGarageDelorean(){
+		return garageDelorean;
+	}
+
+	public void setGarageDelorean(boolean B){
+		this.garageDelorean = true;
+	}
+
 	public boolean getHasDelorean(){
 		return hasDelorean;
 	}
@@ -62,16 +70,13 @@ public class ModelJoueur {
 		return IDJoueur;
 	}
 
-
-	//Corps de la classe
-
 	public void setIDPlateauJoueur(int newIDPlateauJ){
 		this.IDPlateauJoueur = newIDPlateauJ;
 	}
 
-	public void setGarageDelorean(boolean state){
-		this.garageDelorean = state;
-	}
+	//Corps de la classe
+
+
 
 	public ModelJoueur(){
 		this.IDJoueur = 0;
