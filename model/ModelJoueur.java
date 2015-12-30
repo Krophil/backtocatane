@@ -15,28 +15,36 @@ public class ModelJoueur {
 	private boolean hasDelorean; //possess Delorean (0=No; 1=Yes)
 	private boolean garageDelorean; //state of Delorean (0=broken; 1=usable)
 
-    private int compteurPt=0;
-    private int compteurPtCache=0;
+	private int compteurJeu=0;
+	private int compteurDev=0;
 
-    public boolean playing=false;//true : the player is currently playing
+	public boolean playing=false;//true : the player is currently playing
 
 
 	//Accesseurs
-    public int getCompteurPt(){
-        return compteurPt;
-    }
+	public boolean getHasDelorean(){
+		return hasDelorean;
+	}
 
-    public int getCompteurPtCache(){
-        return compteurPtCache;
-    }
+	public void setHasDelorean(boolean B){
+		this.hasDelorean = B;
+	}
 
-    public void setCompteurPt(int i){
-        compteurPt = i;
-    }
+	public int getCompteurJeu(){
+		return compteurJeu;
+	}
 
-    public void setCompteurPtCache(int i){
-        compteurPtCache = i;
-    }
+	public int getCompteurDev(){
+		return compteurDev;
+	}
+
+	public void setCompteurJeu(int i){
+		compteurJeu = i;
+	}
+
+	public void setCompteurDev(int i){
+		compteurDev = i;
+	}
 
 	public ArrayList<String> getRessources(){
 		return Ressources;
@@ -161,39 +169,39 @@ public class ModelJoueur {
 	public ArrayList<String> constructionPossible() {
 		ArrayList<String> constructions = new ArrayList<>();
 		if(Ressources.contains("bois")) {
-            if (Ressources.contains("brique")) {
-                constructions.add("route");
-                if (Ressources.contains("res1")) {
-                    constructions.add("ville");
-                }
-                if (Ressources.contains("res2")) {
-                    constructions.add("dev");
-                }
-            }
-        }
-        int briques = 0;
-        int res1 = 0;
-        int res2 = 0;
-        for (String s : Ressources) {
-            if (s.equals("brique")) {
-                briques++;
-            } else if (s.equals("res1")) {
-                res1++;
-            } else if (s.equals("res2")) {
-                res2++;
-            }
-        }
-        if (briques >= 3 && res1 >= 2) {
-            constructions.add("update");
-        }
-        if (res1 >= 2 && res2 >= 1) {
-            if (hasDelorean) {
-                constructions.add("reparer");
-            } else {
-                constructions.add("delorean");
-            }
+			if (Ressources.contains("brique")) {
+				constructions.add("route");
+				if (Ressources.contains("res1")) {
+					constructions.add("ville");
+				}
+				if (Ressources.contains("res2")) {
+					constructions.add("dev");
+				}
+			}
+		}
+		int briques = 0;
+		int res1 = 0;
+		int res2 = 0;
+		for (String s : Ressources) {
+			if (s.equals("brique")) {
+				briques++;
+			} else if (s.equals("res1")) {
+				res1++;
+			} else if (s.equals("res2")) {
+				res2++;
+			}
+		}
+		if (briques >= 3 && res1 >= 2) {
+			constructions.add("update");
+		}
+		if (res1 >= 2 && res2 >= 1) {
+			if (hasDelorean) {
+				constructions.add("reparer");
+			} else {
+				constructions.add("delorean");
+			}
 
-        }
+		}
 		return constructions;
 	}
 

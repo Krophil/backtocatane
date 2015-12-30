@@ -61,10 +61,10 @@ public class ModelGestPlat {
 						compteur++;
 					}
 				}
-                /**
-                 * Demander au joueur la tuile,
-                 */
-                //deplacerVoleur(t, J);
+				/**
+				 * Demander au joueur la tuile,
+				 */
+				//deplacerVoleur(t, J);
 			}
 		}
 	}
@@ -97,55 +97,76 @@ public class ModelGestPlat {
 		}
 	}
 
-    public void activateDev(ModelJoueur J, ModelDeveloppement d){
-        switch (d.getIDDeveloppement()){
-            case 1:
-                /**
-                 * interaction avec le joueur pour déplacer le Tannen
-                 */
-                break;
-            case 2:
-                /**
-                 * interaction pour la création de 2 routes
-                 */
-                break;
-            case 3:
-                /**
-                 * interaction pour récupérer 2 ressources supplémentaires
-                 */
-                break;
-            case 4:
-                J.setCompteurPtCache(J.getCompteurPtCache()+1);
-        }
-    }
+	public void activateDev(ModelJoueur J, ModelDeveloppement d){
+		switch (d.getIDDeveloppement()){
+		case 1:
+			/**
+			 * interaction avec le joueur pour déplacer le Tannen
+			 */
+			break;
+		case 2:
+			/**
+			 * interaction pour la création de 2 routes
+			 */
+			break;
+		case 3:
+			/**
+			 * interaction pour récupérer 2 ressources supplémentaires
+			 */
+			break;
+		case 4:
+			J.setCompteurDev(J.getCompteurDev()+1);
+		}
+	}
 
-    public boolean deplacerVoleur(ModelTuile newTannen, ModelJoueur J){
-        Boolean hasMoved = false;
-        for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){
-            if(t.isTannen()) {//On cherche la tuile possédant précédemment le voleur
-                if (t.getCoord() == newTannen.getCoord()) {//Est-ce la même tuile qu'avant ?
-                    /**
-                     * Déplacer sur la tuile newTannen
-                     * Penser à le déplacer aussi dans les autres plateaux
-                     * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
-                     */
-                    hasMoved = true;
-                } else {//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
-                    hasMoved = false;
-                }
-            }
-        }
-        if(hasMoved == false){//Est-ce la même tuile qu'avant ?
-            /**
-             * Déplacer sur la tuile newTannen
-             * Penser à le déplacer aussi dans les autres plateaux
-             * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
-             */
-            hasMoved = true;
-        }else{//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
-            hasMoved = false;
-        }
-        return hasMoved;
-    }
+	public boolean deplacerVoleur(ModelTuile newTannen, ModelJoueur J){
+		Boolean hasMoved = false;
+		for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){
+			if(t.isTannen()) {//On cherche la tuile possédant précédemment le voleur
+				if (t.getCoord() == newTannen.getCoord()) {//Est-ce la même tuile qu'avant ?
+					/**
+					 * Déplacer sur la tuile newTannen
+					 * Penser à le déplacer aussi dans les autres plateaux
+					 * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
+					 */
+					hasMoved = true;
+				} else {//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
+					hasMoved = false;
+				}
+			}
+		}
+		if(hasMoved == false){//Est-ce la même tuile qu'avant ?
+			/**
+			 * Déplacer sur la tuile newTannen
+			 * Penser à le déplacer aussi dans les autres plateaux
+			 * Voler les ressources autour de cette tuile dans le plateau courant et dans les autres
+			 */
+			hasMoved = true;
+		}else{//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
+			hasMoved = false;
+		}
+		return hasMoved;
+	}
+
+	public void créerDelorean(ModelJoueur J){
+		/**
+		 *  Suppression des ressources correspondants à la construction de la Delorean dans la main du joueur concerné.
+		 */
+		ArrayList<String> R = new ArrayList<>();
+		R.add("res1");
+		R.add("res1");
+		R.add("res2");
+
+		J.getRessources().removeAll(R);
+		J.setHasDelorean(true);
+	}
+
+
+
+
+
+
+
+
 
 }

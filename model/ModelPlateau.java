@@ -8,11 +8,22 @@ public class ModelPlateau {
 	//Attribut
 	private int IDPlateau;
 
-
 	private ArrayList<ModelTuile> tuiles;
 	private ArrayList<ModelSommet> sommets;
 
 	//Accesseur
+	public int getSizeSommets(){
+		return sommets.size();
+	}
+
+	public int getIDPlateau(){
+		return IDPlateau;
+	}
+
+	public void setIDPlateau(int newIDPlateau){
+		this.IDPlateau = newIDPlateau;
+	}
+
 	public ArrayList<ModelSommet> getSommets(){
 		return sommets;
 	}
@@ -21,14 +32,16 @@ public class ModelPlateau {
 		return sommets.get(a);
 	}
 
-    public ArrayList<ModelTuile> getTuiles(){
-        return tuiles;
-    }
+	public ArrayList<ModelTuile> getTuiles(){
+		return tuiles;
+	}
 
-    public ModelTuile getTuile(int a){
-        return tuiles.get(a);
-    }
+	public ModelTuile getTuile(int a){
+		return tuiles.get(a);
+	}
 
+
+	//Corps de la classe
 	//Trouve un sommet du plateau sur lequel le joueur se trouve en fournissant un tableau d'identifiant
 	public ModelSommet getSommet(int[] id){
 		ModelSommet som = new ModelSommet();
@@ -38,20 +51,6 @@ public class ModelPlateau {
 			}
 		}
 		return som;
-	}
-
-	public int getSizeSommets(){
-		return sommets.size();
-	}
-
-	//Corps de la classe
-
-	public int getIDPlateau(){
-		return IDPlateau;
-	}
-
-	public void setIDPlateau(int newIDPlateau){
-		this.IDPlateau = newIDPlateau;
 	}
 
 	public ModelPlateau(){
