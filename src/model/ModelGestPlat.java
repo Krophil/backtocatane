@@ -17,6 +17,7 @@ public class ModelGestPlat {
 
 
 	public ModelGestPlat(){
+        tabResSup = new String[4];
 		tabResSup[0] = "bois";
 		tabResSup[1] = "brique";
 		tabResSup[2] = "res1";
@@ -46,45 +47,69 @@ public class ModelGestPlat {
 
 	//Corps de la classe
 
-	public void lancerDes(ModelJoueur J, ModelTown Tow, ModelTuile Tui) {
+	public void lancerDes() {
 
 		int de1 = ThreadLocalRandom.current().nextInt(1, 7);
 		int de2 = ThreadLocalRandom.current().nextInt(1, 7);
 		int som = de1+de2;
+        for(ModelTuile t:getTabPlat(0).getTuiles()){
+            if(t.getValeur()==som){
+                for(int i=0; i<4;i++){
+                    for(int j=0; j<this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().size(); j++ ){
+                        if(this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getBusy() == true)
+                        {
+                            for(ModelStructure s:this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getMystructure()){
+                                if (s.getClass().getName().equals("ModelTown"))
+                                {
+                                    for(ModelJoueur joueur:TabJ){
+                                        ressourceMining(joueur,(ModelTown) s, t);
+                                    }
 
-		if(Tow.getUpdate() == false)
-		{
-			if(Tow.getIDJoueur() == J.getIDJoueur() ){
-				J.getRessources().add(Tui.getTypeRes());
-			}
-		}else
-		{
-			if(Tow.getIDJoueur() == J.getIDJoueur() ){
-				J.getRessources().add(Tui.getTypeRes());
-				J.getRessources().add(Tui.getTypeRes());
-			}
-		}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		if(J.getRessources().size() > 7){
-			int a = ThreadLocalRandom.current().nextInt(1, 4);
-			int b = ThreadLocalRandom.current().nextInt(1, 4);
-			int c = ThreadLocalRandom.current().nextInt(1, 4);
-			int compteur = 0;
 
-			while(compteur < (J.getRessources().size()/2)){
-				for (int j=0; j<J.getRessources().size(); j++){
-					if(J.getRessources().get(j) == tabResSup[a] || J.getRessources().get(j) == tabResSup[b] || J.getRessources().get(j) == tabResSup[c]){
-						J.getRessources().remove(j);
-						compteur++;
-					}
-				}
-				/**
-				 * Demander au joueur la tuile,
-				 */
-				//deplacerVoleur(t, J);
-			}
-		}
 	}
+
+    public void ressourceMining(ModelJoueur J, ModelTown Tow, ModelTuile Tui){
+        if(Tow.getUpdate() == false)
+        {
+            if(Tow.getIDJoueur() == J.getIDJoueur() ){
+                J.getRessources().add(Tui.getTypeRes());
+            }
+        }else
+        {
+            if(Tow.getIDJoueur() == J.getIDJoueur() ){
+                J.getRessources().add(Tui.getTypeRes());
+                J.getRessources().add(Tui.getTypeRes());
+            }
+        }
+
+        if(J.getRessources().size() > 7){
+            int a = ThreadLocalRandom.current().nextInt(1, 4);
+            int b = ThreadLocalRandom.current().nextInt(1, 4);
+            int c = ThreadLocalRandom.current().nextInt(1, 4);
+            int compteur = 0;
+
+            while(compteur < (J.getRessources().size()/2)){
+                for (int j=0; j<J.getRessources().size(); j++){
+                    if(J.getRessources().get(j) == tabResSup[a] || J.getRessources().get(j) == tabResSup[b] || J.getRessources().get(j) == tabResSup[c]){
+                        J.getRessources().remove(j);
+                        compteur++;
+                    }
+                }
+                /**
+                 * Demander au joueur la tuile,
+                 */
+                //deplacerVoleur(t, J);
+            }
+        }
+    }
 
 	/**
 	 * A partir de l'époque du plateau, on repercute la création de la ville dans les plateaux suivants.
@@ -153,7 +178,6 @@ public class ModelGestPlat {
 								for(ModelStructure s:this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet().get(j).getMystructure()){
 									if (s.getClass().getName().equals("ModelTown"))
 									{
-										s.getIDJoueur();
 										int a = ThreadLocalRandom.current().nextInt(1, 4);
 
 										for(int w=0; w< J.getJoueur(s.getIDJoueur()).getRessources().size(); w++){

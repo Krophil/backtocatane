@@ -20,6 +20,10 @@ public class ModelTuile {
 		return mysommet;
 	}
 
+    public int getValeur(){
+        return valeur;
+    }
+
 	public boolean getTannen(){
 		return tannen;
 	}
