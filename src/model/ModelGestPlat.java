@@ -23,19 +23,20 @@ public class ModelGestPlat {
 		tabResSup[2] = "res1";
 		tabResSup[3] = "res2";
 
-		TabJ = null;
-		TabPlat = null;
+		TabJ = new ArrayList<ModelJoueur>();
+		TabPlat = new ArrayList<ModelPlateau>();
 
 	}
 
 	public ModelGestPlat(ArrayList<ModelPlateau> newTabPlat, ArrayList<ModelJoueur> newTabJ){
+		tabResSup = new String[4];
 		tabResSup[0] = "bois";
 		tabResSup[1] = "brique";
 		tabResSup[2] = "res1";
 		tabResSup[3] = "res2";
 
-		TabJ = newTabJ;
-		TabPlat = newTabPlat;
+		TabJ = new ArrayList<ModelJoueur>(newTabJ);
+		TabPlat = new ArrayList<ModelPlateau>(newTabPlat);
 
 	}
 
