@@ -161,39 +161,39 @@ public class ModelJoueur {
 	public ArrayList<String> constructionPossible() {
 		ArrayList<String> constructions = new ArrayList<>();
 		if(Ressources.contains("bois")) {
-			if (Ressources.contains("brique")) {
-				constructions.add("route");
-				if (Ressources.contains("res1")) {
-					constructions.add("ville");
-				}
-				if (Ressources.contains("res2")) {
-					constructions.add("dev");
-				}
-			}
-			int briques = 0;
-			int res1 = 0;
-			int res2 = 0;
-			for (String s : Ressources) {
-				if (s.equals("brique")) {
-					briques++;
-				} else if (s.equals("res1")) {
-					res1++;
-				} else if (s.equals("res2")) {
-					res2++;
-				}
-			}
-			if (briques >= 3 && res1 >= 2) {
-				constructions.add("update");
-			}
-			if (res1 >= 2 && res2 >= 1) {
-				if (hasDelorean) {
-					constructions.add("reparer");
-				} else {
-					constructions.add("delorean");
-				}
+            if (Ressources.contains("brique")) {
+                constructions.add("route");
+                if (Ressources.contains("res1")) {
+                    constructions.add("ville");
+                }
+                if (Ressources.contains("res2")) {
+                    constructions.add("dev");
+                }
+            }
+        }
+        int briques = 0;
+        int res1 = 0;
+        int res2 = 0;
+        for (String s : Ressources) {
+            if (s.equals("brique")) {
+                briques++;
+            } else if (s.equals("res1")) {
+                res1++;
+            } else if (s.equals("res2")) {
+                res2++;
+            }
+        }
+        if (briques >= 3 && res1 >= 2) {
+            constructions.add("update");
+        }
+        if (res1 >= 2 && res2 >= 1) {
+            if (hasDelorean) {
+                constructions.add("reparer");
+            } else {
+                constructions.add("delorean");
+            }
 
-			}
-		}
+        }
 		return constructions;
 	}
 
