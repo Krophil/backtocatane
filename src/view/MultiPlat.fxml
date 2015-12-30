@@ -5630,12 +5630,12 @@
                   <Label layoutX="136.0" layoutY="135.0" text="S" />
                </children>
             </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
     </children>
 </AnchorPane>

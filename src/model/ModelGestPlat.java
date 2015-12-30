@@ -1,7 +1,14 @@
 package src.model;
 
+import com.sun.org.apache.xpath.internal.operations.Mult;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import src.view.MultiPlatController;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
+
 
 public class ModelGestPlat {
 
@@ -258,7 +265,24 @@ public class ModelGestPlat {
 	}
 
 
+    public void showPersonOverview() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ModelGestPlat.class.getResource("view/MultiPlat.fxml"));
+            AnchorPane MultiPlat = (AnchorPane) loader.load();
 
+            // Set person overview into the center of root layout.
+            //rootLayout.setCenter(MultiPlat);
+
+            // Give the controller access to the main app.
+            MultiPlatController controller = loader.getController();
+            controller.setMain(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
