@@ -1,6 +1,7 @@
 package src.view;
 
-import java.awt.Label;
+import javafx.scene.control.Label;
+import javafx.fxml.FXML;
 import java.util.concurrent.ThreadLocalRandom;
 
 import src.model.ModelGestPlat;
