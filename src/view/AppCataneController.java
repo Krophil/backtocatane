@@ -280,52 +280,22 @@ public class AppCataneController {
 	@FXML
 	private void lancerDes(ModelGestPlat GP) {
 
-		int de1 = ThreadLocalRandom.current().nextInt(1, 7);
-		int de2 = ThreadLocalRandom.current().nextInt(1, 7);
-		int som = de1+de2;
-		for(ModelTuile t:GP.getTabPlat(0).getTuiles()){
-			if(t.getValeur()==som){
-				for(int i=0; i<4;i++){
-					for(int j=0; j<GP.getTabPlat().get(i).getTuile(t.getCoord()).getMysommet().size(); j++ ){
-						if(GP.getTabPlat().get(i).getTuile(t.getCoord()).getMysommet().get(j).getBusy() == true)
-						{
-							for(ModelStructure s:GP.getTabPlat().get(i).getTuile(t.getCoord()).getMysommet().get(j).getMystructure()){
-								if (s.getClass().getName().equals("ModelTown"))
-								{
-									for(ModelJoueur joueur:GP.getTabJ()){
-										GP.ressourceMining(joueur,(ModelTown) s, t);
-									}
-
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		GP.lancerDes();
 
 
 	}
+
 
 	/**
 	 * Called when the user clicks on the "construire Ville" button
 	 */
 	@FXML
-	private void contruireVille(ModelJoueur J, ModelSommet S, ModelPlateau P){
+	private void construireVille(ModelJoueur J, ModelSommet S, ModelPlateau P){
 		/**
 		 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
 		 */
-		ArrayList<String> s = new ArrayList<>();
-		s.add("bois");
-		s.add("brique");
-		s.add("res1");
-
-		J.getRessources().removeAll(s);
-
-		for(int i=0; i<3; i++){
-			P.getSommet(S.getVoisin(i)).setBusy(true);
-
-		}
+		ModelTown t = new ModelTown();
+		t.construire(J,S,P);
 	}
 
 	/**

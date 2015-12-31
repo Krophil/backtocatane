@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import src.view.AppCataneController;
 
 
+
 public class ModelGestPlat {
 
 	private ArrayList<ModelPlateau> TabPlat;
@@ -16,6 +17,11 @@ public class ModelGestPlat {
 	private String[] tabResSup;
 
 	//Accesseurs
+
+	public String[] getTabResSup(){
+		return tabResSup;
+	}
+
 	public ArrayList<ModelPlateau> getTabPlat(){
 		return TabPlat;
 	}
@@ -23,11 +29,6 @@ public class ModelGestPlat {
 	public ArrayList<ModelJoueur> getTabJ(){
 		return TabJ;
 	}
-
-	public String[] getTabResSup(){
-		return tabResSup;
-	}
-
 
 	public ModelGestPlat(){
 		tabResSup = new String[4];
@@ -38,10 +39,7 @@ public class ModelGestPlat {
 
 		TabJ = new ArrayList<ModelJoueur>();
 		TabPlat = new ArrayList<ModelPlateau>();
-		for(int i=0;i<4;i++){
-			TabJ.add(new ModelJoueur(i));
-			TabPlat.add(new ModelPlateau(i));
-		}
+
 
 
 	}
@@ -55,10 +53,7 @@ public class ModelGestPlat {
 
 		TabJ = new ArrayList<ModelJoueur>(newTabJ);
 		TabPlat = new ArrayList<ModelPlateau>(newTabPlat);
-		for(int i=0;i<4;i++){
-			TabJ.add(new ModelJoueur(i));
-			TabPlat.add(new ModelPlateau(i));
-		}
+
 	}
 
 
@@ -68,12 +63,14 @@ public class ModelGestPlat {
 	}
 
 	//Corps de la classe
-	/*
+
 	public void lancerDes() {
 
 		int de1 = ThreadLocalRandom.current().nextInt(1, 7);
 		int de2 = ThreadLocalRandom.current().nextInt(1, 7);
-		int som = de1+de2;
+		//int som = de1+de2;
+		int som = 5;
+		System.out.println(som);
 		for(ModelTuile t:getTabPlat(0).getTuiles()){
 			if(t.getValeur()==som){
 				for(int i=0; i<4;i++){
@@ -81,7 +78,7 @@ public class ModelGestPlat {
 						if(this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getBusy() == true)
 						{
 							for(ModelStructure s:this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getMystructure()){
-								if (s.getClass().getName().equals("ModelTown"))
+								if (s instanceof ModelTown)
 								{
 									for(ModelJoueur joueur:TabJ){
 										ressourceMining(joueur,(ModelTown) s, t);
@@ -97,18 +94,19 @@ public class ModelGestPlat {
 
 
 	}
-	 */
+
 	public void ressourceMining(ModelJoueur J, ModelTown Tow, ModelTuile Tui){
+
 		if(Tow.getUpdate() == false)
 		{
 			if(Tow.getIDJoueur() == J.getIDJoueur() ){
-				J.getRessources().add(Tui.getTypeRes());
+				J.setRessources(Tui.getTypeRes());
 			}
 		}else
 		{
 			if(Tow.getIDJoueur() == J.getIDJoueur() ){
-				J.getRessources().add(Tui.getTypeRes());
-				J.getRessources().add(Tui.getTypeRes());
+				J.setRessources(Tui.getTypeRes());
+				J.setRessources(Tui.getTypeRes());
 			}
 		}
 
@@ -166,7 +164,7 @@ public class ModelGestPlat {
 	public void repercutTannen(int coordTanFournie){
 		/**
 		 * on a la tuile ou se trouve Tannen dans le tableau donné.
-		 * On doit le répercuter dans tous les autre tableau peut importe l'ordre.		 * 
+		 * On doit le répercuter dans tous les autre tableau peut importe l'ordre.		 *
 		 */
 		for (int i=0; i<4;i++){
 			if(this.TabPlat.get(i).getTuile(coordTanFournie).getTannen() == false){ //si dans un autre tableau, la tuile n'as pas de tannen, on lui met le boolean Tannen à true
@@ -206,9 +204,9 @@ public class ModelGestPlat {
 											if(J.getJoueur(s.getIDJoueur()).getRessources().get(w) == tabResSup[a]){
 												J.getJoueur(s.getIDJoueur()).getRessources().remove(w);
 											}
-										}										
-									}									
-								}					
+										}
+									}
+								}
 							}
 						}
 					}
@@ -221,31 +219,28 @@ public class ModelGestPlat {
 		}
 		return hasMoved;
 	}
-	/*
-	 * FONCTION PARTIE DANS LE CONTROLLER
-	 */
+
 	public void activateDev(ModelJoueur J, ModelDeveloppement d){
 		switch (d.getIDDeveloppement()){
-		case 1:
-			/**
-			 * interaction avec le joueur pour déplacer le Tannen
-			 */
-			break;
-		case 2:
-			/**
-			 * interaction pour la création de 2 routes
-			 */
-			break;
-		case 3:
-			/**
-			 * interaction pour récupérer 2 ressources supplémentaires
-			 */
-			break;
-		case 4:
-			J.setCompteurDev(J.getCompteurDev()+1);
+			case 1:
+				/**
+				 * interaction avec le joueur pour déplacer le Tannen
+				 */
+				break;
+			case 2:
+				/**
+				 * interaction pour la création de 2 routes
+				 */
+				break;
+			case 3:
+				/**
+				 * interaction pour récupérer 2 ressources supplémentaires
+				 */
+				break;
+			case 4:
+				J.setCompteurDev(J.getCompteurDev()+1);
 		}
 	}
-
 
 	public void creerDelorean(ModelJoueur J){
 		/**

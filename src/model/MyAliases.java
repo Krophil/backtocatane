@@ -30,6 +30,7 @@ public class MyAliases {
 		mapTuiles.put(52,12);
 		mapTuiles.put(53,4);
 
+		/*
 		ResDResource.put(6, "brique");		
 		ResDResource.put(2, "bois");
 		ResDResource.put(5, "res2");		
@@ -48,7 +49,28 @@ public class MyAliases {
 		ResDResource.put(9, "brique");
 		ResDResource.put(3, "res1");
 		ResDResource.put(12, "brique");		
-		ResDResource.put(4, "res1");
+		ResDResource.put(4, "res1");*/
+
+		ResDResource.put(19, "brique");
+		ResDResource.put(20, "bois");
+		ResDResource.put(21, "res2");
+		ResDResource.put(26, "brique");
+		ResDResource.put(27, "bois");
+		ResDResource.put(28, "res1");
+		ResDResource.put(29, "brique");
+		ResDResource.put(34, "res2");
+		ResDResource.put(35, "brique");
+		ResDResource.put(36, "desert");
+		ResDResource.put(37, "brique");
+		ResDResource.put(38, "res2");
+		ResDResource.put(42, "res2");
+		ResDResource.put(43, "bois");
+		ResDResource.put(44, "brique");
+		ResDResource.put(45, "brique");
+		ResDResource.put(51, "res1");
+		ResDResource.put(52, "brique");
+		ResDResource.put(53, "res1");
+
 
 	}
 }

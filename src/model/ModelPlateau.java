@@ -68,7 +68,6 @@ public class ModelPlateau {
                 } else {
                     tuiles.add(new ModelTuile(8*i+j, 1, "neither"));
                 }
-
             }
         }
 		sommets = new ArrayList<ModelSommet>();
@@ -122,11 +121,13 @@ public class ModelPlateau {
 			}
 		}
 
-        for(ModelSommet s:sommets){
-            for(ModelTuile t: tuiles) {
-                if (Arrays.asList(s.getId()).contains(t.getCoord())){
-                    t.getMysommet().add(s);
-                }
+		for(ModelTuile t: tuiles){
+			for(ModelSommet s:sommets){
+				for(int i : s.getId()) {
+					if (i == t.getCoord()) {
+						t.addSommet(s);
+					}
+				}
             }
         }
 

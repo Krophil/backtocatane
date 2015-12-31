@@ -224,7 +224,7 @@ public class ModelJoueur {
 			str+=r+"\n";
 		}
 		if(hasDelorean) {
-			str+="He has the Delorean !";
+			str+="He has the Delorean !\n";
 		}
 		return str;
 	}

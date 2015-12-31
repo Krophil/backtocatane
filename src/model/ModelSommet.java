@@ -22,6 +22,7 @@ public class ModelSommet {
 		routes = new boolean[3];
 		id = new int[]{0,0,0};
 		voisin = new int[3][3];
+		mystructure = new ArrayList<ModelStructure>();
 	}
 
 	public ModelSommet(boolean type, int[] tab){
@@ -31,6 +32,7 @@ public class ModelSommet {
 		id = tab;
 		voisin = new int[3][3];
 		generVois();
+		mystructure = new ArrayList<ModelStructure>();
 	}
 
 	public void generVois(){
@@ -157,6 +159,8 @@ public class ModelSommet {
 	public ArrayList<ModelStructure> getMystructure(){
 		return mystructure;
 	}
+
+	public void addMystructure(ModelStructure Str){mystructure.add(Str);}
 
 
 

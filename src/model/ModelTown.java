@@ -1,5 +1,5 @@
 package src.model;
-
+import java.util.ArrayList;
 
 public class ModelTown extends ModelStructure {
 
@@ -20,8 +20,8 @@ public class ModelTown extends ModelStructure {
 	/**
 	 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
 	 */
-	/*FONCTION PARTIE DANS LE CONTROLLER
-	public void contruire(ModelJoueur J, ModelSommet S, ModelPlateau P){
+
+	public void construire(ModelJoueur J, ModelSommet S, ModelPlateau P){
 
 		ArrayList<String> s = new ArrayList<>();
 		s.add("bois");
@@ -30,14 +30,14 @@ public class ModelTown extends ModelStructure {
 
 		J.getRessources().removeAll(s);
 
-		for(int i=0; i<3; i++){
-			P.getSommet(S.getVoisin(i)).setBusy(true);
+		S.setBusy(true);
+		this.addToASommet(S);
+		this.setIDJoueur(J.getIDJoueur());
 
-		}
 
 
 	}
-	 */
+
 
 	public void toUpdate(){
 		this.update = true;

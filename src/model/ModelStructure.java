@@ -26,4 +26,8 @@ public abstract class ModelStructure {
     public void setIDJoueur(int IDJoueur){
         this.IDJoueur = IDJoueur;
     }
+
+	public void addToASommet(ModelSommet s){
+		s.addMystructure(this);
+	}
 }
