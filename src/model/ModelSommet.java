@@ -87,7 +87,10 @@ public class ModelSommet {
 
 	@Override
 	public String toString(){
-		String str = "Sommet"+this.id;
+		String str = "Sommet : ";
+        for(int i:id) {
+            str+=i+",";
+        }
 		return str;
 	}
 
