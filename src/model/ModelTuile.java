@@ -63,17 +63,36 @@ public class ModelTuile {
 	//Corps de la classe
 
 	public ModelTuile(){
+		coord = 0;
+		valeur = 0;
+		playable = false;
 
+		tannen = false;
+		typeRes = "";
+
+		mysommet = new ArrayList<ModelSommet>();
 	}
 
 	public ModelTuile(String R){
-		this.typeRes = R;
+		coord = 0;
+		valeur = 0;
+		playable = false;
+
+		tannen = false;
+		typeRes = R;
+
+		mysommet = new ArrayList<ModelSommet>();
 	}
 
     public ModelTuile(int coord, int valeur, String R){
-        this.coord = coord;
-        this.valeur = valeur;
-        this.typeRes = R;
+		this.coord = coord;
+		this.valeur = valeur;
+		playable = false;
+
+		tannen = false;
+		typeRes = R;
+
+		mysommet = new ArrayList<ModelSommet>();
     }
 
 
