@@ -34,6 +34,10 @@ public class ModelTown extends ModelStructure {
 		this.addToASommet(S);
 		this.setIDJoueur(J.getIDJoueur());
 
+		for(int i=0; i<3; i++){
+			P.getSommet(S.getVoisin(i)).setBusy(true);
+		}
+
 
 
 	}
