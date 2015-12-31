@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class MyAliases {
 
-	Map<Integer, Integer> mapTuiles = new HashMap<Integer, Integer> ();
-	Map<Integer, String> ResDResource = new HashMap<Integer, String>();
+	public Map<Integer, Integer> mapTuiles = new HashMap<Integer, Integer> ();
+	public Map<Integer, String> ResDResource = new HashMap<Integer, String>();
 
 	public MyAliases(){
 		//Table de correspondance des tuiles du tableaux (Integer) <-> résultat dés (Integer)

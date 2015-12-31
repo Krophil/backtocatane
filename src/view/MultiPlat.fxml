@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.view.MultiPlatController">
     <children>
       <GridPane prefHeight="516.0" prefWidth="707.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -203,7 +203,7 @@
                                 </points>
                             </Polyline>
 
-                                              <Polyline fill="#80ff0000" layoutX="20.0" layoutY="-18.5" stroke="#00000004" strokeType="INSIDE" strokeWidth="0.25">
+                            <Polyline fill="#80ff0000" layoutX="20.0" layoutY="-18.5" stroke="#00000004" strokeType="INSIDE" strokeWidth="0.25">
                                 <points>
                                     <Double fx:value="0.5" />
                                     <Double fx:value="0.0" />
@@ -1414,27 +1414,27 @@
                             <Line endX="168" endY="200" layoutX="9.0" layoutY="-18.0" startX="156" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
                             <Line endX="180" endY="192" layoutX="9.0" layoutY="-18.0" startX="168" startY="200" stroke="TRANSPARENT" strokeWidth="3.0" />
                             <Line endX="192" endY="200" layoutX="9.0" layoutY="-18.0" startX="180" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
-                  <Label layoutX="89.0" layoutY="38.0" text="A" />
-                  <Label layoutX="111.0" layoutY="38.0" text="B" />
-                  <Label layoutX="136.0" layoutY="38.0" text="C" />
-                  <Label layoutX="75.0" layoutY="63.0" text="D" />
-                  <Label layoutX="99.0" layoutY="62.0" text="E" />
-                  <Label layoutX="124.0" layoutY="62.0" text="F" />
-                  <Label layoutX="148.0" layoutY="62.0" text="G" />
-                  <Label layoutX="63.0" layoutY="87.0" text="H" />
-                  <Label layoutX="90.0" layoutY="87.0" text="I" />
-                  <Label layoutX="115.0" layoutY="86.0" text="J" />
-                  <Label layoutX="136.0" layoutY="86.0" text="K" />
-                  <Label layoutX="162.0" layoutY="86.0" text="L" />
-                  <Label layoutX="74.0" layoutY="111.0" text="M" />
-                  <Label layoutX="100.0" layoutY="110.0" text="N" />
-                  <Label layoutX="124.0" layoutY="110.0" text="O" />
-                  <Label layoutX="148.0" layoutY="110.0" text="P" />
-                  <Label layoutX="87.0" layoutY="135.0" text="Q" />
-                  <Label layoutX="112.0" layoutY="135.0" text="R" />
-                  <Label layoutX="136.0" layoutY="135.0" text="S" />
+                              <Label layoutX="89.0" layoutY="38.0" text="6" />
+                              <Label layoutX="111.0" layoutY="38.0" text="2" />
+                              <Label layoutX="136.0" layoutY="38.0" text="5" />
+                              <Label layoutX="75.0" layoutY="63.0" text="6" />
+                              <Label layoutX="99.0" layoutY="62.0" text="7" />
+                              <Label layoutX="124.0" layoutY="62.0" text="8" />
+                              <Label layoutX="148.0" layoutY="62.0" text="3" />
+                              <Label layoutX="63.0" layoutY="87.0" text="5" />
+                              <Label layoutX="85.0" layoutY="87.0" text="12" />
+                              <Label layoutX="108.0" layoutY="86.0" text="10" />
+                              <Label layoutX="136.0" layoutY="86.0" text="7" />
+                              <Label layoutX="162.0" layoutY="86.0" text="2" />
+                              <Label layoutX="74.0" layoutY="111.0" text="4" />
+                              <Label layoutX="100.0" layoutY="110.0" text="7" />
+                              <Label layoutX="121.0" layoutY="110.0" text="11" />
+                              <Label layoutX="148.0" layoutY="110.0" text="9" />
+                              <Label layoutX="87.0" layoutY="135.0" text="3" />
+                              <Label layoutX="107.0" layoutY="135.0" text="12" />
+                              <Label layoutX="136.0" layoutY="135.0" text="4" />
 
-                                          </children>
+                        </children>
                     </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" GridPane.columnIndex="2">
                <children>
@@ -2813,25 +2813,25 @@
                   <Line endX="168" endY="200" layoutX="9.0" layoutY="-18.0" startX="156" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
                   <Line endX="180" endY="192" layoutX="9.0" layoutY="-18.0" startX="168" startY="200" stroke="TRANSPARENT" strokeWidth="3.0" />
                   <Line endX="192" endY="200" layoutX="9.0" layoutY="-18.0" startX="180" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
-                  <Label layoutX="89.0" layoutY="38.0" text="A" />
-                  <Label layoutX="111.0" layoutY="38.0" text="B" />
-                  <Label layoutX="136.0" layoutY="38.0" text="C" />
-                  <Label layoutX="75.0" layoutY="63.0" text="D" />
-                  <Label layoutX="99.0" layoutY="62.0" text="E" />
-                  <Label layoutX="124.0" layoutY="62.0" text="F" />
-                  <Label layoutX="148.0" layoutY="62.0" text="G" />
-                  <Label layoutX="63.0" layoutY="87.0" text="H" />
-                  <Label layoutX="90.0" layoutY="87.0" text="I" />
-                  <Label layoutX="115.0" layoutY="86.0" text="J" />
-                  <Label layoutX="136.0" layoutY="86.0" text="K" />
-                  <Label layoutX="162.0" layoutY="86.0" text="L" />
-                  <Label layoutX="74.0" layoutY="111.0" text="M" />
-                  <Label layoutX="100.0" layoutY="110.0" text="N" />
-                  <Label layoutX="124.0" layoutY="110.0" text="O" />
-                  <Label layoutX="148.0" layoutY="110.0" text="P" />
-                  <Label layoutX="87.0" layoutY="135.0" text="Q" />
-                  <Label layoutX="112.0" layoutY="135.0" text="R" />
-                  <Label layoutX="136.0" layoutY="135.0" text="S" />
+                  <Label layoutX="89.0" layoutY="38.0" text="6" />
+                  <Label layoutX="111.0" layoutY="38.0" text="2" />
+                  <Label layoutX="136.0" layoutY="38.0" text="5" />
+                  <Label layoutX="75.0" layoutY="63.0" text="6" />
+                  <Label layoutX="99.0" layoutY="62.0" text="7" />
+                  <Label layoutX="124.0" layoutY="62.0" text="8" />
+                  <Label layoutX="148.0" layoutY="62.0" text="3" />
+                  <Label layoutX="63.0" layoutY="87.0" text="5" />
+                  <Label layoutX="85.0" layoutY="87.0" text="12" />
+                  <Label layoutX="108.0" layoutY="86.0" text="10" />
+                  <Label layoutX="136.0" layoutY="86.0" text="7" />
+                  <Label layoutX="162.0" layoutY="86.0" text="2" />
+                  <Label layoutX="74.0" layoutY="111.0" text="4" />
+                  <Label layoutX="100.0" layoutY="110.0" text="7" />
+                  <Label layoutX="121.0" layoutY="110.0" text="11" />
+                  <Label layoutX="148.0" layoutY="110.0" text="9" />
+                  <Label layoutX="87.0" layoutY="135.0" text="3" />
+                  <Label layoutX="107.0" layoutY="135.0" text="12" />
+                  <Label layoutX="136.0" layoutY="135.0" text="4" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" GridPane.rowIndex="2">
@@ -4211,25 +4211,25 @@
                   <Line endX="168" endY="200" layoutX="9.0" layoutY="-18.0" startX="156" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
                   <Line endX="180" endY="192" layoutX="9.0" layoutY="-18.0" startX="168" startY="200" stroke="TRANSPARENT" strokeWidth="3.0" />
                   <Line endX="192" endY="200" layoutX="9.0" layoutY="-18.0" startX="180" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
-                  <Label layoutX="89.0" layoutY="38.0" text="A" />
-                  <Label layoutX="111.0" layoutY="38.0" text="B" />
-                  <Label layoutX="136.0" layoutY="38.0" text="C" />
-                  <Label layoutX="75.0" layoutY="63.0" text="D" />
-                  <Label layoutX="99.0" layoutY="62.0" text="E" />
-                  <Label layoutX="124.0" layoutY="62.0" text="F" />
-                  <Label layoutX="148.0" layoutY="62.0" text="G" />
-                  <Label layoutX="63.0" layoutY="87.0" text="H" />
-                  <Label layoutX="90.0" layoutY="87.0" text="I" />
-                  <Label layoutX="115.0" layoutY="86.0" text="J" />
-                  <Label layoutX="136.0" layoutY="86.0" text="K" />
-                  <Label layoutX="162.0" layoutY="86.0" text="L" />
-                  <Label layoutX="74.0" layoutY="111.0" text="M" />
-                  <Label layoutX="100.0" layoutY="110.0" text="N" />
-                  <Label layoutX="124.0" layoutY="110.0" text="O" />
-                  <Label layoutX="148.0" layoutY="110.0" text="P" />
-                  <Label layoutX="87.0" layoutY="135.0" text="Q" />
-                  <Label layoutX="112.0" layoutY="135.0" text="R" />
-                  <Label layoutX="136.0" layoutY="135.0" text="S" />
+                  <Label layoutX="89.0" layoutY="38.0" text="6" />
+                  <Label layoutX="111.0" layoutY="38.0" text="2" />
+                  <Label layoutX="136.0" layoutY="38.0" text="5" />
+                  <Label layoutX="75.0" layoutY="63.0" text="6" />
+                  <Label layoutX="99.0" layoutY="62.0" text="7" />
+                  <Label layoutX="124.0" layoutY="62.0" text="8" />
+                  <Label layoutX="148.0" layoutY="62.0" text="3" />
+                  <Label layoutX="63.0" layoutY="87.0" text="5" />
+                  <Label layoutX="85.0" layoutY="87.0" text="12" />
+                  <Label layoutX="108.0" layoutY="86.0" text="10" />
+                  <Label layoutX="136.0" layoutY="86.0" text="7" />
+                  <Label layoutX="162.0" layoutY="86.0" text="2" />
+                  <Label layoutX="74.0" layoutY="111.0" text="4" />
+                  <Label layoutX="100.0" layoutY="110.0" text="7" />
+                  <Label layoutX="121.0" layoutY="110.0" text="11" />
+                  <Label layoutX="148.0" layoutY="110.0" text="9" />
+                  <Label layoutX="87.0" layoutY="135.0" text="3" />
+                  <Label layoutX="107.0" layoutY="135.0" text="12" />
+                  <Label layoutX="136.0" layoutY="135.0" text="4" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -5609,25 +5609,25 @@
                   <Line endX="168" endY="200" layoutX="9.0" layoutY="-18.0" startX="156" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
                   <Line endX="180" endY="192" layoutX="9.0" layoutY="-18.0" startX="168" startY="200" stroke="TRANSPARENT" strokeWidth="3.0" />
                   <Line endX="192" endY="200" layoutX="9.0" layoutY="-18.0" startX="180" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
-                  <Label layoutX="89.0" layoutY="38.0" text="A" />
-                  <Label layoutX="111.0" layoutY="38.0" text="B" />
-                  <Label layoutX="136.0" layoutY="38.0" text="C" />
-                  <Label layoutX="75.0" layoutY="63.0" text="D" />
-                  <Label layoutX="99.0" layoutY="62.0" text="E" />
-                  <Label layoutX="124.0" layoutY="62.0" text="F" />
-                  <Label layoutX="148.0" layoutY="62.0" text="G" />
-                  <Label layoutX="63.0" layoutY="87.0" text="H" />
-                  <Label layoutX="90.0" layoutY="87.0" text="I" />
-                  <Label layoutX="115.0" layoutY="86.0" text="J" />
-                  <Label layoutX="136.0" layoutY="86.0" text="K" />
-                  <Label layoutX="162.0" layoutY="86.0" text="L" />
-                  <Label layoutX="74.0" layoutY="111.0" text="M" />
-                  <Label layoutX="100.0" layoutY="110.0" text="N" />
-                  <Label layoutX="124.0" layoutY="110.0" text="O" />
-                  <Label layoutX="148.0" layoutY="110.0" text="P" />
-                  <Label layoutX="87.0" layoutY="135.0" text="Q" />
-                  <Label layoutX="112.0" layoutY="135.0" text="R" />
-                  <Label layoutX="136.0" layoutY="135.0" text="S" />
+                  <Label layoutX="89.0" layoutY="38.0" text="6" />
+                  <Label layoutX="111.0" layoutY="38.0" text="2" />
+                  <Label layoutX="136.0" layoutY="38.0" text="5" />
+                  <Label layoutX="75.0" layoutY="63.0" text="6" />
+                  <Label layoutX="99.0" layoutY="62.0" text="7" />
+                  <Label layoutX="124.0" layoutY="62.0" text="8" />
+                  <Label layoutX="148.0" layoutY="62.0" text="3" />
+                  <Label layoutX="63.0" layoutY="87.0" text="5" />
+                  <Label layoutX="85.0" layoutY="87.0" text="12" />
+                  <Label layoutX="108.0" layoutY="86.0" text="10" />
+                  <Label layoutX="136.0" layoutY="86.0" text="7" />
+                  <Label layoutX="162.0" layoutY="86.0" text="2" />
+                  <Label layoutX="74.0" layoutY="111.0" text="4" />
+                  <Label layoutX="100.0" layoutY="110.0" text="7" />
+                  <Label layoutX="121.0" layoutY="110.0" text="11" />
+                  <Label layoutX="148.0" layoutY="110.0" text="9" />
+                  <Label layoutX="87.0" layoutY="135.0" text="3" />
+                  <Label layoutX="107.0" layoutY="135.0" text="12" />
+                  <Label layoutX="136.0" layoutY="135.0" text="4" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
