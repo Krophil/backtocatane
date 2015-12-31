@@ -1,9 +1,8 @@
 package src.model;
 
-import com.sun.org.apache.xpath.internal.operations.Mult;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import src.view.MultiPlatController;
+import src.view.AppCataneController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -265,18 +264,18 @@ public class ModelGestPlat {
 	}
 
 
-    public void showPersonOverview() {
+    public void showAppCatane() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ModelGestPlat.class.getResource("view/MultiPlat.fxml"));
-            AnchorPane MultiPlat = (AnchorPane) loader.load();
+            loader.setLocation(ModelGestPlat.class.getResource("view/AppCatane.fxml"));
+            AnchorPane AppCatane = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.
             //rootLayout.setCenter(MultiPlat);
 
             // Give the controller access to the main app.
-            MultiPlatController controller = loader.getController();
+            AppCataneController controller = loader.getController();
             controller.setMain(this);
 
         } catch (IOException e) {

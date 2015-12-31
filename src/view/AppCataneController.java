@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * File name :
  */
 
-public class MultiPlatController {
+public class AppCataneController {
 
     @FXML
     private Label A;
@@ -211,7 +211,7 @@ public class MultiPlatController {
         S = s;
     }
 
-    public MultiPlatController(){
+    public AppCataneController(){
 
     }
 
