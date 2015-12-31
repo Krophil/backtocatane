@@ -1,7 +1,10 @@
 package src.model;
 //import com.sun.javafx.sg.prism.NGShape;
 
+import com.sun.javafx.sg.prism.NGShape;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ModelPlateau {
 
@@ -118,6 +121,14 @@ public class ModelPlateau {
 				tmp.setPlayable(true);
 			}
 		}
+
+        for(ModelSommet s:sommets){
+            for(ModelTuile t: tuiles) {
+                if (Arrays.asList(s.getId()).contains(t.getCoord())){
+                    t.getMysommet().add(s);
+                }
+            }
+        }
 
 	}
 

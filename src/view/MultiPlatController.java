@@ -220,6 +220,10 @@ public class MultiPlatController {
 
     }
 
+    private void test(){
+
+    }
+
     private void setTextTuiles(){
         A.setText(String.valueOf(alias.mapTuiles.get(19)));
         B.setText(String.valueOf(alias.mapTuiles.get(20)));
