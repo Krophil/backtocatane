@@ -9,7 +9,7 @@ public class MyAliases {
 	public Map<Integer, String> ResDResource = new HashMap<Integer, String>();
 
 	public MyAliases(){
-		//Table de correspondance des tuiles du tableaux (Integer) <-> résultat dés (Integer)
+		//Table de correspondance des tuiles du tableaux (Integer) <-> résultat dés (Integer) test
 		mapTuiles.put(19,6);
 		mapTuiles.put(20,2);
 		mapTuiles.put(21,5);
