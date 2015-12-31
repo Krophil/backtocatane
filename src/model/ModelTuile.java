@@ -95,5 +95,9 @@ public class ModelTuile {
 		mysommet = new ArrayList<ModelSommet>();
     }
 
+	public void addSommet(ModelSommet s){
+		mysommet.add(s);
+	}
+
 
 }
