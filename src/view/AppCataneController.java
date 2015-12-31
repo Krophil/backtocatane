@@ -1,255 +1,318 @@
 package src.view;
 
-import javafx.fxml.FXML;
-import src.model.Main;
-import javafx.scene.control.Label;
-import src.model.*;
+import java.awt.Label;
+import java.util.concurrent.ThreadLocalRandom;
 
-import javax.swing.text.LabelView;
-import java.util.ArrayList;
+import src.model.ModelGestPlat;
+import src.model.ModelJoueur;
+import src.model.ModelStructure;
+import src.model.ModelTown;
+import src.model.ModelTuile;
+import src.model.MyAliases;
 
 /**
  * Created by Pierre Brunet on 30/12/15.
+ * Modify by Pierre ROMET on 31/12/15
  * Project name : backtocatane
  * File name :
  */
 
 public class AppCataneController {
 
-    @FXML
-    private Label A;
-    @FXML
-    private Label B;
-    @FXML
-    private Label C;
-    @FXML
-    private Label D;
-    @FXML
-    private Label E;
-    @FXML
-    private Label F;
-    @FXML
-    private Label G;
-    @FXML
-    private Label H;
-    @FXML
-    private Label I;
-    @FXML
-    private Label J;
-    @FXML
-    private Label K;
-    @FXML
-    private Label L;
-    @FXML
-    private Label M;
-    @FXML
-    private Label N;
-    @FXML
-    private Label O;
-    @FXML
-    private Label P;
-    @FXML
-    private Label Q;
-    @FXML
-    private Label R;
-    @FXML
-    private Label S;
+	@FXML
+	private Label A;
+	@FXML
+	private Label B;
+	@FXML
+	private Label C;
+	@FXML
+	private Label D;
+	@FXML
+	private Label E;
+	@FXML
+	private Label F;
+	@FXML
+	private Label G;
+	@FXML
+	private Label H;
+	@FXML
+	private Label I;
+	@FXML
+	private Label J;
+	@FXML
+	private Label K;
+	@FXML
+	private Label L;
+	@FXML
+	private Label M;
+	@FXML
+	private Label N;
+	@FXML
+	private Label O;
+	@FXML
+	private Label P;
+	@FXML
+	private Label Q;
+	@FXML
+	private Label R;
+	@FXML
+	private Label S;
 
-    private ModelGestPlat gestPlat;
+	private ModelGestPlat gestPlat;
 
-    private MyAliases alias;
+	private MyAliases alias;
 
-    public Label getA() {
-        return A;
-    }
+	public Label getA() {
+		return A;
+	}
 
-    public Label getB() {
-        return B;
-    }
+	public Label getB() {
+		return B;
+	}
 
-    public Label getC() {
-        return C;
-    }
+	public Label getC() {
+		return C;
+	}
 
-    public Label getD() {
-        return D;
-    }
+	public Label getD() {
+		return D;
+	}
 
-    public Label getE() {
-        return E;
-    }
+	public Label getE() {
+		return E;
+	}
 
-    public Label getF() {
-        return F;
-    }
+	public Label getF() {
+		return F;
+	}
 
-    public Label getG() {
-        return G;
-    }
+	public Label getG() {
+		return G;
+	}
 
-    public Label getH() {
-        return H;
-    }
+	public Label getH() {
+		return H;
+	}
 
-    public Label getI() {
-        return I;
-    }
+	public Label getI() {
+		return I;
+	}
 
-    public Label getJ() {
-        return J;
-    }
+	public Label getJ() {
+		return J;
+	}
 
-    public Label getK() {
-        return K;
-    }
+	public Label getK() {
+		return K;
+	}
 
-    public Label getL() {
-        return L;
-    }
+	public Label getL() {
+		return L;
+	}
 
-    public Label getM() {
-        return M;
-    }
+	public Label getM() {
+		return M;
+	}
 
-    public Label getN() {
-        return N;
-    }
+	public Label getN() {
+		return N;
+	}
 
-    public Label getO() {
-        return O;
-    }
+	public Label getO() {
+		return O;
+	}
 
-    public Label getP() {
-        return P;
-    }
+	public Label getP() {
+		return P;
+	}
 
-    public Label getQ() {
-        return Q;
-    }
+	public Label getQ() {
+		return Q;
+	}
 
-    public Label getR() {
-        return R;
-    }
+	public Label getR() {
+		return R;
+	}
 
-    public Label getS() {
-        return S;
-    }
+	public Label getS() {
+		return S;
+	}
 
-    public void setA(Label a) {
-        A = a;
-    }
+	public void setA(Label a) {
+		A = a;
+	}
 
-    public void setB(Label b) {
-        B = b;
-    }
+	public void setB(Label b) {
+		B = b;
+	}
 
-    public void setC(Label c) {
-        C = c;
-    }
+	public void setC(Label c) {
+		C = c;
+	}
 
-    public void setD(Label d) {
-        D = d;
-    }
+	public void setD(Label d) {
+		D = d;
+	}
 
-    public void setE(Label e) {
-        E = e;
-    }
+	public void setE(Label e) {
+		E = e;
+	}
 
-    public void setF(Label f) {
-        F = f;
-    }
+	public void setF(Label f) {
+		F = f;
+	}
 
-    public void setG(Label g) {
-        G = g;
-    }
+	public void setG(Label g) {
+		G = g;
+	}
 
-    public void setH(Label h) {
-        H = h;
-    }
+	public void setH(Label h) {
+		H = h;
+	}
 
-    public void setI(Label i) {
-        I = i;
-    }
+	public void setI(Label i) {
+		I = i;
+	}
 
-    public void setJ(Label j) {
-        J = j;
-    }
+	public void setJ(Label j) {
+		J = j;
+	}
 
-    public void setK(Label k) {
-        K = k;
-    }
+	public void setK(Label k) {
+		K = k;
+	}
 
-    public void setL(Label l) {
-        L = l;
-    }
+	public void setL(Label l) {
+		L = l;
+	}
 
-    public void setM(Label m) {
-        M = m;
-    }
+	public void setM(Label m) {
+		M = m;
+	}
 
-    public void setN(Label n) {
-        N = n;
-    }
+	public void setN(Label n) {
+		N = n;
+	}
 
-    public void setO(Label o) {
-        O = o;
-    }
+	public void setO(Label o) {
+		O = o;
+	}
 
-    public void setP(Label p) {
-        P = p;
-    }
+	public void setP(Label p) {
+		P = p;
+	}
 
-    public void setQ(Label q) {
-        Q = q;
-    }
+	public void setQ(Label q) {
+		Q = q;
+	}
 
-    public void setR(Label r) {
-        R = r;
-    }
+	public void setR(Label r) {
+		R = r;
+	}
 
-    public void setS(Label s) {
-        S = s;
-    }
+	public void setS(Label s) {
+		S = s;
+	}
 
-    public AppCataneController(){
+	public AppCataneController(){
 
-    }
+	}
 
-    @FXML
-    private void initialize(){
+	@FXML
+	private void initialize(){
 
-    }
+	}
 
-    private void test(){
+	private void test(){
 
-    }
+	}
 
-    private void setTextTuiles(){
-        A.setText(String.valueOf(alias.mapTuiles.get(19)));
-        B.setText(String.valueOf(alias.mapTuiles.get(20)));
-        C.setText(String.valueOf(alias.mapTuiles.get(21)));
-        D.setText(String.valueOf(alias.mapTuiles.get(26)));
-        E.setText(String.valueOf(alias.mapTuiles.get(27)));
-        F.setText(String.valueOf(alias.mapTuiles.get(28)));
-        G.setText(String.valueOf(alias.mapTuiles.get(29)));
-        H.setText(String.valueOf(alias.mapTuiles.get(34)));
-        I.setText(String.valueOf(alias.mapTuiles.get(35)));
-        J.setText(String.valueOf(alias.mapTuiles.get(36)));
-        K.setText(String.valueOf(alias.mapTuiles.get(37)));
-        L.setText(String.valueOf(alias.mapTuiles.get(38)));
-        M.setText(String.valueOf(alias.mapTuiles.get(42)));
-        N.setText(String.valueOf(alias.mapTuiles.get(43)));
-        O.setText(String.valueOf(alias.mapTuiles.get(44)));
-        P.setText(String.valueOf(alias.mapTuiles.get(45)));
-        Q.setText(String.valueOf(alias.mapTuiles.get(51)));
-        R.setText(String.valueOf(alias.mapTuiles.get(52)));
-        S.setText(String.valueOf(alias.mapTuiles.get(53)));
+	private void setTextTuiles(){
+		A.setText(String.valueOf(alias.mapTuiles.get(19)));
+		B.setText(String.valueOf(alias.mapTuiles.get(20)));
+		C.setText(String.valueOf(alias.mapTuiles.get(21)));
+		D.setText(String.valueOf(alias.mapTuiles.get(26)));
+		E.setText(String.valueOf(alias.mapTuiles.get(27)));
+		F.setText(String.valueOf(alias.mapTuiles.get(28)));
+		G.setText(String.valueOf(alias.mapTuiles.get(29)));
+		H.setText(String.valueOf(alias.mapTuiles.get(34)));
+		I.setText(String.valueOf(alias.mapTuiles.get(35)));
+		J.setText(String.valueOf(alias.mapTuiles.get(36)));
+		K.setText(String.valueOf(alias.mapTuiles.get(37)));
+		L.setText(String.valueOf(alias.mapTuiles.get(38)));
+		M.setText(String.valueOf(alias.mapTuiles.get(42)));
+		N.setText(String.valueOf(alias.mapTuiles.get(43)));
+		O.setText(String.valueOf(alias.mapTuiles.get(44)));
+		P.setText(String.valueOf(alias.mapTuiles.get(45)));
+		Q.setText(String.valueOf(alias.mapTuiles.get(51)));
+		R.setText(String.valueOf(alias.mapTuiles.get(52)));
+		S.setText(String.valueOf(alias.mapTuiles.get(53)));
 
 
-    }
+	}
 
-    public void setMain(ModelGestPlat gestPlat){
-        this.gestPlat = gestPlat;
-    }
+	public void setMain(ModelGestPlat gestPlat){
+		this.gestPlat = gestPlat;
+	}
+
+	/**
+	 * Called whenthe user clicks on the "Joueur suivant" button
+	 */
+	@FXML
+	private void joueurSuivant(ModelGestPlat GP){
+		for(int i=0; i<GP.getTabJ().size(); i++){
+			GP.getTabJ().get(i);
+			if(i == GP.getTabJ().size()){
+				i=0;
+			}
+		}
+	}
+
+	/**
+	 * Called when the user clicks on the "Lancer Dés" button
+	 */
+	@FXML
+	private void lancerDes(ModelGestPlat GP) {
+
+		int de1 = ThreadLocalRandom.current().nextInt(1, 7);
+		int de2 = ThreadLocalRandom.current().nextInt(1, 7);
+		int som = de1+de2;
+		for(ModelTuile t:GP.getTabPlat(0).getTuiles()){
+			if(t.getValeur()==som){
+				for(int i=0; i<4;i++){
+					for(int j=0; j<GP.getTabPlat().get(i).getTuile(t.getCoord()).getMysommet().size(); j++ ){
+						if(GP.getTabPlat().get(i).getTuile(t.getCoord()).getMysommet().get(j).getBusy() == true)
+						{
+							for(ModelStructure s:GP.getTabPlat().get(i).getTuile(t.getCoord()).getMysommet().get(j).getMystructure()){
+								if (s.getClass().getName().equals("ModelTown"))
+								{
+									for(ModelJoueur joueur:GP.getTabJ()){
+										GP.ressourceMining(joueur,(ModelTown) s, t);
+									}
+
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

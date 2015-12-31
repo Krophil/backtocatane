@@ -1,12 +1,10 @@
 package src.model;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import src.view.AppCataneController;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
+
+import src.view.AppCataneController;
 
 
 public class ModelGestPlat {
@@ -16,6 +14,13 @@ public class ModelGestPlat {
 	private String[] tabResSup;
 
 	//Accesseurs
+	public ArrayList<ModelPlateau> getTabPlat(){
+		return TabPlat;
+	}
+
+	public ArrayList<ModelJoueur> getTabJ(){
+		return TabJ;
+	}
 
 	public String[] getTabResSup(){
 		return tabResSup;
@@ -23,7 +28,7 @@ public class ModelGestPlat {
 
 
 	public ModelGestPlat(){
-        tabResSup = new String[4];
+		tabResSup = new String[4];
 		tabResSup[0] = "bois";
 		tabResSup[1] = "brique";
 		tabResSup[2] = "res1";
@@ -31,10 +36,10 @@ public class ModelGestPlat {
 
 		TabJ = new ArrayList<ModelJoueur>();
 		TabPlat = new ArrayList<ModelPlateau>();
-        for(int i=0;i<4;i++){
-            TabJ.add(new ModelJoueur(i));
-            TabPlat.add(new ModelPlateau(i));
-        }
+		for(int i=0;i<4;i++){
+			TabJ.add(new ModelJoueur(i));
+			TabPlat.add(new ModelPlateau(i));
+		}
 
 
 	}
@@ -48,10 +53,10 @@ public class ModelGestPlat {
 
 		TabJ = new ArrayList<ModelJoueur>(newTabJ);
 		TabPlat = new ArrayList<ModelPlateau>(newTabPlat);
-        for(int i=0;i<4;i++){
-            TabJ.add(new ModelJoueur(i));
-            TabPlat.add(new ModelPlateau(i));
-        }
+		for(int i=0;i<4;i++){
+			TabJ.add(new ModelJoueur(i));
+			TabPlat.add(new ModelPlateau(i));
+		}
 	}
 
 
@@ -61,70 +66,70 @@ public class ModelGestPlat {
 	}
 
 	//Corps de la classe
-
+	/*
 	public void lancerDes() {
 
 		int de1 = ThreadLocalRandom.current().nextInt(1, 7);
 		int de2 = ThreadLocalRandom.current().nextInt(1, 7);
 		int som = de1+de2;
-        for(ModelTuile t:getTabPlat(0).getTuiles()){
-            if(t.getValeur()==som){
-                for(int i=0; i<4;i++){
-                    for(int j=0; j<this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().size(); j++ ){
-                        if(this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getBusy() == true)
-                        {
-                            for(ModelStructure s:this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getMystructure()){
-                                if (s.getClass().getName().equals("ModelTown"))
-                                {
-                                    for(ModelJoueur joueur:TabJ){
-                                        ressourceMining(joueur,(ModelTown) s, t);
-                                    }
+		for(ModelTuile t:getTabPlat(0).getTuiles()){
+			if(t.getValeur()==som){
+				for(int i=0; i<4;i++){
+					for(int j=0; j<this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().size(); j++ ){
+						if(this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getBusy() == true)
+						{
+							for(ModelStructure s:this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getMystructure()){
+								if (s.getClass().getName().equals("ModelTown"))
+								{
+									for(ModelJoueur joueur:TabJ){
+										ressourceMining(joueur,(ModelTown) s, t);
+									}
 
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 
 
 	}
+	 */
+	public void ressourceMining(ModelJoueur J, ModelTown Tow, ModelTuile Tui){
+		if(Tow.getUpdate() == false)
+		{
+			if(Tow.getIDJoueur() == J.getIDJoueur() ){
+				J.getRessources().add(Tui.getTypeRes());
+			}
+		}else
+		{
+			if(Tow.getIDJoueur() == J.getIDJoueur() ){
+				J.getRessources().add(Tui.getTypeRes());
+				J.getRessources().add(Tui.getTypeRes());
+			}
+		}
 
-    public void ressourceMining(ModelJoueur J, ModelTown Tow, ModelTuile Tui){
-        if(Tow.getUpdate() == false)
-        {
-            if(Tow.getIDJoueur() == J.getIDJoueur() ){
-                J.getRessources().add(Tui.getTypeRes());
-            }
-        }else
-        {
-            if(Tow.getIDJoueur() == J.getIDJoueur() ){
-                J.getRessources().add(Tui.getTypeRes());
-                J.getRessources().add(Tui.getTypeRes());
-            }
-        }
+		if(J.getRessources().size() > 7){
+			int a = ThreadLocalRandom.current().nextInt(1, 4);
+			int b = ThreadLocalRandom.current().nextInt(1, 4);
+			int c = ThreadLocalRandom.current().nextInt(1, 4);
+			int compteur = 0;
 
-        if(J.getRessources().size() > 7){
-            int a = ThreadLocalRandom.current().nextInt(1, 4);
-            int b = ThreadLocalRandom.current().nextInt(1, 4);
-            int c = ThreadLocalRandom.current().nextInt(1, 4);
-            int compteur = 0;
-
-            while(compteur < (J.getRessources().size()/2)){
-                for (int j=0; j<J.getRessources().size(); j++){
-                    if(J.getRessources().get(j) == tabResSup[a] || J.getRessources().get(j) == tabResSup[b] || J.getRessources().get(j) == tabResSup[c]){
-                        J.getRessources().remove(j);
-                        compteur++;
-                    }
-                }
-                /**
-                 * Demander au joueur la tuile,
-                 */
-                //deplacerVoleur(t, J);
-            }
-        }
-    }
+			while(compteur < (J.getRessources().size()/2)){
+				for (int j=0; j<J.getRessources().size(); j++){
+					if(J.getRessources().get(j) == tabResSup[a] || J.getRessources().get(j) == tabResSup[b] || J.getRessources().get(j) == tabResSup[c]){
+						J.getRessources().remove(j);
+						compteur++;
+					}
+				}
+				/**
+				 * Demander au joueur la tuile,
+				 */
+				//deplacerVoleur(t, J);
+			}
+		}
+	}
 
 	/**
 	 * A partir de l'époque du plateau, on repercute la création de la ville dans les plateaux suivants.
@@ -264,24 +269,24 @@ public class ModelGestPlat {
 	}
 
 
-    public void showAppCatane() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ModelGestPlat.class.getResource("view/AppCatane.fxml"));
-            AnchorPane AppCatane = (AnchorPane) loader.load();
+	public void showAppCatane() {
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(ModelGestPlat.class.getResource("view/AppCatane.fxml"));
+			AnchorPane AppCatane = (AnchorPane) loader.load();
 
-            // Set person overview into the center of root layout.
-            //rootLayout.setCenter(MultiPlat);
+			// Set person overview into the center of root layout.
+			//rootLayout.setCenter(MultiPlat);
 
-            // Give the controller access to the main app.
-            AppCataneController controller = loader.getController();
-            controller.setMain(this);
+			// Give the controller access to the main app.
+			AppCataneController controller = loader.getController();
+			controller.setMain(this);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 
