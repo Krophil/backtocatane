@@ -1,6 +1,5 @@
 package src.model;
 
-import java.util.ArrayList;
 
 public class ModelRoute extends ModelStructure{
 
@@ -8,7 +7,7 @@ public class ModelRoute extends ModelStructure{
 	private ModelSommet B;
 
 	public ModelRoute(){
-        super();
+		super();
 		this.A = null;
 		this.B = null;
 	}
@@ -20,15 +19,16 @@ public class ModelRoute extends ModelStructure{
 	 */
 	public ModelRoute(int idJ, ModelSommet newA, ModelSommet newB){
 		super(idJ);
-        this.A = newA;
+		this.A = newA;
 		this.B = newB;
 	}
 
-    /**
-     * Suppression des ressources correspondants à la structure route
-     * @param J Le Joueur
-     */
-    public void construire(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
+	/**
+	 * Suppression des ressources correspondants à la structure route
+	 * @param J Le Joueur
+	 */
+	/* FONCTION PARTIE DANS LE CONTROLLER
+	 * public void construire(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
         ArrayList<String> s = new ArrayList<>();
         s.add("bois");
         s.add("brique");
@@ -39,32 +39,32 @@ public class ModelRoute extends ModelStructure{
             a.setRoute(a.numVoisin(b.getId()), true);
             b.setRoute(b.numVoisin(a.getId()), true);
         }
-    }
+    }*/
 
 
-    public boolean isConstructible(ModelSommet a, ModelSommet b, ModelJoueur J, ModelGestPlat GP) {
-        Boolean town = false;
-        if (a.getBusy()) {
-            for (ModelStructure s : GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(a.getId()).getMystructure()) {
-                if (s.getClass().getName() == "ModelTown") {
-                    if (s.getIDJoueur() == J.getIDJoueur()) {
-                        town = true;
-                    }
-                }
-            }
-        } else if (b.getBusy()) {
-            for (ModelStructure s : GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(b.getId()).getMystructure()) {
-                if (s.getClass().getName() == "ModelTown") {
-                    if (s.getIDJoueur() == J.getIDJoueur()) {
-                        town = true;
-                    }
-                }
-            }
-        }
-        Boolean noroad = a.getRoute(a.numVoisin(b.getId()));
-        return town && noroad;
+	public boolean isConstructible(ModelSommet a, ModelSommet b, ModelJoueur J, ModelGestPlat GP) {
+		Boolean town = false;
+		if (a.getBusy()) {
+			for (ModelStructure s : GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(a.getId()).getMystructure()) {
+				if (s.getClass().getName() == "ModelTown") {
+					if (s.getIDJoueur() == J.getIDJoueur()) {
+						town = true;
+					}
+				}
+			}
+		} else if (b.getBusy()) {
+			for (ModelStructure s : GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(b.getId()).getMystructure()) {
+				if (s.getClass().getName() == "ModelTown") {
+					if (s.getIDJoueur() == J.getIDJoueur()) {
+						town = true;
+					}
+				}
+			}
+		}
+		Boolean noroad = a.getRoute(a.numVoisin(b.getId()));
+		return town && noroad;
 
-    }
+	}
 
 }
 

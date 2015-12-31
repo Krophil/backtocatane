@@ -1,11 +1,15 @@
 package src.view;
 
-import javafx.scene.control.Label;
-import javafx.fxml.FXML;
+import java.awt.Label;
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+import src.model.ModelDeveloppement;
 import src.model.ModelGestPlat;
 import src.model.ModelJoueur;
+import src.model.ModelPlateau;
+import src.model.ModelRoute;
+import src.model.ModelSommet;
 import src.model.ModelStructure;
 import src.model.ModelTown;
 import src.model.ModelTuile;
@@ -302,7 +306,69 @@ public class AppCataneController {
 
 	}
 
+	/**
+	 * Called when the user clicks on the "construire Ville" button
+	 */
+	@FXML
+	private void contruireVille(ModelJoueur J, ModelSommet S, ModelPlateau P){
+		/**
+		 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
+		 */
+		ArrayList<String> s = new ArrayList<>();
+		s.add("bois");
+		s.add("brique");
+		s.add("res1");
 
+		J.getRessources().removeAll(s);
+
+		for(int i=0; i<3; i++){
+			P.getSommet(S.getVoisin(i)).setBusy(true);
+
+		}
+	}
+
+	/**
+	 * Called when the user clicks on the "construire Route" button
+	 */
+	@FXML
+	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP, ModelRoute R){
+		ArrayList<String> s = new ArrayList<>();
+		s.add("bois");
+		s.add("brique");
+		J.getRessources().removeAll(s);
+		ModelRoute route = new ModelRoute(J.getIDJoueur(),a,b);
+		if(R.isConstructible(a, b, J, GP)){
+			GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(a.getId()).getMystructure().add(route);
+			a.setRoute(a.numVoisin(b.getId()), true);
+			b.setRoute(b.numVoisin(a.getId()), true);
+		}
+	}
+
+	/**
+	 * Called when the user clicks on the "Activer Developpement" button
+	 */
+	@FXML
+	private void activateDev(ModelJoueur J, ModelDeveloppement d){
+		switch (d.getIDDeveloppement()){
+		case 1:
+			/**
+			 * interaction avec le joueur pour déplacer le Tannen
+			 */
+			break;
+		case 2:
+			/**
+			 * interaction pour la création de 2 routes
+			 */
+			break;
+		case 3:
+			/**
+			 * interaction pour récupérer 2 ressources supplémentaires
+			 */
+			break;
+		case 4:
+			J.setCompteurDev(J.getCompteurDev()+1);
+		}
+	}
 
 
 

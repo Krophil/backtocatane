@@ -1,6 +1,5 @@
 package src.model;
 
-import java.util.ArrayList;
 
 public class ModelTown extends ModelStructure {
 
@@ -18,10 +17,12 @@ public class ModelTown extends ModelStructure {
 		update = false;
 	}
 
+	/**
+	 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
+	 */
+	/*FONCTION PARTIE DANS LE CONTROLLER
 	public void contruire(ModelJoueur J, ModelSommet S, ModelPlateau P){
-		/**
-		 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
-		 */
+
 		ArrayList<String> s = new ArrayList<>();
 		s.add("bois");
 		s.add("brique");
@@ -36,6 +37,7 @@ public class ModelTown extends ModelStructure {
 
 
 	}
+	 */
 
 	public void toUpdate(){
 		this.update = true;

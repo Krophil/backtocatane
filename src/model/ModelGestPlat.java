@@ -221,7 +221,9 @@ public class ModelGestPlat {
 		}
 		return hasMoved;
 	}
-
+	/*
+	 * FONCTION PARTIE DANS LE CONTROLLER
+	 */
 	public void activateDev(ModelJoueur J, ModelDeveloppement d){
 		switch (d.getIDDeveloppement()){
 		case 1:
@@ -243,6 +245,7 @@ public class ModelGestPlat {
 			J.setCompteurDev(J.getCompteurDev()+1);
 		}
 	}
+	*/
 
 	public void creerDelorean(ModelJoueur J){
 		/**
