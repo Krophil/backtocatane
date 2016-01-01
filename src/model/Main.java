@@ -1,5 +1,6 @@
 package src.model;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.util.ArrayList;
@@ -28,10 +29,10 @@ public class Main {
 
         ArrayList<ModelPlateau> listPlat = new ArrayList<ModelPlateau>();
 
-        listPlat.add(p1985);
-        listPlat.add(p1955);
-        listPlat.add(p2015);
         listPlat.add(p1885);
+        listPlat.add(p1955);
+        listPlat.add(p1985);
+        listPlat.add(p2015);
 
         /*******Génération des joueurs*******/
 
@@ -86,8 +87,8 @@ public class Main {
         MyAliases aliases = new MyAliases();
 
         System.out.println(aliases.mapTuiles.containsKey(19));
-        System.out.println(p1885.getTuile(21).getTypeRes());
-        colonie.construire(J2,p1885.getTuile(21).getMysommet().get(2),p1885);
+        System.out.println(p1985.getTuile(21).getTypeRes());
+        colonie.construire(J2,p1985.getTuile(21).getMysommet().get(2),p1985);
 
 
         GestPlat.lancerDes();
@@ -96,8 +97,16 @@ public class Main {
         System.out.println(J2);
         System.out.println(J3);
         System.out.println(J4);
+        J2.setIDPlateauJoueur(2);
+        System.out.println(p1885.getTuile(21).getMysommet().get(2).getBusy());
+        System.out.println(p1985.getTuile(21).getMysommet().get(2).getBusy());
+        System.out.println(p2015.getTuile(21).getMysommet().get(2).getBusy());
 
+        GestPlat.repercution(colonie,J2,p1985,p1985.getTuile(21).getMysommet().get(2));
 
+        System.out.println(p1885.getTuile(21).getMysommet().get(2).getBusy());
+        System.out.println(p1985.getTuile(21).getMysommet().get(2).getBusy());
+        System.out.println(p2015.getTuile(21).getMysommet().get(2).getBusy());
 
 
 
