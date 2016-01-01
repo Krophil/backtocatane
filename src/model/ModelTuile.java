@@ -1,6 +1,7 @@
 package src.model;
 
 import java.util.ArrayList;
+import java.util.StringJoiner;
 
 
 public class ModelTuile {
@@ -99,5 +100,15 @@ public class ModelTuile {
 		mysommet.add(s);
 	}
 
-
+    public String toString(){
+        String str = "";
+        str+="Tuile"+coord;
+        str+="\n"+"Dé"+valeur;
+        str+="\n"+"Tannen is in the place!";
+        str+="\n"+"Sommets :"+"\n";
+        for(ModelSommet s:mysommet){
+            str+=s+"\n";
+        }
+        return str;
+    }
 }
