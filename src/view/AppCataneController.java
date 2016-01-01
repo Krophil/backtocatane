@@ -302,17 +302,9 @@ public class AppCataneController {
 	 * Called when the user clicks on the "construire Route" button
 	 */
 	@FXML
-	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP, ModelRoute R){
-		ArrayList<String> s = new ArrayList<>();
-		s.add("bois");
-		s.add("brique");
-		J.getRessources().removeAll(s);
-		ModelRoute route = new ModelRoute(J.getIDJoueur(),a,b);
-		if(R.isConstructible(a, b, J, GP)){
-			GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(a.getId()).getMystructure().add(route);
-			a.setRoute(a.numVoisin(b.getId()), true);
-			b.setRoute(b.numVoisin(a.getId()), true);
-		}
+	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
+		ModelRoute r = new ModelRoute();
+        r.construire(J,a,b,GP);
 	}
 
 	/**

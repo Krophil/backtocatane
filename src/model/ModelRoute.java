@@ -1,6 +1,8 @@
 package src.model;
 
 
+import java.util.ArrayList;
+
 public class ModelRoute extends ModelStructure{
 
 	private ModelSommet A;
@@ -27,8 +29,8 @@ public class ModelRoute extends ModelStructure{
 	 * Suppression des ressources correspondants à la structure route
 	 * @param J Le Joueur
 	 */
-	/* FONCTION PARTIE DANS LE CONTROLLER
-	 * public void construire(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
+	/* FONCTION PARTIE DANS LE CONTROLLER*/
+	 public void construire(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
         ArrayList<String> s = new ArrayList<>();
         s.add("bois");
         s.add("brique");
@@ -39,7 +41,7 @@ public class ModelRoute extends ModelStructure{
             a.setRoute(a.numVoisin(b.getId()), true);
             b.setRoute(b.numVoisin(a.getId()), true);
         }
-    }*/
+    }
 
 
 	public boolean isConstructible(ModelSommet a, ModelSommet b, ModelJoueur J, ModelGestPlat GP) {
