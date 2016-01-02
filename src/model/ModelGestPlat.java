@@ -135,13 +135,49 @@ public class ModelGestPlat {
 	 * A partir de l'époque du plateau, on repercute la création de la ville dans les plateaux suivants.
 	 */
 	public void repercution(ModelStructure S, ModelJoueur J, ModelPlateau P, ModelSommet Som){
+        if(Som.getBusy()){
+            int i=J.getIDPlateauJoueur();
+            if(Som.getTown().getIDJoueur()==J.getIDJoueur()){
+                    int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
+                for(int j=i+1;j<4;j++){
+                    ModelTown t = new ModelTown(J.getIDJoueur());
+                    this.TabPlat.get(j).getSommets().get(idsearch).setBusy(true);
+                    t.addToASommet(Som);
+                    t.setIDJoueur(J.getIDJoueur());
+                    //t.addToASommet(this.TabPlat.get(j).getSommets().get(idsearch));
+                    this.TabPlat.get(j).getSommets().get(idsearch).setTown(t);
+                }
+            }
+        }
+        int iterator=0;
+        for(Boolean route:Som.getRoutes()){
 
-		if(S.getIDJoueur() == J.getIDJoueur()){
-			for(int i = J.getIDPlateauJoueur(); i<4; i++){
-				if(Som.getBusy()){
-                    int idsearch = -1;
-					idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-                    if(idsearch !=-1){
+            if(route){
+                int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
+                for(int j=J.getIDJoueur()+1;j<4;j++){
+                    ModelRoute r = new ModelRoute(J.getIDJoueur()); //TODO : TROUVER LES SOMMETS A ET B de la route de base
+                    r.addToASommet(this.TabPlat.get(j).getSommet(idsearch));
+                    for(int[] v:Som.getVoisin()) {
+                        int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
+                        r.addToASommet(this.TabPlat.get(j).getSommet(searchedVois));
+                        this.TabPlat.get(j).getSommet(searchedVois).setRoute(iterator, true);
+                    }
+                }
+            }
+            iterator++;
+        }
+
+
+
+
+		/*if(S.getIDJoueur() == J.getIDJoueur()){
+			//for(int i = J.getIDPlateauJoueur(); i<4; i++){
+            int i=J.getIDPlateauJoueur();
+            if(Som.getBusy()){
+                int idsearch = -1;
+                idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
+                if(idsearch !=-1 && i+1<4){
+                    for(int j=i+1;j<4;j++) {
                         ModelTown t = new ModelTown(J.getIDJoueur());
                         this.TabPlat.get(i).getSommets().get(idsearch).setBusy(true);
                         t.addToASommet(Som);
@@ -150,25 +186,32 @@ public class ModelGestPlat {
                         //this.TabPlat.get(i).getSommets().get(idsearch).addMystructure(t);
 
 
-                        for(int j=0; j<3; j++){
-                            getTabPlat(i).getSommet(Som.getVoisin(j)).setBusy(true);
+                        for (int k = 0; k < 3; k++) {
+                            getTabPlat(i).getSommet(Som.getVoisin(k)).setBusy(true);
                         }
                     }
-				}
-				int iter=0;
-				for(boolean routes:Som.getRoutes()) {
-					if(routes){
-						int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-						this.TabPlat.get(i).getSommets().get(idsearch).setRoute(iter, true);
-						for(int[] v:Som.getVoisin()) {
-							int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
-							this.TabPlat.get(i).getSommets().get(searchedVois).setRoute(iter, true);
-						}
-					}
-                    iter++;
-				}
+                }
+            }
+            int iter=0;
+            System.out.println("BLAAAAA"+Som.getRoutes());
+            for(boolean routes:Som.getRoutes()) {
+                if(routes){
+                    int idsearch =-1;
+                    idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
+                    if(idsearch!=-1 && i+1<4){
+                        for(int j=i+1;j<4;j++){
+                            this.TabPlat.get(j).getSommets().get(idsearch).setRoute(iter, true);
+                            for(int[] v:Som.getVoisin()) {
+                                int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
+                                this.TabPlat.get(j).getSommets().get(searchedVois).setRoute(iter, true);
+                            }
+                        }
+                    }
+
+                }
+                iter++;
 			}
-		}
+		}*/
 	}
 
 	/**
