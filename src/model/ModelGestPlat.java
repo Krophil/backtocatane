@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import src.view.AppCataneController;
 
 
@@ -138,9 +136,9 @@ public class ModelGestPlat {
 	 */
 	public void repercution(ModelStructure S, ModelJoueur J, ModelPlateau P, ModelSommet Som){
 		if(Som.getBusy()){
-			int i=J.getIDPlateauJoueur();
-			if(Som.getTown().getIDJoueur()==J.getIDJoueur()){
-				int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
+			int i=J.getIDPlateauJoueur(); //i = le plateau du joueur
+			if(Som.getTown().getIDJoueur()==J.getIDJoueur()){ //Si le sommet a une ville, don't l'id joueur == id du joueur actuel
+				int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som); //Dans le plateau actu du joueur, on recupère le sommet dans le tableau de sommet
 				for(int j=i+1;j<4;j++){
 					ModelTown t = new ModelTown(J.getIDJoueur());
 					this.TabPlat.get(j).getSommets().get(idsearch).setBusy(true);
@@ -153,25 +151,20 @@ public class ModelGestPlat {
 		}
 		int iterator=0;
 		for(Boolean route:Som.getRoutes()){
-
 			if(route){
-				int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-				for(int j=J.getIDJoueur()+1;j<4;j++){
+				int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);// idsearch contient un index, c'est a dire un int
+				for(int j=J.getIDPlateauJoueur()+1;j<4;j++){//PK +1 à l'id du joueur et pas à l'idplateaujoueur ?
 					ModelRoute r = new ModelRoute(J.getIDJoueur()); //TODO : TROUVER LES SOMMETS A ET B de la route de base
-					r.addToASommet(this.TabPlat.get(j).getSommet(idsearch));
+					r.addToASommet(this.TabPlat.get(j).getSommet(idsearch)); //ajoute a myStructure ce que contient le tableau de ModelSommet a l'index (idsearch)
 					for(int[] v:Som.getVoisin()) {
-						//ModelSommet searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommet(v);
-                        //System.out.println(v+" : "+v[0]+v[1]+v[2]);
-                        r.addToASommet(this.TabPlat.get(j).getSommet(v));
-						this.TabPlat.get(j).getSommet(v).setRoute(iterator, true);
+						int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v); //searchVoisin contient un index (int)
+						r.addToASommet(this.TabPlat.get(j).getSommet(searchedVois));
+						this.TabPlat.get(j).getSommet(searchedVois).setRoute(iterator, true);
 					}
 				}
 			}
 			iterator++;
 		}
-
-
-
 
 		/*if(S.getIDJoueur() == J.getIDJoueur()){
 			//for(int i = J.getIDPlateauJoueur(); i<4; i++){
