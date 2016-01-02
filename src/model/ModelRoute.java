@@ -47,24 +47,18 @@ public class ModelRoute extends ModelStructure{
 	public boolean isConstructible(ModelSommet a, ModelSommet b, ModelJoueur J, ModelGestPlat GP) {
 		Boolean town = false;
 		if (a.getBusy()) {
-			for (ModelStructure s : GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(a.getId()).getMystructure()) {
-				if (s.getClass().getName() == "ModelTown") {
-					if (s.getIDJoueur() == J.getIDJoueur()) {
-						town = true;
-					}
-				}
+            if (a.getTown().getIDJoueur()==J.getIDJoueur()){
+                town = true;
 			}
 		} else if (b.getBusy()) {
-			for (ModelStructure s : GP.getTabPlat(J.getIDPlateauJoueur()).getSommet(b.getId()).getMystructure()) {
-				if (s.getClass().getName() == "ModelTown") {
-					if (s.getIDJoueur() == J.getIDJoueur()) {
-						town = true;
-					}
-				}
-			}
+            if(b.getTown().getIDJoueur()==J.getIDJoueur()){
+                town = true;
+            }
 		}
+
+        Boolean sameP = ((a.getTown().getIDJoueur()==b.getTown().getIDJoueur()) || a.getTown().getIDJoueur()==-1 || b.getTown().getIDJoueur()==-1);
 		Boolean noroad = a.getRoute(a.numVoisin(b.getId()));
-		return town && noroad;
+		return town && noroad && sameP;
 
 	}
 
