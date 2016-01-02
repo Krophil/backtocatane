@@ -142,7 +142,7 @@ public class ModelGestPlat {
                 for(int j=i+1;j<4;j++){
                     ModelTown t = new ModelTown(J.getIDJoueur());
                     this.TabPlat.get(j).getSommets().get(idsearch).setBusy(true);
-                    t.addToASommet(Som);
+                    //t.addToASommet(Som);
                     t.setIDJoueur(J.getIDJoueur());
                     //t.addToASommet(this.TabPlat.get(j).getSommets().get(idsearch));
                     this.TabPlat.get(j).getSommets().get(idsearch).setTown(t);
