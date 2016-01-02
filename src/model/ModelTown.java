@@ -32,7 +32,8 @@ public class ModelTown extends ModelStructure {
 		J.getRessources().removeAll(s);
 
 		S.setBusy(true);
-		this.addToASommet(S);
+		//this.addToASommet(S);
+        S.setTown(new ModelTown(J.getIDJoueur()));
 		this.setIDJoueur(J.getIDJoueur());
 
 		for(int i=0; i<3; i++){
@@ -43,6 +44,12 @@ public class ModelTown extends ModelStructure {
 
 	}
 
+    public String toString(){
+        if(getIDJoueur()>-1)
+            return ""+ getIDJoueur() + "update="+update;
+        else
+            return "There is no town";
+    }
 
 	public void toUpdate(){
 		this.update = true;
