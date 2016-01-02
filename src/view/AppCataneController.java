@@ -64,6 +64,7 @@ public class AppCataneController {
 	private Label S0;
 
 	//A1
+    @FXML
 	private Label A1;
 	@FXML
 	private Label B1;
@@ -102,7 +103,8 @@ public class AppCataneController {
 	@FXML
 	private Label S1;
 
-	//A2	
+	//A2
+    @FXML
 	private Label A2;
 	@FXML
 	private Label B2;
@@ -142,6 +144,7 @@ public class AppCataneController {
 	private Label S2;
 
 	//A3
+    @FXML
 	private Label A3;
 	@FXML
 	private Label B3;
