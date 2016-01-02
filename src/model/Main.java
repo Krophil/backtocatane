@@ -117,15 +117,18 @@ public class Main {
         p1985.getTuile(37).getMysommet().get(3).displayVoisin();
 
         route.construire(J2,p1985.getTuile(21).getMysommet().get(2), p1985.getTuile(37).getMysommet().get(3), GestPlat);
-        /*System.out.println(p1885.getTuile(21).getMysommet().get(2).getMystructure());
-        System.out.println(p1985.getTuile(21).getMysommet().get(2).getMystructure());
-        System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());*/
-        p1985.getTuile(21).getMysommet().get(2).displayRoute();
-        GestPlat.repercution(colonie,J2,p1985,p1985.getTuile(21).getMysommet().get(2));
-        p1985.getTuile(21).getMysommet().get(2).displayRoute();
+        System.out.println("Avant répercution");
         System.out.println(p1885.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p1985.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());
+        p2015.getTuile(21).getMysommet().get(2).displayRoute();
+        System.out.println(p1985.getTuile(21).getMysommet().get(2));
+        GestPlat.repercution(colonie,J2,p1985,p1985.getTuile(21).getMysommet().get(2));
+        System.out.println("Avant répercution");
+        System.out.println(p1885.getTuile(21).getMysommet().get(2).getMystructure());
+        System.out.println(p1985.getTuile(21).getMysommet().get(2).getMystructure());
+        System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());
+        p2015.getTuile(21).getMysommet().get(2).displayRoute();
 
 
 

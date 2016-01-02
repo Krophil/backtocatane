@@ -75,13 +75,13 @@ public class ModelSommet {
 
 		}else{
 			if((this.id[0]/8)%2==0) {
-				b = 8;
-			} else {
 				b = 7;
+			} else {
+				b = 8;
 			}
 			voisin[0][0]=this.id[1] - b;
-			voisin[0][1]=this.id[1];
-			voisin[0][2]=this.id[1]-1;
+			voisin[0][1]=this.id[2];
+			voisin[0][2]=this.id[1];
 
 			voisin[1][0]=this.id[2];
 			voisin[1][1]=this.id[0]+1;
