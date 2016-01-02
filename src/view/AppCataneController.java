@@ -185,6 +185,218 @@ public class AppCataneController {
 
 	private MyAliases alias;
 
+
+
+
+	public AppCataneController(){
+
+	}
+	//IICICICICICI
+	@FXML
+	private void initialize(){
+	}
+
+	private void test(){
+
+	}
+
+	private void setTextTuiles(){
+		A.setText(String.valueOf(alias.mapTuiles.get(19)));
+		B.setText(String.valueOf(alias.mapTuiles.get(20)));
+		C.setText(String.valueOf(alias.mapTuiles.get(21)));
+		D.setText(String.valueOf(alias.mapTuiles.get(26)));
+		E.setText(String.valueOf(alias.mapTuiles.get(27)));
+		F.setText(String.valueOf(alias.mapTuiles.get(28)));
+		G.setText(String.valueOf(alias.mapTuiles.get(29)));
+		H.setText(String.valueOf(alias.mapTuiles.get(34)));
+		I.setText(String.valueOf(alias.mapTuiles.get(35)));
+		J.setText(String.valueOf(alias.mapTuiles.get(36)));
+		K.setText(String.valueOf(alias.mapTuiles.get(37)));
+		L.setText(String.valueOf(alias.mapTuiles.get(38)));
+		M.setText(String.valueOf(alias.mapTuiles.get(42)));
+		N.setText(String.valueOf(alias.mapTuiles.get(43)));
+		O.setText(String.valueOf(alias.mapTuiles.get(44)));
+		P.setText(String.valueOf(alias.mapTuiles.get(45)));
+		Q.setText(String.valueOf(alias.mapTuiles.get(51)));
+		R.setText(String.valueOf(alias.mapTuiles.get(52)));
+		S.setText(String.valueOf(alias.mapTuiles.get(53)));
+
+
+	}
+
+	public void setMain(ModelGestPlat gestPlat){
+		this.gestPlat = gestPlat;
+	}
+
+	/**
+	 * Called whenthe user clicks on the "Joueur suivant" button
+	 */
+	@FXML
+	private void joueurSuivant(ModelGestPlat GP){
+		for(int i=0; i<GP.getTabJ().size(); i++){
+			GP.getTabJ().get(i);
+			if(i == GP.getTabJ().size()){
+				i=0;
+			}
+		}
+	}
+
+	/**
+	 * Called when the user clicks on the "Lancer Dés" button
+	 */
+	@FXML
+	private void lancerDes(ModelGestPlat GP) {
+
+		GP.lancerDes();
+
+
+	}
+
+
+	/**
+	 * Called when the user clicks on the "construire Ville" button
+	 */
+	@FXML
+	private void construireVille(ModelJoueur J, ModelSommet S, ModelPlateau P){
+		/**
+		 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
+		 */
+		ModelTown t = new ModelTown(J.getIDJoueur());
+		t.construire(J,S,P);
+	}
+
+	/**
+	 * Called when the user clicks on the "construire Route" button
+	 */
+	@FXML
+	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
+		ModelRoute r = new ModelRoute(J.getIDJoueur());
+		r.construire(J,a,b,GP);
+	}
+
+	/**
+	 * Called when the user clicks on the "Activer Developpement" button
+	 */
+	@FXML
+	private void activateDev(ModelJoueur J, ModelDeveloppement d, ModelGestPlat GP, ModelSommet a, ModelSommet b){
+		switch (d.getIDDeveloppement()){
+		case 1:
+			/**
+			 * interaction avec le joueur pour déplacer le Tannen
+			 */
+			A0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
+			B0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
+			C0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
+			D0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
+			E0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
+			F0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
+			G0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
+			H0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
+			I0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
+			J0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
+			K0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
+			L0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
+			M0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
+			N0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
+			O0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
+			P0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
+			Q0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
+			R0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
+			S0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
+
+			A1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
+			B1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
+			C1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
+			D1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
+			E1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
+			F1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
+			G1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
+			H1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
+			I1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
+			J1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
+			K1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
+			L1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
+			M1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
+			N1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
+			O1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
+			P1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
+			Q1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
+			R1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
+			S1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
+
+			A2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
+			B2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
+			C2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
+			D2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
+			E2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
+			F2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
+			G2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
+			H2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
+			I2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
+			J2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
+			K2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
+			L2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
+			M2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
+			N2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
+			O2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
+			P2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
+			Q2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
+			R2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
+			S2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
+
+			A3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
+			B3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
+			C3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
+			D3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
+			E3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
+			F3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
+			G3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
+			H3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
+			I3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
+			J3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
+			K3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
+			L3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
+			M3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
+			N3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
+			O3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
+			P3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
+			Q3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
+			R3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
+			S3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
+
+			break;
+			case 2:
+				/**
+				 * interaction pour la création de 2 routes
+				 */
+				ModelRoute i = new ModelRoute(J.getIDJoueur());
+				i.construire(J, a, b, GP);
+				//ajouter répercution ok
+
+				ModelRoute j = new ModelRoute(J.getIDJoueur());
+				j.construire(J, a, b, GP);
+				//ajouter repercution ok
+				break;
+			case 3:
+				/**
+				 * interaction pour récupérer 2 ressources supplémentaires
+				 */
+				int x = ThreadLocalRandom.current().nextInt(1,4);
+				int y = ThreadLocalRandom.current().nextInt(1,4);
+
+				ArrayList<String> s = new ArrayList <>();
+				s.add(GP.getTabResSup(x));
+				s.add(GP.getTabResSup(y));
+
+				J.getRessources().addAll(s);
+
+				break;
+			case 4:
+				J.setCompteurDev(J.getCompteurDev()+1);
+		}
+	}
+
+
 	public Label getA0() {
 		return A0;
 	}
@@ -241,8 +453,8 @@ public class AppCataneController {
 		return N0;
 	}
 
-	public Label getO() {
-		return O;
+	public Label getO0() {
+		return O0;
 	}
 
 	public Label getP0() {
@@ -386,7 +598,7 @@ public class AppCataneController {
 		return L2;
 	}
 
-	public Label getM(2) {
+	public Label getM2() {
 		return M2;
 	}
 
@@ -793,216 +1005,6 @@ public class AppCataneController {
 	public void setS3(Label s) {
 		S3 = s;
 	}
-
-
-	public AppCataneController(){
-
-	}
-	//IICICICICICI
-	@FXML
-	private void initialize(){
-	}
-
-	private void test(){
-
-	}
-
-	private void setTextTuiles(){
-		A.setText(String.valueOf(alias.mapTuiles.get(19)));
-		B.setText(String.valueOf(alias.mapTuiles.get(20)));
-		C.setText(String.valueOf(alias.mapTuiles.get(21)));
-		D.setText(String.valueOf(alias.mapTuiles.get(26)));
-		E.setText(String.valueOf(alias.mapTuiles.get(27)));
-		F.setText(String.valueOf(alias.mapTuiles.get(28)));
-		G.setText(String.valueOf(alias.mapTuiles.get(29)));
-		H.setText(String.valueOf(alias.mapTuiles.get(34)));
-		I.setText(String.valueOf(alias.mapTuiles.get(35)));
-		J.setText(String.valueOf(alias.mapTuiles.get(36)));
-		K.setText(String.valueOf(alias.mapTuiles.get(37)));
-		L.setText(String.valueOf(alias.mapTuiles.get(38)));
-		M.setText(String.valueOf(alias.mapTuiles.get(42)));
-		N.setText(String.valueOf(alias.mapTuiles.get(43)));
-		O.setText(String.valueOf(alias.mapTuiles.get(44)));
-		P.setText(String.valueOf(alias.mapTuiles.get(45)));
-		Q.setText(String.valueOf(alias.mapTuiles.get(51)));
-		R.setText(String.valueOf(alias.mapTuiles.get(52)));
-		S.setText(String.valueOf(alias.mapTuiles.get(53)));
-
-
-	}
-
-	public void setMain(ModelGestPlat gestPlat){
-		this.gestPlat = gestPlat;
-	}
-
-	/**
-	 * Called whenthe user clicks on the "Joueur suivant" button
-	 */
-	@FXML
-	private void joueurSuivant(ModelGestPlat GP){
-		for(int i=0; i<GP.getTabJ().size(); i++){
-			GP.getTabJ().get(i);
-			if(i == GP.getTabJ().size()){
-				i=0;
-			}
-		}
-	}
-
-	/**
-	 * Called when the user clicks on the "Lancer Dés" button
-	 */
-	@FXML
-	private void lancerDes(ModelGestPlat GP) {
-
-		GP.lancerDes();
-
-
-	}
-
-
-	/**
-	 * Called when the user clicks on the "construire Ville" button
-	 */
-	@FXML
-	private void construireVille(ModelJoueur J, ModelSommet S, ModelPlateau P){
-		/**
-		 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
-		 */
-		ModelTown t = new ModelTown(J.getIDJoueur());
-		t.construire(J,S,P);
-	}
-
-	/**
-	 * Called when the user clicks on the "construire Route" button
-	 */
-	@FXML
-	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
-		ModelRoute r = new ModelRoute(J.getIDJoueur());
-		r.construire(J,a,b,GP);
-	}
-
-	/**
-	 * Called when the user clicks on the "Activer Developpement" button
-	 */
-	@FXML
-	private void activateDev(ModelJoueur J, ModelDeveloppement d, ModelGestPlat GP, ModelSommet a, ModelSommet b){
-		switch (d.getIDDeveloppement()){
-		case 1:
-			/**
-			 * interaction avec le joueur pour déplacer le Tannen
-			 */
-			A0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
-			B0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
-			C0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
-			D0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
-			E0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
-			F0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
-			G0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
-			H0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
-			I0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
-			J0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
-			K0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
-			L0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
-			M0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
-			N0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
-			O0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
-			P0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
-			Q0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
-			R0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
-			S0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
-
-			A1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
-			B1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
-			C1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
-			D1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
-			E1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
-			F1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
-			G1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
-			H1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
-			I1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
-			J1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
-			K1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
-			L1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
-			M1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
-			N1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
-			O1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
-			P1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
-			Q1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
-			R1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
-			S1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
-
-			A2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
-			B2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
-			C2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
-			D2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
-			E2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
-			F2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
-			G2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
-			H2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
-			I2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
-			J2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
-			K2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
-			L2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
-			M2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
-			N2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
-			O2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
-			P2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
-			Q2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
-			R2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
-			S2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
-
-			A3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(19, J), GP.repercutTannen(19)};
-			B3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(20, J), GP.repercutTannen(20)};
-			C3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(21, J), GP.repercutTannen(21)};
-			D3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(26, J), GP.repercutTannen(26)};
-			E3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(27, J), GP.repercutTannen(27)};
-			F3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(28, J), GP.repercutTannen(28)};
-			G3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(29, J), GP.repercutTannen(29)};
-			H3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(34, J), GP.repercutTannen(34)};
-			I3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(35, J), GP.repercutTannen(35)};
-			J3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(36, J), GP.repercutTannen(36)};
-			K3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(37, J), GP.repercutTannen(37)};
-			L3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(38, J), GP.repercutTannen(38)};
-			M3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(42, J), GP.repercutTannen(42)};
-			N3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(43, J), GP.repercutTannen(43)};
-			O3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(44, J), GP.repercutTannen(44)};
-			P3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(45, J), GP.repercutTannen(45)};
-			Q3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(51, J), GP.repercutTannen(51)};
-			R3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(52, J), GP.repercutTannen(52)};
-			S3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(53, J), GP.repercutTannen(53)};
-
-			break;
-			case 2:
-				/**
-				 * interaction pour la création de 2 routes
-				 */
-				ModelRoute i = new ModelRoute(J.getIDJoueur());
-				i.construire(J, a, b, GP);
-				//ajouter répercution ok
-
-				ModelRoute j = new ModelRoute(J.getIDJoueur());
-				j.construire(J, a, b, GP);
-				//ajouter repercution ok
-				break;
-			case 3:
-				/**
-				 * interaction pour récupérer 2 ressources supplémentaires
-				 */
-				int x = ThreadLocalRandom.current().nextInt(1,4);
-				int y = ThreadLocalRandom.current().nextInt(1,4);
-
-				ArrayList<String> s = new ArrayList <>();
-				s.add(GP.getTabResSup(x));
-				s.add(GP.getTabResSup(y));
-
-				J.getRessources().addAll(s);
-
-				break;
-			case 4:
-				J.setCompteurDev(J.getCompteurDev()+1);
-		}
-	}
-
 
 
 
