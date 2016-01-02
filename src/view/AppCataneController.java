@@ -885,7 +885,7 @@ public class AppCataneController {
 	 * Called when the user clicks on the "Activer Developpement" button
 	 */
 	@FXML
-	private void activateDev(ModelJoueur J, ModelDeveloppement d, ModelGestPlat GP, ModelSommet a, ModelSommet b, ModelTuile newTannen){
+	private void activateDev(ModelJoueur J, ModelDeveloppement d, ModelGestPlat GP, ModelSommet a, ModelSommet b){
 		switch (d.getIDDeveloppement()){
 		case 1:
 			/**
