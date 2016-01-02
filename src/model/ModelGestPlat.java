@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import src.view.AppCataneController;
 
 
@@ -22,6 +20,10 @@ public class ModelGestPlat {
 		return tabResSup;
 	}
 
+	public String getTabResSup(int i){
+		return tabResSup[i];
+	}
+
 	public ArrayList<ModelPlateau> getTabPlat(){
 		return TabPlat;
 	}
@@ -29,6 +31,12 @@ public class ModelGestPlat {
 	public ArrayList<ModelJoueur> getTabJ(){
 		return TabJ;
 	}
+
+	public ModelPlateau getTabPlat(int i){
+		return TabPlat.get(i);
+	}
+
+	//Corps de la classe
 
 	public ModelGestPlat(){
 		tabResSup = new String[4];
@@ -55,14 +63,6 @@ public class ModelGestPlat {
 		TabPlat = new ArrayList<ModelPlateau>(newTabPlat);
 
 	}
-
-
-
-	public ModelPlateau getTabPlat(int i){
-		return TabPlat.get(i);
-	}
-
-	//Corps de la classe
 
 	public void lancerDes() {
 
@@ -135,37 +135,37 @@ public class ModelGestPlat {
 	 * A partir de l'époque du plateau, on repercute la création de la ville dans les plateaux suivants.
 	 */
 	public void repercution(ModelStructure S, ModelJoueur J, ModelPlateau P, ModelSommet Som){
-        if(Som.getBusy()){
-            int i=J.getIDPlateauJoueur();
-            if(Som.getTown().getIDJoueur()==J.getIDJoueur()){
-                    int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-                for(int j=i+1;j<4;j++){
-                    ModelTown t = new ModelTown(J.getIDJoueur());
-                    this.TabPlat.get(j).getSommets().get(idsearch).setBusy(true);
-                    //t.addToASommet(Som);
-                    t.setIDJoueur(J.getIDJoueur());
-                    //t.addToASommet(this.TabPlat.get(j).getSommets().get(idsearch));
-                    this.TabPlat.get(j).getSommets().get(idsearch).setTown(t);
-                }
-            }
-        }
-        int iterator=0;
-        for(Boolean route:Som.getRoutes()){
+		if(Som.getBusy()){
+			int i=J.getIDPlateauJoueur();
+			if(Som.getTown().getIDJoueur()==J.getIDJoueur()){
+				int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
+				for(int j=i+1;j<4;j++){
+					ModelTown t = new ModelTown(J.getIDJoueur());
+					this.TabPlat.get(j).getSommets().get(idsearch).setBusy(true);
+					//t.addToASommet(Som);
+					t.setIDJoueur(J.getIDJoueur());
+					//t.addToASommet(this.TabPlat.get(j).getSommets().get(idsearch));
+					this.TabPlat.get(j).getSommets().get(idsearch).setTown(t);
+				}
+			}
+		}
+		int iterator=0;
+		for(Boolean route:Som.getRoutes()){
 
-            if(route){
-                int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-                for(int j=J.getIDJoueur()+1;j<4;j++){
-                    ModelRoute r = new ModelRoute(J.getIDJoueur()); //TODO : TROUVER LES SOMMETS A ET B de la route de base
-                    r.addToASommet(this.TabPlat.get(j).getSommet(idsearch));
-                    for(int[] v:Som.getVoisin()) {
-                        int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
-                        r.addToASommet(this.TabPlat.get(j).getSommet(searchedVois));
-                        this.TabPlat.get(j).getSommet(searchedVois).setRoute(iterator, true);
-                    }
-                }
-            }
-            iterator++;
-        }
+			if(route){
+				int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
+				for(int j=J.getIDJoueur()+1;j<4;j++){
+					ModelRoute r = new ModelRoute(J.getIDJoueur()); //TODO : TROUVER LES SOMMETS A ET B de la route de base
+					r.addToASommet(this.TabPlat.get(j).getSommet(idsearch));
+					for(int[] v:Som.getVoisin()) {
+						int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
+						r.addToASommet(this.TabPlat.get(j).getSommet(searchedVois));
+						this.TabPlat.get(j).getSommet(searchedVois).setRoute(iterator, true);
+					}
+				}
+			}
+			iterator++;
+		}
 
 
 
@@ -278,23 +278,23 @@ public class ModelGestPlat {
 
 	public void activateDev(ModelJoueur J, ModelDeveloppement d){
 		switch (d.getIDDeveloppement()){
-			case 1:
-				/**
-				 * interaction avec le joueur pour déplacer le Tannen
-				 */
-				break;
-			case 2:
-				/**
-				 * interaction pour la création de 2 routes
-				 */
-				break;
-			case 3:
-				/**
-				 * interaction pour récupérer 2 ressources supplémentaires
-				 */
-				break;
-			case 4:
-				J.setCompteurDev(J.getCompteurDev()+1);
+		case 1:
+			/**
+			 * interaction avec le joueur pour déplacer le Tannen
+			 */
+			break;
+		case 2:
+			/**
+			 * interaction pour la création de 2 routes
+			 */
+			break;
+		case 3:
+			/**
+			 * interaction pour récupérer 2 ressources supplémentaires
+			 */
+			break;
+		case 4:
+			J.setCompteurDev(J.getCompteurDev()+1);
 		}
 	}
 
