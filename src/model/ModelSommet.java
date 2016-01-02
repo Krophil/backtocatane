@@ -99,9 +99,9 @@ public class ModelSommet {
 	public int numVoisin(int[] In){
 		int index = -1;
 		for(int i=0; i<3; i++){
-			if(In == this.id){
-				index = Arrays.asList(this.id).indexOf(id);
-			}
+			if(In == voisin[i]){
+				index = i;
+            }
 		}
 		return index;
 	}
@@ -135,6 +135,16 @@ public class ModelSommet {
 	public int[] getVoisin(int id){
 		return voisin[id];
 	}
+
+    public void displayVoisin(){
+        for(int i=0;i<3;i++){
+            System.out.print("Voisin"+i+": ");
+            for(int j=0;j<3;j++){
+                System.out.print(voisin[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
 
 	public boolean getBusy(){
 		return busy;

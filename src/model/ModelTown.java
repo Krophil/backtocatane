@@ -13,7 +13,8 @@ public class ModelTown extends ModelStructure {
 
 	//Corps de la classe
 
-	public ModelTown() {
+	public ModelTown(int IDJoueur) {
+        super(IDJoueur);
 		update = false;
 	}
 

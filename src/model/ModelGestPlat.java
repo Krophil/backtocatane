@@ -138,20 +138,20 @@ public class ModelGestPlat {
 
 		if(S.getIDJoueur() == J.getIDJoueur()){
 			for(int i = J.getIDPlateauJoueur(); i<4; i++){
-				if(Som.getBusy() == false){
+				if(Som.getBusy()){
                     int idsearch = -1;
 					idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-                    if(idsearch ==-1){
-                        System.out.println("Ouaip!");
-                        ModelTown t = new ModelTown();
-                        Som.setBusy(true);
+                    if(idsearch !=-1){
+                        ModelTown t = new ModelTown(J.getIDJoueur());
+                        this.TabPlat.get(i).getSommets().get(idsearch).setBusy(true);
                         t.addToASommet(Som);
                         t.setIDJoueur(J.getIDJoueur());
-                        this.TabPlat.get(i).getSommets().get(idsearch).addMystructure(t);
+                        t.addToASommet(this.TabPlat.get(i).getSommets().get(idsearch));
+                        //this.TabPlat.get(i).getSommets().get(idsearch).addMystructure(t);
 
 
                         for(int j=0; j<3; j++){
-                            P.getSommet(Som.getVoisin(j)).setBusy(true);
+                            getTabPlat(i).getSommet(Som.getVoisin(j)).setBusy(true);
                         }
                     }
 				}
@@ -162,11 +162,11 @@ public class ModelGestPlat {
 						this.TabPlat.get(i).getSommets().get(idsearch).setRoute(iter, true);
 						for(int[] v:Som.getVoisin()) {
 							int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
-							this.TabPlat.get(i).getSommets().get(idsearch).setRoute(iter, true);
+							this.TabPlat.get(i).getSommets().get(searchedVois).setRoute(iter, true);
 						}
 					}
+                    iter++;
 				}
-				iter++;
 			}
 		}
 	}

@@ -81,8 +81,8 @@ public class Main {
 
         ModelGestPlat GestPlat = new ModelGestPlat(listPlat,listJoueurs);
 
-        ModelTown colonie = new ModelTown();
-        ModelRoute route = new ModelRoute();
+        ModelTown colonie = new ModelTown(J2.getIDJoueur());
+        ModelRoute route = new ModelRoute(J2.getIDJoueur());
 
         MyAliases aliases = new MyAliases();
 
@@ -107,7 +107,11 @@ public class Main {
         System.out.println(p1885.getTuile(21).getMysommet().get(2).getBusy());
         System.out.println(p1985.getTuile(21).getMysommet().get(2).getBusy());
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getBusy());
-
+        p1985.getTuile(21).getMysommet().get(2).displayVoisin();
+        route.construire(J2,p1985.getTuile(21).getMysommet().get(2), p1985.getTuile(29).getMysommet().get(2), GestPlat);
+        System.out.println(p1885.getTuile(21).getMysommet().get(2).getMystructure());
+        System.out.println(p1985.getTuile(21).getMysommet().get(2).getMystructure());
+        System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());
 
 
 

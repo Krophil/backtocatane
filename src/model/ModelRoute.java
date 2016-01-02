@@ -8,8 +8,8 @@ public class ModelRoute extends ModelStructure{
 	private ModelSommet A;
 	private ModelSommet B;
 
-	public ModelRoute(){
-		super();
+	public ModelRoute(int IDJoueur){
+		super(IDJoueur);
 		this.A = null;
 		this.B = null;
 	}

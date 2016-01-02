@@ -294,7 +294,7 @@ public class AppCataneController {
 		/**
 		 *  Suppression des ressources correspondants à la construction de la ville dans la main du joueur concerné.
 		 */
-		ModelTown t = new ModelTown();
+		ModelTown t = new ModelTown(J.getIDJoueur());
 		t.construire(J,S,P);
 	}
 
@@ -303,7 +303,7 @@ public class AppCataneController {
 	 */
 	@FXML
 	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
-		ModelRoute r = new ModelRoute();
+		ModelRoute r = new ModelRoute(J.getIDJoueur());
         r.construire(J,a,b,GP);
 	}
 

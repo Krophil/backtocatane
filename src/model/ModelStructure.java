@@ -1,5 +1,7 @@
 package src.model;
 
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 public abstract class ModelStructure {
 	//Paramètres
 	private int IDJoueur;
@@ -30,4 +32,8 @@ public abstract class ModelStructure {
 	public void addToASommet(ModelSommet s){
 		s.addMystructure(this);
 	}
+
+    public String toString(){
+        return ""+IDJoueur+ (this instanceof ModelTown);
+    }
 }
