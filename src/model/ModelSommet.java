@@ -14,6 +14,7 @@ public class ModelSommet {
 
 	private boolean[] routes; //true=occupé; false=pas de route vers ce sommet
 	private ArrayList<ModelStructure> mystructure;
+    private ModelTown town;
 
 
 	//Corps de la classe
@@ -23,6 +24,7 @@ public class ModelSommet {
 		id = new int[]{0,0,0};
 		voisin = new int[3][3];
 		mystructure = new ArrayList<ModelStructure>();
+        town = new ModelTown(-1);
 	}
 
 	public ModelSommet(boolean type, int[] tab){
@@ -33,9 +35,18 @@ public class ModelSommet {
 		voisin = new int[3][3];
 		generVois();
 		mystructure = new ArrayList<ModelStructure>();
+        town = new ModelTown(-1);
 	}
 
-	public void generVois(){
+    public ModelTown getTown() {
+        return town;
+    }
+
+    public void setTown(ModelTown town) {
+        this.town = town;
+    }
+
+    public void generVois(){
 		for(int i=0; i<3; i++){
 			for(int j=0; j<3; j++){
 				voisin[i][j] = 0;
@@ -69,8 +80,8 @@ public class ModelSommet {
 				b = 7;
 			}
 			voisin[0][0]=this.id[1] - b;
-			voisin[0][1]=this.id[2];
-			voisin[0][2]=this.id[1];
+			voisin[0][1]=this.id[1];
+			voisin[0][2]=this.id[1]-1;
 
 			voisin[1][0]=this.id[2];
 			voisin[1][1]=this.id[0]+1;
@@ -98,10 +109,25 @@ public class ModelSommet {
 
 	public int numVoisin(int[] In){
 		int index = -1;
+        //System.out.println(In);
 		for(int i=0; i<3; i++){
-			if(In == voisin[i]){
-				index = i;
+            //System.out.println(voisin[i]);
+            Boolean eq = new Boolean(false);
+            for(int a:In){
+                for(int b:voisin[i]){
+                    if(a==b){
+                        eq = true;
+                    }else{
+                        eq = false;
+                    }
+                }
+                if(eq)
+                    index = i;
             }
+            /*if(Arrays.deepEquals(In,voisin[i])){
+				index = i;
+
+            }*/
 		}
 		return index;
 	}
@@ -137,6 +163,7 @@ public class ModelSommet {
 	}
 
     public void displayVoisin(){
+        System.out.println("Sommet"+id[0]+" "+id[1]+" "+id[2]);
         for(int i=0;i<3;i++){
             System.out.print("Voisin"+i+": ");
             for(int j=0;j<3;j++){
