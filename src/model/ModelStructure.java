@@ -34,6 +34,6 @@ public abstract class ModelStructure {
 	}
 
     public String toString(){
-        return ""+IDJoueur+ (this instanceof ModelTown);
+        return ""+IDJoueur+ (this instanceof ModelRoute);
     }
 }
