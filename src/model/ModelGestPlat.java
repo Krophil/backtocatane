@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import src.view.AppCataneController;
 
 

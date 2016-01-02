@@ -35,7 +35,15 @@ public class ModelPlateau {
 		return sommets.get(a);
 	}
 
-	public ArrayList<ModelTuile> getTuiles(){
+    public void setSommets(ArrayList<ModelSommet> sommets) {
+        this.sommets = sommets;
+    }
+
+    public void setTuiles(ArrayList<ModelTuile> tuiles) {
+        this.tuiles = tuiles;
+    }
+
+    public ArrayList<ModelTuile> getTuiles(){
 		return tuiles;
 	}
 

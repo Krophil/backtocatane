@@ -173,6 +173,10 @@ public class ModelSommet {
         }
     }
 
+    public void displayRoute(){
+        for(Boolean route:routes)
+            System.out.println("Route "+ route);
+    }
 	public boolean getBusy(){
 		return busy;
 	}
