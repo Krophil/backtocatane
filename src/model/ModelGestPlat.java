@@ -160,9 +160,10 @@ public class ModelGestPlat {
 					ModelRoute r = new ModelRoute(J.getIDJoueur()); //TODO : TROUVER LES SOMMETS A ET B de la route de base
 					r.addToASommet(this.TabPlat.get(j).getSommet(idsearch));
 					for(int[] v:Som.getVoisin()) {
-						int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
-						r.addToASommet(this.TabPlat.get(j).getSommet(searchedVois));
-						this.TabPlat.get(j).getSommet(searchedVois).setRoute(iterator, true);
+						//ModelSommet searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommet(v);
+                        //System.out.println(v+" : "+v[0]+v[1]+v[2]);
+                        r.addToASommet(this.TabPlat.get(j).getSommet(v));
+						this.TabPlat.get(j).getSommet(v).setRoute(iterator, true);
 					}
 				}
 			}

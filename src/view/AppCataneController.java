@@ -1,8 +1,9 @@
 package src.view;
 
-import java.awt.Label;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 import src.model.ModelDeveloppement;
 import src.model.ModelGestPlat;
@@ -316,7 +317,7 @@ public class AppCataneController {
 			 * interaction avec le joueur pour déplacer le Tannen
 			 */
 			GP.deplacerVoleur(newTannen, J);
-			GP.repercutTannen(coordTanFournie); //recuperer coord de la tuile par un clic de sourie sur la tuile souhaité.
+			GP.repercutTannen(7/*coordTanFournie*/); //recuperer coord de la tuile par un clic de sourie sur la tuile souhaité.
 
 			break;
 		case 2:

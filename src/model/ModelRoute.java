@@ -56,9 +56,10 @@ public class ModelRoute extends ModelStructure{
             }
 		}
 
-        Boolean sameP = ((a.getTown().getIDJoueur()==b.getTown().getIDJoueur()) || a.getTown().getIDJoueur()==-1 || b.getTown().getIDJoueur()==-1);
-		Boolean noroad = a.getRoute(a.numVoisin(b.getId()));
-		return town && noroad && sameP;
+        Boolean sameP = ((a.getTown().getIDJoueur()==-1 || b.getTown().getIDJoueur()==-1) || (a.getTown().getIDJoueur()==b.getTown().getIDJoueur()));
+		Boolean noroad = !(a.getRoute(a.numVoisin(b.getId())));
+        //System.out.println("isConstructible : "+town+sameP+noroad);
+        return town && noroad && sameP;
 
 	}
 
