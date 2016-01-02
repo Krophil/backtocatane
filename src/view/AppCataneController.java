@@ -24,43 +24,161 @@ import src.model.MyAliases;
 public class AppCataneController {
 
 	@FXML
-	private Label A;
+	private Label A0;
 	@FXML
-	private Label B;
+	private Label B0;
 	@FXML
-	private Label C;
+	private Label C0;
 	@FXML
-	private Label D;
+	private Label D0;
 	@FXML
-	private Label E;
+	private Label E0;
 	@FXML
-	private Label F;
+	private Label F0;
 	@FXML
-	private Label G;
+	private Label G0;
 	@FXML
-	private Label H;
+	private Label H0;
 	@FXML
-	private Label I;
+	private Label I0;
 	@FXML
-	private Label J;
+	private Label J0;
 	@FXML
-	private Label K;
+	private Label K0;
 	@FXML
-	private Label L;
+	private Label L0;
 	@FXML
-	private Label M;
+	private Label M0;
 	@FXML
-	private Label N;
+	private Label N0;
 	@FXML
-	private Label O;
+	private Label O0;
 	@FXML
-	private Label P;
+	private Label P0;
 	@FXML
-	private Label Q;
+	private Label Q0;
 	@FXML
-	private Label R;
+	private Label R0;
 	@FXML
-	private Label S;
+	private Label S0;
+
+	//A1
+	private Label A1;
+	@FXML
+	private Label B1;
+	@FXML
+	private Label C1;
+	@FXML
+	private Label D1;
+	@FXML
+	private Label E1;
+	@FXML
+	private Label F1;
+	@FXML
+	private Label G1;
+	@FXML
+	private Label H1;
+	@FXML
+	private Label I1;
+	@FXML
+	private Label J1;
+	@FXML
+	private Label K1;
+	@FXML
+	private Label L1;
+	@FXML
+	private Label M1;
+	@FXML
+	private Label N1;
+	@FXML
+	private Label O1;
+	@FXML
+	private Label P1;
+	@FXML
+	private Label Q1;
+	@FXML
+	private Label R1;
+	@FXML
+	private Label S1;
+
+	//A2	
+	private Label A2;
+	@FXML
+	private Label B2;
+	@FXML
+	private Label C2;
+	@FXML
+	private Label D2;
+	@FXML
+	private Label E2;
+	@FXML
+	private Label F2;
+	@FXML
+	private Label G2;
+	@FXML
+	private Label H2;
+	@FXML
+	private Label I2;
+	@FXML
+	private Label J2;
+	@FXML
+	private Label K2;
+	@FXML
+	private Label L2;
+	@FXML
+	private Label M2;
+	@FXML
+	private Label N2;
+	@FXML
+	private Label O2;
+	@FXML
+	private Label P2;
+	@FXML
+	private Label Q2;
+	@FXML
+	private Label R2;
+	@FXML
+	private Label S2;
+
+	//A3
+	private Label A3;
+	@FXML
+	private Label B3;
+	@FXML
+	private Label C3;
+	@FXML
+	private Label D3;
+	@FXML
+	private Label E3;
+	@FXML
+	private Label F3;
+	@FXML
+	private Label G3;
+	@FXML
+	private Label H3;
+	@FXML
+	private Label I3;
+	@FXML
+	private Label J3;
+	@FXML
+	private Label K3;
+	@FXML
+	private Label L3;
+	@FXML
+	private Label M3;
+	@FXML
+	private Label N3;
+	@FXML
+	private Label O3;
+	@FXML
+	private Label P3;
+	@FXML
+	private Label Q3;
+	@FXML
+	private Label R3;
+	@FXML
+	private Label S3;
+
 
 	private ModelGestPlat gestPlat;
 
@@ -221,10 +339,9 @@ public class AppCataneController {
 	public AppCataneController(){
 
 	}
-
+	//IICICICICICI
 	@FXML
 	private void initialize(){
-
 	}
 
 	private void test(){

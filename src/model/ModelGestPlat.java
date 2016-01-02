@@ -16,6 +16,8 @@ public class ModelGestPlat {
 
 	//Accesseurs
 
+
+
 	public String[] getTabResSup(){
 		return tabResSup;
 	}

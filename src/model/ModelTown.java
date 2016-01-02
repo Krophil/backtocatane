@@ -14,7 +14,7 @@ public class ModelTown extends ModelStructure {
 	//Corps de la classe
 
 	public ModelTown(int IDJoueur) {
-        super(IDJoueur);
+		super(IDJoueur);
 		update = false;
 	}
 
@@ -33,7 +33,7 @@ public class ModelTown extends ModelStructure {
 
 		S.setBusy(true);
 		//this.addToASommet(S);
-        S.setTown(new ModelTown(J.getIDJoueur()));
+		S.setTown(new ModelTown(J.getIDJoueur()));
 		this.setIDJoueur(J.getIDJoueur());
 
 		for(int i=0; i<3; i++){
@@ -44,12 +44,14 @@ public class ModelTown extends ModelStructure {
 
 	}
 
-    public String toString(){
-        if(getIDJoueur()>-1)
-            return ""+ getIDJoueur() + "update="+update;
-        else
-            return "There is no town";
-    }
+	@Override
+	public String toString(){
+		if(getIDJoueur()>-1) {
+			return ""+ getIDJoueur() + "update="+update;
+		} else {
+			return "There is no town";
+		}
+	}
 
 	public void toUpdate(){
 		this.update = true;
