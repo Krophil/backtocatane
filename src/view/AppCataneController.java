@@ -28,149 +28,149 @@ import src.model.MyAliases;
 public class AppCataneController {
 
 	@FXML
-	private Line S0;
+	private Line SS0;
 	@FXML
-	private Line S1;
+	private Line SS1;
 	@FXML
-	private Line S2;
+	private Line SS2;
 	@FXML
-	private Line S3;
+	private Line SS3;
 	@FXML
-	private Line S4;
+	private Line SS4;
 	@FXML
-	private Line S5;
+	private Line SS5;
 	@FXML
-	private Line S6;
+	private Line SS6;
 	@FXML
-	private Line S7;
+	private Line SS7;
 	@FXML
-	private Line S8;
+	private Line SS8;
 	@FXML
-	private Line S9;
+	private Line SS9;
 	@FXML
-	private Line S10;
+	private Line SS10;
 	@FXML
-	private Line S11;
+	private Line SS11;
 	@FXML
-	private Line S12;
+	private Line SS12;
 	@FXML
-	private Line S13;
+	private Line SS13;
 	@FXML
-	private Line S14;
+	private Line SS14;
 	@FXML
-	private Line S15;
+	private Line SS15;
 	@FXML
-	private Line S16;
+	private Line SS16;
 	@FXML
-	private Line S17;
+	private Line SS17;
 	@FXML
-	private Line S18;
+	private Line SS18;
 	@FXML
-	private Line S19;
+	private Line SS19;
 	@FXML
-	private Line S20;
+	private Line SS20;
 	@FXML
-	private Line S21;
+	private Line SS21;
 	@FXML
-	private Line S22;
+	private Line SS22;
 	@FXML
-	private Line S23;
+	private Line SS23;
 	@FXML
-	private Line S24;
+	private Line SS24;
 	@FXML
-	private Line S25;
+	private Line SS25;
 	@FXML
-	private Line S26;
+	private Line SS26;
 	@FXML
-	private Line S27;
+	private Line SS27;
 	@FXML
-	private Line S28;
+	private Line SS28;
 	@FXML
-	private Line S29;
+	private Line SS29;
 	@FXML
-	private Line S30;
+	private Line SS30;
 	@FXML
-	private Line S31;
+	private Line SS31;
 	@FXML
-	private Line S32;
+	private Line SS32;
 	@FXML
-	private Line S33;
+	private Line SS33;
 	@FXML
-	private Line S34;
+	private Line SS34;
 	@FXML
-	private Line S35;
+	private Line SS35;
 	@FXML
-	private Line S36;
+	private Line SS36;
 	@FXML
-	private Line S37;
+	private Line SS37;
 	@FXML
-	private Line S38;
+	private Line SS38;
 	@FXML
-	private Line S39;
+	private Line SS39;
 	@FXML
-	private Line S40;
+	private Line SS40;
 	@FXML
-	private Line S41;
+	private Line SS41;
 	@FXML
-	private Line S42;
+	private Line SS42;
 	@FXML
-	private Line S43;
+	private Line SS43;
 	@FXML
-	private Line S44;
+	private Line SS44;
 	@FXML
-	private Line S45;
+	private Line SS45;
 	@FXML
-	private Line S46;
+	private Line SS46;
 	@FXML
-	private Line S47;
+	private Line SS47;
 	@FXML
-	private Line S48;
+	private Line SS48;
 	@FXML
-	private Line S49;
+	private Line SS49;
 	@FXML
-	private Line S50;
+	private Line SS50;
 	@FXML
-	private Line S51;
+	private Line SS51;
 	@FXML
-	private Line S52;
+	private Line SS52;
 	@FXML
-	private Line S53;
+	private Line SS53;
 	@FXML
-	private Line S54;
+	private Line SS54;
 	@FXML
-	private Line S55;
+	private Line SS55;
 	@FXML
-	private Line S56;
+	private Line SS56;
 	@FXML
-	private Line S57;
+	private Line SS57;
 	@FXML
-	private Line S58;
+	private Line SS58;
 	@FXML
-	private Line S59;
+	private Line SS59;
 	@FXML
-	private Line S60;
+	private Line SS60;
 	@FXML
-	private Line S61;
+	private Line SS61;
 	@FXML
-	private Line S62;
+	private Line SS62;
 	@FXML
-	private Line S63;
+	private Line SS63;
 	@FXML
-	private Line S64;
+	private Line SS64;
 	@FXML
-	private Line S65;
+	private Line SS65;
 	@FXML
-	private Line S66;
+	private Line SS66;
 	@FXML
-	private Line S67;
+	private Line SS67;
 	@FXML
-	private Line S68;
+	private Line SS68;
 	@FXML
-	private Line S69;
+	private Line SS69;
 	@FXML
-	private Line S70;
+	private Line SS70;
 	@FXML
-	private Line S71;
+	private Line SS71;
 	@FXML
 	private Line T0;
 	@FXML
@@ -603,6 +603,7 @@ public class AppCataneController {
 	private Line V70;
 	@FXML
 	private Line V71;
+
 
 
 	@FXML
