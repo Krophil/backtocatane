@@ -172,149 +172,149 @@ public class AppCataneController {
 	@FXML
 	private Line S71;
 	@FXML
-	private Line S0;
+	private Line T0;
 	@FXML
-	private Line S1;
+	private Line T1;
 	@FXML
-	private Line S2;
+	private Line T2;
 	@FXML
-	private Line S3;
+	private Line T3;
 	@FXML
-	private Line S4;
+	private Line T4;
 	@FXML
-	private Line S5;
+	private Line T5;
 	@FXML
-	private Line S6;
+	private Line T6;
 	@FXML
-	private Line S7;
+	private Line T7;
 	@FXML
-	private Line S8;
+	private Line T8;
 	@FXML
-	private Line S9;
+	private Line T9;
 	@FXML
-	private Line S10;
+	private Line T10;
 	@FXML
-	private Line S11;
+	private Line T11;
 	@FXML
-	private Line S12;
+	private Line T12;
 	@FXML
-	private Line S13;
+	private Line T13;
 	@FXML
-	private Line S14;
+	private Line T14;
 	@FXML
-	private Line S15;
+	private Line T15;
 	@FXML
-	private Line S16;
+	private Line T16;
 	@FXML
-	private Line S17;
+	private Line T17;
 	@FXML
-	private Line S18;
+	private Line T18;
 	@FXML
-	private Line S19;
+	private Line T19;
 	@FXML
-	private Line S20;
+	private Line T20;
 	@FXML
-	private Line S21;
+	private Line T21;
 	@FXML
-	private Line S22;
+	private Line T22;
 	@FXML
-	private Line S23;
+	private Line T23;
 	@FXML
-	private Line S24;
+	private Line T24;
 	@FXML
-	private Line S25;
+	private Line T25;
 	@FXML
-	private Line S26;
+	private Line T26;
 	@FXML
-	private Line S27;
+	private Line T27;
 	@FXML
-	private Line S28;
+	private Line T28;
 	@FXML
-	private Line S29;
+	private Line T29;
 	@FXML
-	private Line S30;
+	private Line T30;
 	@FXML
-	private Line S31;
+	private Line T31;
 	@FXML
-	private Line S32;
+	private Line T32;
 	@FXML
-	private Line S33;
+	private Line T33;
 	@FXML
-	private Line S34;
+	private Line T34;
 	@FXML
-	private Line S35;
+	private Line T35;
 	@FXML
-	private Line S36;
+	private Line T36;
 	@FXML
-	private Line S37;
+	private Line T37;
 	@FXML
-	private Line S38;
+	private Line T38;
 	@FXML
-	private Line S39;
+	private Line T39;
 	@FXML
-	private Line S40;
+	private Line T40;
 	@FXML
-	private Line S41;
+	private Line T41;
 	@FXML
-	private Line S42;
+	private Line T42;
 	@FXML
-	private Line S43;
+	private Line T43;
 	@FXML
-	private Line S44;
+	private Line T44;
 	@FXML
-	private Line S45;
+	private Line T45;
 	@FXML
-	private Line S46;
+	private Line T46;
 	@FXML
-	private Line S47;
+	private Line T47;
 	@FXML
-	private Line S48;
+	private Line T48;
 	@FXML
-	private Line S49;
+	private Line T49;
 	@FXML
-	private Line S50;
+	private Line T50;
 	@FXML
-	private Line S51;
+	private Line T51;
 	@FXML
-	private Line S52;
+	private Line T52;
 	@FXML
-	private Line S53;
+	private Line T53;
 	@FXML
-	private Line S54;
+	private Line T54;
 	@FXML
-	private Line S55;
+	private Line T55;
 	@FXML
-	private Line S56;
+	private Line T56;
 	@FXML
-	private Line S57;
+	private Line T57;
 	@FXML
-	private Line S58;
+	private Line T58;
 	@FXML
-	private Line S59;
+	private Line T59;
 	@FXML
-	private Line S60;
+	private Line T60;
 	@FXML
-	private Line S61;
+	private Line T61;
 	@FXML
-	private Line S62;
+	private Line T62;
 	@FXML
-	private Line S63;
+	private Line T63;
 	@FXML
-	private Line S64;
+	private Line T64;
 	@FXML
-	private Line S65;
+	private Line T65;
 	@FXML
-	private Line S66;
+	private Line T66;
 	@FXML
-	private Line S67;
+	private Line T67;
 	@FXML
-	private Line S68;
+	private Line T68;
 	@FXML
-	private Line S69;
+	private Line T69;
 	@FXML
-	private Line S70;
+	private Line T70;
 	@FXML
-	private Line S71;
+	private Line T71;
 	@FXML
 	private Line U0;
 	@FXML
