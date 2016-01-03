@@ -5849,11 +5849,14 @@
 
                     </children>
                 </AnchorPane>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <ListView fx:id="listRes" layoutX="18.0" layoutY="14.0" prefHeight="170.0" prefWidth="200.0" />
+               </children></AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="PtVictoire" layoutX="43.0" layoutY="27.0" prefHeight="33.0" prefWidth="65.0" text="Label" />
+                  <Label fx:id="PtVictoire" layoutX="43.0" layoutY="27.0" prefHeight="19.0" prefWidth="36.0" text="Label" />
                   <Label fx:id="resultDes" layoutX="43.0" layoutY="66.0" text="Label" />
                </children></AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />

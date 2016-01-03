@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javax.swing.table.TableColumn;
+import javax.swing.text.TableView;
+import javax.swing.text.html.ListView;
+
 import src.model.ModelDeveloppement;
 import src.model.ModelGestPlat;
 import src.model.ModelJoueur;
@@ -40,6 +44,8 @@ public class AppCataneController {
 	@FXML
 	private Button ConstruireV;
 
+	@FXML
+	private ListView listRes;
 
 
 	@FXML
@@ -214,7 +220,9 @@ public class AppCataneController {
 	}
 
 	@FXML
-	private void initialize(){
+	private void initialize(ModelJoueur J){
+		tabres.setCellValueFactory(cellData -> cellData.getValue().);
+
 	}
 
 	private void test(){
@@ -250,15 +258,22 @@ public class AppCataneController {
 	}
 
 	/**
-	 * Called whenthe user clicks on the "Joueur suivant" button
+	 * Called when the user clicks on the "Joueur suivant" button
 	 */
 	@FXML
 	private void joueurSuivant(ModelGestPlat GP){
 		for(int i=0; i<GP.getTabJ().size(); i++){
-			GP.getTabJ().get(i);
-			if(i == GP.getTabJ().size()){
-				i=0;
+			GP.getTabJ().get(i).setPlaying(true);
+			if(i>0 && i<4){
+				GP.getTabJ().get(i-1).setPLaying(false);
+			} else {
+				GP.getTabJ().get(i+4).setPLaying(false);
 			}
+			//donne les pt de victoire du joueur actuel
+			PtVictoire.setText(GP.getTabJ().get(i).toStringComp()); 
+			//affiche le tableau de resources du joueur actuel
+
+
 		}
 	}
 
@@ -269,8 +284,7 @@ public class AppCataneController {
 	private void lancerDes(ModelGestPlat GP) {
 
 		GP.lancerDes();
-
-
+		resultDes.setText(GP.lancerDes());
 	}
 
 
