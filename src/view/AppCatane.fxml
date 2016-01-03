@@ -5851,11 +5851,19 @@
                 </AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="PtVictoire" layoutX="43.0" layoutY="27.0" prefHeight="33.0" prefWidth="65.0" text="Label" />
+                  <Label fx:id="resultDes" layoutX="43.0" layoutY="66.0" text="Label" />
+               </children></AnchorPane>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button layoutX="87.0" layoutY="84.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="Joueursuiv" layoutX="61.0" layoutY="6.0" mnemonicParsing="false" onAction="#joueurSuivant" text="Joueur Suivant" />
+                  <Button fx:id="Lancerdes" layoutX="72.0" layoutY="42.0" mnemonicParsing="false" onAction="#lancerDes" text="Lancer Dés" />
+                  <Button fx:id="UseDev" layoutX="32.0" layoutY="80.0" mnemonicParsing="false" onAction="#activateDev" text="Utiliser Développement" />
+                  <Button fx:id="ConstruireR" layoutX="55.0" layoutY="114.0" mnemonicParsing="false" onAction="#construireRoute" text="Construire route" />
+                  <Button fx:id="ConstruireV" layoutX="59.0" layoutY="153.0" mnemonicParsing="false" onAction="#construireVille" text="Construire ville" />
                </children></AnchorPane>
             </children>
         </GridPane>
