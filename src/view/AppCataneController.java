@@ -1,14 +1,13 @@
 package src.view;
 
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
-
-import javax.swing.table.TableColumn;
-import javax.swing.text.TableView;
-import javax.swing.text.html.ListView;
+import javafx.fxml.FXML;
+import javafx.application.Application;
 
 import src.model.ModelDeveloppement;
 import src.model.ModelGestPlat;
@@ -221,8 +220,6 @@ public class AppCataneController {
 
 	@FXML
 	private void initialize(ModelJoueur J){
-		tabres.setCellValueFactory(cellData -> cellData.getValue().);
-
 	}
 
 	private void test(){
@@ -261,7 +258,7 @@ public class AppCataneController {
 	 * Called when the user clicks on the "Joueur suivant" button
 	 */
 	@FXML
-	private void joueurSuivant(ModelGestPlat GP){
+	public void joueurSuivant(ModelGestPlat GP){
 		for(int i=0; i<GP.getTabJ().size(); i++){
 			GP.getTabJ().get(i).setPlaying(true);
 			if(i>0 && i<4){
@@ -272,8 +269,8 @@ public class AppCataneController {
 			//donne les pt de victoire du joueur actuel
 			PtVictoire.setText(GP.getTabJ().get(i).toStringComp()); 
 			//affiche le tableau de resources du joueur actuel
-			for (int i=0; i < GP.getTabJ().get(i).getRessources().size(); i++) {
-				listRes.getItems().add(GP.getTabJ().get(i).getRessources(i));
+			for (int j=0; j < GP.getTabJ().get(i).getRessources().size(); j++) {
+				listRes.getItems().add(GP.getTabJ().get(i).getRessources(j));
 			}
 
 		}
