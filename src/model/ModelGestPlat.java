@@ -68,12 +68,12 @@ public class ModelGestPlat {
 
 	}
 
-	public void lancerDes() {
+	public String lancerDes() {
 
 		int de1 = ThreadLocalRandom.current().nextInt(1, 7);
 		int de2 = ThreadLocalRandom.current().nextInt(1, 7);
-		//int som = de1+de2;
-		int som = 5;
+		int som = de1+de2;
+		//int som = 5;
 		System.out.println(som);
 		for(ModelTuile t:getTabPlat(0).getTuiles()){
 			if(t.getValeur()==som){
@@ -89,7 +89,7 @@ public class ModelGestPlat {
 				}
 			}
 		}
-
+        return ""+som;
 
 	}
 

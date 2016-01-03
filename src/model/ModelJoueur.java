@@ -234,6 +234,10 @@ public class ModelJoueur {
 		return str;
 	}
 
+    public String toStringComp(){
+        int total = compteurDev+compteurJeu;
+        return ""+total;
+    }
 	public void changerPlateau(int newIDPlateau){
 		setIDPlateauJoueur(newIDPlateau); //changement de plateau opéré
 		setGarageDelorean(false);	//Delorean Cassé (comme dans les films)
