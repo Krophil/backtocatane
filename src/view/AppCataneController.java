@@ -1,13 +1,13 @@
 package src.view;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.event.ActionEvent;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
-import javafx.fxml.FXML;
-import javafx.application.Application;
+
+import javax.sound.sampled.Line;
+import javax.swing.text.html.ListView;
 
 import src.model.ModelDeveloppement;
 import src.model.ModelGestPlat;
@@ -26,6 +26,1017 @@ import src.model.MyAliases;
  */
 
 public class AppCataneController {
+
+	@FXML
+	private Line S0;
+	@FXML
+	private Line S1;
+	@FXML
+	private Line S2;
+	@FXML
+	private Line S3;
+	@FXML
+	private Line S4;
+	@FXML
+	private Line S5;
+	@FXML
+	private Line S6;
+	@FXML
+	private Line S7;
+	@FXML
+	private Line S8;
+	@FXML
+	private Line S9;
+	@FXML
+	private Line S10;
+	@FXML
+	private Line S11;
+	@FXML
+	private Line S12;
+	@FXML
+	private Line S13;
+	@FXML
+	private Line S14;
+	@FXML
+	private Line S15;
+	@FXML
+	private Line S16;
+	@FXML
+	private Line S17;
+	@FXML
+	private Line S18;
+	@FXML
+	private Line S19;
+	@FXML
+	private Line S20;
+	@FXML
+	private Line S21;
+	@FXML
+	private Line S22;
+	@FXML
+	private Line S23;
+	@FXML
+	private Line S24;
+	@FXML
+	private Line S25;
+	@FXML
+	private Line S26;
+	@FXML
+	private Line S27;
+	@FXML
+	private Line S28;
+	@FXML
+	private Line S29;
+	@FXML
+	private Line S30;
+	@FXML
+	private Line S31;
+	@FXML
+	private Line S32;
+	@FXML
+	private Line S33;
+	@FXML
+	private Line S34;
+	@FXML
+	private Line S35;
+	@FXML
+	private Line S36;
+	@FXML
+	private Line S37;
+	@FXML
+	private Line S38;
+	@FXML
+	private Line S39;
+	@FXML
+	private Line S40;
+	@FXML
+	private Line S41;
+	@FXML
+	private Line S42;
+	@FXML
+	private Line S43;
+	@FXML
+	private Line S44;
+	@FXML
+	private Line S45;
+	@FXML
+	private Line S46;
+	@FXML
+	private Line S47;
+	@FXML
+	private Line S48;
+	@FXML
+	private Line S49;
+	@FXML
+	private Line S50;
+	@FXML
+	private Line S51;
+	@FXML
+	private Line S52;
+	@FXML
+	private Line S53;
+	@FXML
+	private Line S54;
+	@FXML
+	private Line S55;
+	@FXML
+	private Line S56;
+	@FXML
+	private Line S57;
+	@FXML
+	private Line S58;
+	@FXML
+	private Line S59;
+	@FXML
+	private Line S60;
+	@FXML
+	private Line S61;
+	@FXML
+	private Line S62;
+	@FXML
+	private Line S63;
+	@FXML
+	private Line S64;
+	@FXML
+	private Line S65;
+	@FXML
+	private Line S66;
+	@FXML
+	private Line S67;
+	@FXML
+	private Line S68;
+	@FXML
+	private Line S69;
+	@FXML
+	private Line S70;
+	@FXML
+	private Line S71;
+	@FXML
+	private Line S0;
+	@FXML
+	private Line S1;
+	@FXML
+	private Line S2;
+	@FXML
+	private Line S3;
+	@FXML
+	private Line S4;
+	@FXML
+	private Line S5;
+	@FXML
+	private Line S6;
+	@FXML
+	private Line S7;
+	@FXML
+	private Line S8;
+	@FXML
+	private Line S9;
+	@FXML
+	private Line S10;
+	@FXML
+	private Line S11;
+	@FXML
+	private Line S12;
+	@FXML
+	private Line S13;
+	@FXML
+	private Line S14;
+	@FXML
+	private Line S15;
+	@FXML
+	private Line S16;
+	@FXML
+	private Line S17;
+	@FXML
+	private Line S18;
+	@FXML
+	private Line S19;
+	@FXML
+	private Line S20;
+	@FXML
+	private Line S21;
+	@FXML
+	private Line S22;
+	@FXML
+	private Line S23;
+	@FXML
+	private Line S24;
+	@FXML
+	private Line S25;
+	@FXML
+	private Line S26;
+	@FXML
+	private Line S27;
+	@FXML
+	private Line S28;
+	@FXML
+	private Line S29;
+	@FXML
+	private Line S30;
+	@FXML
+	private Line S31;
+	@FXML
+	private Line S32;
+	@FXML
+	private Line S33;
+	@FXML
+	private Line S34;
+	@FXML
+	private Line S35;
+	@FXML
+	private Line S36;
+	@FXML
+	private Line S37;
+	@FXML
+	private Line S38;
+	@FXML
+	private Line S39;
+	@FXML
+	private Line S40;
+	@FXML
+	private Line S41;
+	@FXML
+	private Line S42;
+	@FXML
+	private Line S43;
+	@FXML
+	private Line S44;
+	@FXML
+	private Line S45;
+	@FXML
+	private Line S46;
+	@FXML
+	private Line S47;
+	@FXML
+	private Line S48;
+	@FXML
+	private Line S49;
+	@FXML
+	private Line S50;
+	@FXML
+	private Line S51;
+	@FXML
+	private Line S52;
+	@FXML
+	private Line S53;
+	@FXML
+	private Line S54;
+	@FXML
+	private Line S55;
+	@FXML
+	private Line S56;
+	@FXML
+	private Line S57;
+	@FXML
+	private Line S58;
+	@FXML
+	private Line S59;
+	@FXML
+	private Line S60;
+	@FXML
+	private Line S61;
+	@FXML
+	private Line S62;
+	@FXML
+	private Line S63;
+	@FXML
+	private Line S64;
+	@FXML
+	private Line S65;
+	@FXML
+	private Line S66;
+	@FXML
+	private Line S67;
+	@FXML
+	private Line S68;
+	@FXML
+	private Line S69;
+	@FXML
+	private Line S70;
+	@FXML
+	private Line S71;
+	@FXML
+	private Line U0;
+	@FXML
+	private Line U1;
+	@FXML
+	private Line U2;
+	@FXML
+	private Line U3;
+	@FXML
+	private Line U4;
+	@FXML
+	private Line U5;
+	@FXML
+	private Line U6;
+	@FXML
+	private Line U7;
+	@FXML
+	private Line U8;
+	@FXML
+	private Line U9;
+	@FXML
+	private Line U10;
+	@FXML
+	private Line U11;
+	@FXML
+	private Line U12;
+	@FXML
+	private Line U13;
+	@FXML
+	private Line U14;
+	@FXML
+	private Line U15;
+	@FXML
+	private Line U16;
+	@FXML
+	private Line U17;
+	@FXML
+	private Line U18;
+	@FXML
+	private Line U19;
+	@FXML
+	private Line U20;
+	@FXML
+	private Line U21;
+	@FXML
+	private Line U22;
+	@FXML
+	private Line U23;
+	@FXML
+	private Line U24;
+	@FXML
+	private Line U25;
+	@FXML
+	private Line U26;
+	@FXML
+	private Line U27;
+	@FXML
+	private Line U28;
+	@FXML
+	private Line U29;
+	@FXML
+	private Line U30;
+	@FXML
+	private Line U31;
+	@FXML
+	private Line U32;
+	@FXML
+	private Line U33;
+	@FXML
+	private Line U34;
+	@FXML
+	private Line U35;
+	@FXML
+	private Line U36;
+	@FXML
+	private Line U37;
+	@FXML
+	private Line U38;
+	@FXML
+	private Line U39;
+	@FXML
+	private Line U40;
+	@FXML
+	private Line U41;
+	@FXML
+	private Line U42;
+	@FXML
+	private Line U43;
+	@FXML
+	private Line U44;
+	@FXML
+	private Line U45;
+	@FXML
+	private Line U46;
+	@FXML
+	private Line U47;
+	@FXML
+	private Line U48;
+	@FXML
+	private Line U49;
+	@FXML
+	private Line U50;
+	@FXML
+	private Line U51;
+	@FXML
+	private Line U52;
+	@FXML
+	private Line U53;
+	@FXML
+	private Line U54;
+	@FXML
+	private Line U55;
+	@FXML
+	private Line U56;
+	@FXML
+	private Line U57;
+	@FXML
+	private Line U58;
+	@FXML
+	private Line U59;
+	@FXML
+	private Line U60;
+	@FXML
+	private Line U61;
+	@FXML
+	private Line U62;
+	@FXML
+	private Line U63;
+	@FXML
+	private Line U64;
+	@FXML
+	private Line U65;
+	@FXML
+	private Line U66;
+	@FXML
+	private Line U67;
+	@FXML
+	private Line U68;
+	@FXML
+	private Line U69;
+	@FXML
+	private Line U70;
+	@FXML
+	private Line U71;
+	@FXML
+	private Line V0;
+	@FXML
+	private Line V1;
+	@FXML
+	private Line V2;
+	@FXML
+	private Line V3;
+	@FXML
+	private Line V4;
+	@FXML
+	private Line V5;
+	@FXML
+	private Line V6;
+	@FXML
+	private Line V7;
+	@FXML
+	private Line V8;
+	@FXML
+	private Line V9;
+	@FXML
+	private Line V10;
+	@FXML
+	private Line V11;
+	@FXML
+	private Line V12;
+	@FXML
+	private Line V13;
+	@FXML
+	private Line V14;
+	@FXML
+	private Line V15;
+	@FXML
+	private Line V16;
+	@FXML
+	private Line V17;
+	@FXML
+	private Line V18;
+	@FXML
+	private Line V19;
+	@FXML
+	private Line V20;
+	@FXML
+	private Line V21;
+	@FXML
+	private Line V22;
+	@FXML
+	private Line V23;
+	@FXML
+	private Line V24;
+	@FXML
+	private Line V25;
+	@FXML
+	private Line V26;
+	@FXML
+	private Line V27;
+	@FXML
+	private Line V28;
+	@FXML
+	private Line V29;
+	@FXML
+	private Line V30;
+	@FXML
+	private Line V31;
+	@FXML
+	private Line V32;
+	@FXML
+	private Line V33;
+	@FXML
+	private Line V34;
+	@FXML
+	private Line V35;
+	@FXML
+	private Line V36;
+	@FXML
+	private Line V37;
+	@FXML
+	private Line V38;
+	@FXML
+	private Line V39;
+	@FXML
+	private Line V40;
+	@FXML
+	private Line V41;
+	@FXML
+	private Line V42;
+	@FXML
+	private Line V43;
+	@FXML
+	private Line V44;
+	@FXML
+	private Line V45;
+	@FXML
+	private Line V46;
+	@FXML
+	private Line V47;
+	@FXML
+	private Line V48;
+	@FXML
+	private Line V49;
+	@FXML
+	private Line V50;
+	@FXML
+	private Line V51;
+	@FXML
+	private Line V52;
+	@FXML
+	private Line V53;
+	@FXML
+	private Line V54;
+	@FXML
+	private Line V55;
+	@FXML
+	private Line V56;
+	@FXML
+	private Line V57;
+	@FXML
+	private Line V58;
+	@FXML
+	private Line V59;
+	@FXML
+	private Line V60;
+	@FXML
+	private Line V61;
+	@FXML
+	private Line V62;
+	@FXML
+	private Line V63;
+	@FXML
+	private Line V64;
+	@FXML
+	private Line V65;
+	@FXML
+	private Line V66;
+	@FXML
+	private Line V67;
+	@FXML
+	private Line V68;
+	@FXML
+	private Line V69;
+	@FXML
+	private Line V70;
+	@FXML
+	private Line V71;
+
+
+	@FXML
+	private Circle W0;
+	@FXML
+	private Circle W1;
+	@FXML
+	private Circle W2;
+	@FXML
+	private Circle W3;
+	@FXML
+	private Circle W4;
+	@FXML
+	private Circle W5;
+	@FXML
+	private Circle W6;
+	@FXML
+	private Circle W7;
+	@FXML
+	private Circle W8;
+	@FXML
+	private Circle W9;
+	@FXML
+	private Circle W10;
+	@FXML
+	private Circle W11;
+	@FXML
+	private Circle W12;
+	@FXML
+	private Circle W13;
+	@FXML
+	private Circle W14;
+	@FXML
+	private Circle W15;
+	@FXML
+	private Circle W16;
+	@FXML
+	private Circle W17;
+	@FXML
+	private Circle W18;
+	@FXML
+	private Circle W19;
+	@FXML
+	private Circle W20;
+	@FXML
+	private Circle W21;
+	@FXML
+	private Circle W22;
+	@FXML
+	private Circle W23;
+	@FXML
+	private Circle W24;
+	@FXML
+	private Circle W25;
+	@FXML
+	private Circle W26;
+	@FXML
+	private Circle W27;
+	@FXML
+	private Circle W28;
+	@FXML
+	private Circle W29;
+	@FXML
+	private Circle W30;
+	@FXML
+	private Circle W31;
+	@FXML
+	private Circle W32;
+	@FXML
+	private Circle W33;
+	@FXML
+	private Circle W34;
+	@FXML
+	private Circle W35;
+	@FXML
+	private Circle W36;
+	@FXML
+	private Circle W37;
+	@FXML
+	private Circle W38;
+	@FXML
+	private Circle W39;
+	@FXML
+	private Circle W40;
+	@FXML
+	private Circle W41;
+	@FXML
+	private Circle W42;
+	@FXML
+	private Circle W43;
+	@FXML
+	private Circle W44;
+	@FXML
+	private Circle W45;
+	@FXML
+	private Circle W46;
+	@FXML
+	private Circle W47;
+	@FXML
+	private Circle W48;
+	@FXML
+	private Circle W49;
+	@FXML
+	private Circle W50;
+	@FXML
+	private Circle W51;
+	@FXML
+	private Circle W52;
+	@FXML
+	private Circle W53;
+	@FXML
+	private Circle X0;
+	@FXML
+	private Circle X1;
+	@FXML
+	private Circle X2;
+	@FXML
+	private Circle X3;
+	@FXML
+	private Circle X4;
+	@FXML
+	private Circle X5;
+	@FXML
+	private Circle X6;
+	@FXML
+	private Circle X7;
+	@FXML
+	private Circle X8;
+	@FXML
+	private Circle X9;
+	@FXML
+	private Circle X10;
+	@FXML
+	private Circle X11;
+	@FXML
+	private Circle X12;
+	@FXML
+	private Circle X13;
+	@FXML
+	private Circle X14;
+	@FXML
+	private Circle X15;
+	@FXML
+	private Circle X16;
+	@FXML
+	private Circle X17;
+	@FXML
+	private Circle X18;
+	@FXML
+	private Circle X19;
+	@FXML
+	private Circle X20;
+	@FXML
+	private Circle X21;
+	@FXML
+	private Circle X22;
+	@FXML
+	private Circle X23;
+	@FXML
+	private Circle X24;
+	@FXML
+	private Circle X25;
+	@FXML
+	private Circle X26;
+	@FXML
+	private Circle X27;
+	@FXML
+	private Circle X28;
+	@FXML
+	private Circle X29;
+	@FXML
+	private Circle X30;
+	@FXML
+	private Circle X31;
+	@FXML
+	private Circle X32;
+	@FXML
+	private Circle X33;
+	@FXML
+	private Circle X34;
+	@FXML
+	private Circle X35;
+	@FXML
+	private Circle X36;
+	@FXML
+	private Circle X37;
+	@FXML
+	private Circle X38;
+	@FXML
+	private Circle X39;
+	@FXML
+	private Circle X40;
+	@FXML
+	private Circle X41;
+	@FXML
+	private Circle X42;
+	@FXML
+	private Circle X43;
+	@FXML
+	private Circle X44;
+	@FXML
+	private Circle X45;
+	@FXML
+	private Circle X46;
+	@FXML
+	private Circle X47;
+	@FXML
+	private Circle X48;
+	@FXML
+	private Circle X49;
+	@FXML
+	private Circle X50;
+	@FXML
+	private Circle X51;
+	@FXML
+	private Circle X52;
+	@FXML
+	private Circle X53;
+	@FXML
+	private Circle Y0;
+	@FXML
+	private Circle Y1;
+	@FXML
+	private Circle Y2;
+	@FXML
+	private Circle Y3;
+	@FXML
+	private Circle Y4;
+	@FXML
+	private Circle Y5;
+	@FXML
+	private Circle Y6;
+	@FXML
+	private Circle Y7;
+	@FXML
+	private Circle Y8;
+	@FXML
+	private Circle Y9;
+	@FXML
+	private Circle Y10;
+	@FXML
+	private Circle Y11;
+	@FXML
+	private Circle Y12;
+	@FXML
+	private Circle Y13;
+	@FXML
+	private Circle Y14;
+	@FXML
+	private Circle Y15;
+	@FXML
+	private Circle Y16;
+	@FXML
+	private Circle Y17;
+	@FXML
+	private Circle Y18;
+	@FXML
+	private Circle Y19;
+	@FXML
+	private Circle Y20;
+	@FXML
+	private Circle Y21;
+	@FXML
+	private Circle Y22;
+	@FXML
+	private Circle Y23;
+	@FXML
+	private Circle Y24;
+	@FXML
+	private Circle Y25;
+	@FXML
+	private Circle Y26;
+	@FXML
+	private Circle Y27;
+	@FXML
+	private Circle Y28;
+	@FXML
+	private Circle Y29;
+	@FXML
+	private Circle Y30;
+	@FXML
+	private Circle Y31;
+	@FXML
+	private Circle Y32;
+	@FXML
+	private Circle Y33;
+	@FXML
+	private Circle Y34;
+	@FXML
+	private Circle Y35;
+	@FXML
+	private Circle Y36;
+	@FXML
+	private Circle Y37;
+	@FXML
+	private Circle Y38;
+	@FXML
+	private Circle Y39;
+	@FXML
+	private Circle Y40;
+	@FXML
+	private Circle Y41;
+	@FXML
+	private Circle Y42;
+	@FXML
+	private Circle Y43;
+	@FXML
+	private Circle Y44;
+	@FXML
+	private Circle Y45;
+	@FXML
+	private Circle Y46;
+	@FXML
+	private Circle Y47;
+	@FXML
+	private Circle Y48;
+	@FXML
+	private Circle Y49;
+	@FXML
+	private Circle Y50;
+	@FXML
+	private Circle Y51;
+	@FXML
+	private Circle Y52;
+	@FXML
+	private Circle Y53;
+	@FXML
+	private Circle Z0;
+	@FXML
+	private Circle Z1;
+	@FXML
+	private Circle Z2;
+	@FXML
+	private Circle Z3;
+	@FXML
+	private Circle Z4;
+	@FXML
+	private Circle Z5;
+	@FXML
+	private Circle Z6;
+	@FXML
+	private Circle Z7;
+	@FXML
+	private Circle Z8;
+	@FXML
+	private Circle Z9;
+	@FXML
+	private Circle Z10;
+	@FXML
+	private Circle Z11;
+	@FXML
+	private Circle Z12;
+	@FXML
+	private Circle Z13;
+	@FXML
+	private Circle Z14;
+	@FXML
+	private Circle Z15;
+	@FXML
+	private Circle Z16;
+	@FXML
+	private Circle Z17;
+	@FXML
+	private Circle Z18;
+	@FXML
+	private Circle Z19;
+	@FXML
+	private Circle Z20;
+	@FXML
+	private Circle Z21;
+	@FXML
+	private Circle Z22;
+	@FXML
+	private Circle Z23;
+	@FXML
+	private Circle Z24;
+	@FXML
+	private Circle Z25;
+	@FXML
+	private Circle Z26;
+	@FXML
+	private Circle Z27;
+	@FXML
+	private Circle Z28;
+	@FXML
+	private Circle Z29;
+	@FXML
+	private Circle Z30;
+	@FXML
+	private Circle Z31;
+	@FXML
+	private Circle Z32;
+	@FXML
+	private Circle Z33;
+	@FXML
+	private Circle Z34;
+	@FXML
+	private Circle Z35;
+	@FXML
+	private Circle Z36;
+	@FXML
+	private Circle Z37;
+	@FXML
+	private Circle Z38;
+	@FXML
+	private Circle Z39;
+	@FXML
+	private Circle Z40;
+	@FXML
+	private Circle Z41;
+	@FXML
+	private Circle Z42;
+	@FXML
+	private Circle Z43;
+	@FXML
+	private Circle Z44;
+	@FXML
+	private Circle Z45;
+	@FXML
+	private Circle Z46;
+	@FXML
+	private Circle Z47;
+	@FXML
+	private Circle Z48;
+	@FXML
+	private Circle Z49;
+	@FXML
+	private Circle Z50;
+	@FXML
+	private Circle Z51;
+	@FXML
+	private Circle Z52;
+	@FXML
+	private Circle Z53;
 
 	@FXML
 	private Label PtVictoire;
