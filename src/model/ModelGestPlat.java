@@ -78,18 +78,12 @@ public class ModelGestPlat {
 		for(ModelTuile t:getTabPlat(0).getTuiles()){
 			if(t.getValeur()==som){
 				for(int i=0; i<4;i++){
-					for(int j=0; j<this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().size(); j++ ){
-						if(this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getBusy() == true)
+					for(ModelSommet s: this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet()){
+						if(s.getBusy())
 						{
-							for(ModelStructure s:this.TabPlat.get(i).getTuile(t.getCoord()).getMysommet().get(j).getMystructure()){
-								if (s instanceof ModelTown)
-								{
-									for(ModelJoueur joueur:TabJ){
-										ressourceMining(joueur,(ModelTown) s, t);
-									}
-
-								}
-							}
+                            for(ModelJoueur joueur:TabJ){
+                                ressourceMining(joueur,s.getTown(), t);
+                            }
 						}
 					}
 				}
@@ -101,12 +95,12 @@ public class ModelGestPlat {
 
 	public void ressourceMining(ModelJoueur J, ModelTown Tow, ModelTuile Tui){
 
-		if(Tow.getUpdate() == false)
+		if(!(Tow.getUpdate()) && !(Tui.isTannen()))
 		{
 			if(Tow.getIDJoueur() == J.getIDJoueur() ){
 				J.setRessources(Tui.getTypeRes());
 			}
-		}else
+		}else if(Tow.getUpdate() && !(Tui.isTannen()))
 		{
 			if(Tow.getIDJoueur() == J.getIDJoueur() ){
 				J.setRessources(Tui.getTypeRes());
@@ -114,24 +108,28 @@ public class ModelGestPlat {
 			}
 		}
 
-		if(J.getRessources().size() > 7){
-			int a = ThreadLocalRandom.current().nextInt(1, 4);
-			int b = ThreadLocalRandom.current().nextInt(1, 4);
-			int c = ThreadLocalRandom.current().nextInt(1, 4);
-			int compteur = 0;
+		if(Tui.getValeur()==7){
+            if(J.getRessources().size() > 7){
+                int a = ThreadLocalRandom.current().nextInt(1, 4);
+                int b = ThreadLocalRandom.current().nextInt(1, 4);
+                int c = ThreadLocalRandom.current().nextInt(1, 4);
+                int compteur = 0;
 
-			while(compteur < (J.getRessources().size()/2)){
-				for (int j=0; j<J.getRessources().size(); j++){
-					if(J.getRessources().get(j) == tabResSup[a] || J.getRessources().get(j) == tabResSup[b] || J.getRessources().get(j) == tabResSup[c]){
-						J.getRessources().remove(j);
-						compteur++;
-					}
-				}
-				/**
-				 * Demander au joueur la tuile,
-				 */
-				//deplacerVoleur(t, J);
-			}
+                while(compteur < (J.getRessources().size()/2)){
+                    for (int j=0; j<J.getRessources().size(); j++){
+                        if(J.getRessources().get(j) == tabResSup[a] || J.getRessources().get(j) == tabResSup[b] || J.getRessources().get(j) == tabResSup[c]){
+                            ArrayList<String> res = J.getRessources();
+                            res.remove(j);
+                            J.setRessources(res);
+                            compteur++;
+                        }
+                    }
+                }
+                /**
+                 * Demander au joueur la tuile,
+                 */
+                //deplacerVoleur(t, J);
+            }
 		}
 	}
 
@@ -154,65 +152,49 @@ public class ModelGestPlat {
 			}
 		}
 		int iterator=0;
-		for(Boolean route:Som.getRoutes()){
-			if(route){
+		for(int b=0;b<Som.getRoutes().length;b++){
+			if(Som.getRoute(b)){
 				int idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);// idsearch contient un index, c'est a dire un int
 				for(int j=J.getIDPlateauJoueur()+1;j<4;j++){//PK +1 à l'id du joueur et pas à l'idplateaujoueur ?
 					ModelRoute r = new ModelRoute(J.getIDJoueur()); //TODO : TROUVER LES SOMMETS A ET B de la route de base
 					r.addToASommet(this.TabPlat.get(j).getSommet(idsearch)); //ajoute a myStructure ce que contient le tableau de ModelSommet a l'index (idsearch)
-					for(int[] v:Som.getVoisin()) {
-						int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v); //searchVoisin contient un index (int)
-						r.addToASommet(this.TabPlat.get(j).getSommet(searchedVois));
-						this.TabPlat.get(j).getSommet(searchedVois).setRoute(iterator, true);
-					}
+                    this.TabPlat.get(j).getSommet(idsearch).setRoute(iterator, true);
+                    int[] v = Som.getVoisin(b);
+                    int searchedVois=-1;
+                    for(ModelSommet s: this.getTabPlat(J.getIDPlateauJoueur()).getSommets()){
+                        boolean equal = true;
+                        for(int V=0;V<3;V++){
+                            if(v[V]!=s.getId()[V]){
+                                equal=false;
+                            }
+                        }
+                        if(equal)
+                            searchedVois=this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(s);
+                    }
+                    //int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v); //searchVoisin contient un index (int)
+                    //System.out.println("searched voisin :" + searchedVois + v[0]+v[1]+v[2]);
+                    if(searchedVois!=-1){
+                        r.addToASommet(this.TabPlat.get(j).getSommet(searchedVois));
+                        //r.addRoute(this.TabPlat.get(j).getSommet(searchedVois), searchedVois);
+                        this.TabPlat.get(j).getSommet(searchedVois).setRoute(iterator, true);
+                        //this.TabPlat.get(j).getSommet(searchedVois).displayRoute();
+                    }
+
 				}
 			}
 			iterator++;
 		}
 
-		/*if(S.getIDJoueur() == J.getIDJoueur()){
-			//for(int i = J.getIDPlateauJoueur(); i<4; i++){
-            int i=J.getIDPlateauJoueur();
-            if(Som.getBusy()){
-                int idsearch = -1;
-                idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-                if(idsearch !=-1 && i+1<4){
-                    for(int j=i+1;j<4;j++) {
-                        ModelTown t = new ModelTown(J.getIDJoueur());
-                        this.TabPlat.get(i).getSommets().get(idsearch).setBusy(true);
-                        t.addToASommet(Som);
-                        t.setIDJoueur(J.getIDJoueur());
-                        t.addToASommet(this.TabPlat.get(i).getSommets().get(idsearch));
-                        //this.TabPlat.get(i).getSommets().get(idsearch).addMystructure(t);
+    }
 
 
-                        for (int k = 0; k < 3; k++) {
-                            getTabPlat(i).getSommet(Som.getVoisin(k)).setBusy(true);
-                        }
-                    }
-                }
-            }
-            int iter=0;
-            System.out.println("BLAAAAA"+Som.getRoutes());
-            for(boolean routes:Som.getRoutes()) {
-                if(routes){
-                    int idsearch =-1;
-                    idsearch = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(Som);
-                    if(idsearch!=-1 && i+1<4){
-                        for(int j=i+1;j<4;j++){
-                            this.TabPlat.get(j).getSommets().get(idsearch).setRoute(iter, true);
-                            for(int[] v:Som.getVoisin()) {
-                                int searchedVois = this.getTabPlat(J.getIDPlateauJoueur()).getSommets().indexOf(v);
-                                this.TabPlat.get(j).getSommets().get(searchedVois).setRoute(iter, true);
-                            }
-                        }
-                    }
-
-                }
-                iter++;
-			}
-		}*/
-	}
+    public boolean fin(){
+        for(ModelJoueur j:this.TabJ) {
+            if(j.getCompteurJeu()+j.getCompteurDev()>=10)
+                return true;
+        }
+        return false;
+    }
 
 	/**
 	 * A partir de l'époque du plateau, on repercute Tannen dans les plateaux suivants.
@@ -232,48 +214,44 @@ public class ModelGestPlat {
 
 	public boolean deplacerVoleur(ModelTuile newTannen, ModelJoueur J){
 		Boolean hasMoved = false;
-		for(ModelTuile t:TabPlat.get(J.getIDPlateauJoueur()).getTuiles()){ //Parcours les tuiles du plateau
-			if(t.isTannen()) {//On cherche la tuile possédant précédemment le voleur
-				if (t.getCoord() != newTannen.getCoord()) {//La nouvelle tuile tiré a une coordonnée diiférente que celle ou se trouve le voleur
+        //Déplacer sur la tuile newTannen
+        for(ModelPlateau p: this.getTabPlat())
+        {
+            for(ModelTuile t: p.getTuiles()){
+                if((t.getCoord()!=27 && t.getCoord()!=37 && t.getCoord()!=43) && t.isTannen())
+                    t.setTannen(false);
+            }
+        }
 
-					//Déplacer sur la tuile newTannen
-					t.setTannen(false);
-					newTannen.setTannen(true);
+        newTannen.setTannen(true);
 
-					repercutTannen(newTannen.getCoord()); //Deplacer Tannen dans les autres plateaux
+        repercutTannen(newTannen.getCoord()); //Deplacer Tannen dans les autres plateaux
+        hasMoved = true;
+        //System.out.println("test");
+        /**
+         * tannen vole une ressource
+         * Pour une tuile donné repercuté a chaque tableau, on regarde ses sommets,
+         * si un sommets est occupé par une ville, on prend une resource au joueur concerné.
+         */
+        int i=J.getIDPlateauJoueur();
+        for(ModelSommet s: this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet()){
+            System.out.println(s+""+s.getTown());
+            if(s.getBusy())
+            {
+                if (s.getTown().getIDJoueur()!=-1 && s.getTown().getIDJoueur()!=J.getIDJoueur())
+                {
+                    System.out.println("Joueur = "+s.getTown().getIDJoueur());
+                    if(this.TabJ.get(s.getTown().getIDJoueur()).getRessources().size()>0){
+                        J.getRessources().add(this.TabJ.get(s.getTown().getIDJoueur()).getRessources().get(0));
+                        //System.out.println(this.TabJ.get(s.getTown().getIDJoueur()).getRessources());
+                        this.TabJ.get(s.getTown().getIDJoueur()).getRessources().remove(0);
+                        //System.out.println(this.TabJ.get(s.getTown().getIDJoueur()).getRessources());
+                    }
 
-					/**
-					 * tannen vole une ressource
-					 * Pour une tuile donné repercuté a chaque tableau, on regarde ses sommets,
-					 * si un sommets est occupé par une ville, on prend une resource au joueur concerné.
-					 */
-					for(int i=0; i<4;i++){
-						for(int j=0; j<this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet().size(); j++ ){
-							if(this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet().get(j).getBusy() == true)
-							{
-								for(ModelStructure s:this.TabPlat.get(i).getTuile(newTannen.getCoord()).getMysommet().get(j).getMystructure()){
-									if (s.getClass().getName().equals("ModelTown"))
-									{
-										int a = ThreadLocalRandom.current().nextInt(1, 4);
-
-										for(int w=0; w< J.getJoueur(s.getIDJoueur()).getRessources().size(); w++){
-											if(J.getJoueur(s.getIDJoueur()).getRessources().get(w) == tabResSup[a]){
-												J.getJoueur(s.getIDJoueur()).getRessources().remove(w);
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-					hasMoved = true;
-
-				} else {//c'est la même tuile, le joueur devra recommencer (c'est dans la view)
-					hasMoved = false;
-				}
-			}
-		}
-		return hasMoved;
+                }
+            }
+        }
+        return hasMoved;
 	}
 
 	public void activateDev(ModelJoueur J, ModelDeveloppement d){

@@ -112,7 +112,7 @@ public class ModelSommet {
         //System.out.println(In);
 		for(int i=0; i<3; i++){
             //System.out.println(voisin[i]);
-            Boolean eq = new Boolean(false);
+            Boolean eq = false;
             for(int a:In){
                 for(int b:voisin[i]){
                     if(a==b){
@@ -201,7 +201,9 @@ public class ModelSommet {
 		return mystructure;
 	}
 
-	public void addMystructure(ModelStructure Str){mystructure.add(Str);}
+	public void addMystructure(ModelStructure Str){
+        mystructure.add(Str);
+    }
 
 
 

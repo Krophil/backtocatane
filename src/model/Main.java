@@ -62,10 +62,10 @@ public class Main {
         ArrayList<ModelDeveloppement> DevListe3 = new ArrayList<ModelDeveloppement>();
         ArrayList<ModelDeveloppement> DevListe4 = new ArrayList<ModelDeveloppement>();
 
-        ModelJoueur J1 = new ModelJoueur(1,ResListe1,DevListe1,1,false);
-        ModelJoueur J2 = new ModelJoueur(2,ResListe2,DevListe2,1,true);
-        ModelJoueur J3 = new ModelJoueur(3,ResListe3,DevListe3,1,false);
-        ModelJoueur J4 = new ModelJoueur(4,ResListe4,DevListe4,1,true);
+        ModelJoueur J1 = new ModelJoueur(0,ResListe1,DevListe1,1,false);
+        ModelJoueur J2 = new ModelJoueur(1,ResListe2,DevListe2,1,true);
+        ModelJoueur J3 = new ModelJoueur(2,ResListe3,DevListe3,1,false);
+        ModelJoueur J4 = new ModelJoueur(3,ResListe4,DevListe4,1,true);
 
         System.out.println(J1);
         System.out.println(J2);
@@ -123,21 +123,20 @@ public class Main {
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());
         p2015.getTuile(21).getMysommet().get(2).displayRoute();
         System.out.println(p1985.getTuile(21).getMysommet().get(2));
+        System.out.println(p1885.getTuile(21).getMysommet());
         GestPlat.repercution(colonie,J2,p1985,p1985.getTuile(21).getMysommet().get(2));
-        System.out.println("Avant répercution");
+        System.out.println("Après répercution");
         System.out.println(p1885.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p1985.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());
-        p2015.getTuile(21).getMysommet().get(2).displayRoute();
+        GestPlat.getTabPlat(3).getTuile(21).getMysommet().get(2).displayRoute();
+        J1.setIDPlateauJoueur(3);
+        GestPlat.deplacerVoleur(p2015.getTuile(21), J1);
+        System.out.println(J1);
+        System.out.println(J2);
 
-
-
-
-
-
-
+        System.out.println(GestPlat.fin());
+        J1.setCompteurDev(10);
+        System.out.println(GestPlat.fin());
     }
-
-
-
 }

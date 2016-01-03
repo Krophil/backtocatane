@@ -17,11 +17,15 @@ public class ModelJoueur {
 
 	private int compteurJeu=0;
 	private int compteurDev=0;
+    private String compteurGen=String.valueOf(compteurDev+compteurJeu);
 
-	public boolean playing=false;//true : the player is currently playing
+	private boolean playing=false;//true : the player is currently playing
 
 
 	//Accesseurs
+    public boolean isPlaying(){return playing;}
+    public void setPlaying(boolean b){playing=b;}
+
 	public boolean getGarageDelorean(){
 		return garageDelorean;
 	}
@@ -62,16 +66,17 @@ public class ModelJoueur {
 		Ressources.add(R);
 	}
 
+    public void setRessources(ArrayList<String> s)
+    {
+        Ressources = new ArrayList<>(s);
+    }
+
 	public int getIDPlateauJoueur(){
 		return IDPlateauJoueur;
 	}
 
 	public int getIDJoueur(){
 		return IDJoueur;
-	}
-
-	public ModelJoueur getJoueur(int i){
-		return getJoueur(i);
 	}
 
 	public void setIDPlateauJoueur(int newIDPlateauJ){

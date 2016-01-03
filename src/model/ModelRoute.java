@@ -63,5 +63,9 @@ public class ModelRoute extends ModelStructure{
 
 	}
 
+    public void addRoute(ModelSommet s, int index){
+        s.setRoute(index, true);
+    }
+
 }
 
