@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.view.AppCataneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.view.AppCataneController">
     <children>
         <GridPane prefHeight="516.0" prefWidth="707.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
@@ -2866,25 +2866,25 @@
                         <Line endX="168" endY="200" layoutX="9.0" layoutY="-18.0" startX="156" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
                         <Line endX="180" endY="192" layoutX="9.0" layoutY="-18.0" startX="168" startY="200" stroke="TRANSPARENT" strokeWidth="3.0" />
                         <Line endX="192" endY="200" layoutX="9.0" layoutY="-18.0" startX="180" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
-                        <Button fx:id="A0" layoutX="81.0" layoutY="34.0" style="-fx-background-color: transparent" text="6" />
-                        <Button fx:id="B0" layoutX="103.0" layoutY="34.0" style="-fx-background-color: transparent" text="2" />
-                        <Button fx:id="C0" layoutX="128.0" layoutY="34.0" style="-fx-background-color: transparent" text="5" />
-                        <Button fx:id="D0" layoutX="67.0" layoutY="59.0" style="-fx-background-color: transparent" text="6" />
-                        <Button fx:id="E0" layoutX="91.0" layoutY="58.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="F0" layoutX="116.0" layoutY="58.0" style="-fx-background-color: transparent" text="8" />
-                        <Button fx:id="G0" layoutX="140.0" layoutY="58.0" style="-fx-background-color: transparent" text="3" />
-                        <Button fx:id="H0" layoutX="55.0" layoutY="83.0" style="-fx-background-color: transparent" text="5" />
-                        <Button fx:id="I0" layoutX="77.0" layoutY="83.0" style="-fx-background-color: transparent" text="12" />
-                        <Button fx:id="J0" layoutX="100.0" layoutY="83.0" style="-fx-background-color: transparent" text="10" />
-                        <Button fx:id="K0" layoutX="128.0" layoutY="82.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="L0" layoutX="154.0" layoutY="82.0" style="-fx-background-color: transparent" text="2" />
-                        <Button fx:id="M0" layoutX="66.0" layoutY="107.0" style="-fx-background-color: transparent" text="4" />
-                        <Button fx:id="N0" layoutX="92.0" layoutY="106.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="O0" layoutX="113.0" layoutY="106.0" style="-fx-background-color: transparent" text="11" />
-                        <Button fx:id="P0" layoutX="140.0" layoutY="106.0" style="-fx-background-color: transparent" text="9" />
-                        <Button fx:id="Q0" layoutX="79.0" layoutY="131.0" style="-fx-background-color: transparent" text="3" />
-                        <Button fx:id="R0" layoutX="99.0" layoutY="131.0" style="-fx-background-color: transparent" text="12" />
-                        <Button fx:id="S0" layoutX="128.0" layoutY="131.0" style="-fx-background-color: transparent" text="4" />
+                        <Button fx:id="A1" layoutX="81.0" layoutY="34.0" style="-fx-background-color: transparent" text="6" />
+                        <Button fx:id="B1" layoutX="103.0" layoutY="34.0" style="-fx-background-color: transparent" text="2" />
+                        <Button fx:id="C1" layoutX="128.0" layoutY="34.0" style="-fx-background-color: transparent" text="5" />
+                        <Button fx:id="D1" layoutX="67.0" layoutY="59.0" style="-fx-background-color: transparent" text="6" />
+                        <Button fx:id="E1" layoutX="91.0" layoutY="58.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="F1" layoutX="116.0" layoutY="58.0" style="-fx-background-color: transparent" text="8" />
+                        <Button fx:id="G1" layoutX="140.0" layoutY="58.0" style="-fx-background-color: transparent" text="3" />
+                        <Button fx:id="H1" layoutX="55.0" layoutY="83.0" style="-fx-background-color: transparent" text="5" />
+                        <Button fx:id="I1" layoutX="77.0" layoutY="83.0" style="-fx-background-color: transparent" text="12" />
+                        <Button fx:id="J1" layoutX="100.0" layoutY="83.0" style="-fx-background-color: transparent" text="10" />
+                        <Button fx:id="K1" layoutX="128.0" layoutY="82.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="L1" layoutX="154.0" layoutY="82.0" style="-fx-background-color: transparent" text="2" />
+                        <Button fx:id="M1" layoutX="66.0" layoutY="107.0" style="-fx-background-color: transparent" text="4" />
+                        <Button fx:id="N1" layoutX="92.0" layoutY="106.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="O1" layoutX="113.0" layoutY="106.0" style="-fx-background-color: transparent" text="11" />
+                        <Button fx:id="P1" layoutX="140.0" layoutY="106.0" style="-fx-background-color: transparent" text="9" />
+                        <Button fx:id="Q1" layoutX="79.0" layoutY="131.0" style="-fx-background-color: transparent" text="3" />
+                        <Button fx:id="R1" layoutX="99.0" layoutY="131.0" style="-fx-background-color: transparent" text="12" />
+                        <Button fx:id="S1" layoutX="128.0" layoutY="131.0" style="-fx-background-color: transparent" text="4" />
                         <Circle fill="DODGERBLUE" layoutX="141.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="117.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="93.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
@@ -4318,25 +4318,25 @@
                         <Line endX="168" endY="200" layoutX="9.0" layoutY="-18.0" startX="156" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
                         <Line endX="180" endY="192" layoutX="9.0" layoutY="-18.0" startX="168" startY="200" stroke="TRANSPARENT" strokeWidth="3.0" />
                         <Line endX="192" endY="200" layoutX="9.0" layoutY="-18.0" startX="180" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
-                        <Button fx:id="A0" layoutX="81.0" layoutY="34.0" style="-fx-background-color: transparent" text="6" />
-                        <Button fx:id="B0" layoutX="103.0" layoutY="34.0" style="-fx-background-color: transparent" text="2" />
-                        <Button fx:id="C0" layoutX="128.0" layoutY="34.0" style="-fx-background-color: transparent" text="5" />
-                        <Button fx:id="D0" layoutX="67.0" layoutY="59.0" style="-fx-background-color: transparent" text="6" />
-                        <Button fx:id="E0" layoutX="91.0" layoutY="58.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="F0" layoutX="116.0" layoutY="58.0" style="-fx-background-color: transparent" text="8" />
-                        <Button fx:id="G0" layoutX="140.0" layoutY="58.0" style="-fx-background-color: transparent" text="3" />
-                        <Button fx:id="H0" layoutX="55.0" layoutY="83.0" style="-fx-background-color: transparent" text="5" />
-                        <Button fx:id="I0" layoutX="77.0" layoutY="83.0" style="-fx-background-color: transparent" text="12" />
-                        <Button fx:id="J0" layoutX="100.0" layoutY="83.0" style="-fx-background-color: transparent" text="10" />
-                        <Button fx:id="K0" layoutX="128.0" layoutY="82.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="L0" layoutX="154.0" layoutY="82.0" style="-fx-background-color: transparent" text="2" />
-                        <Button fx:id="M0" layoutX="66.0" layoutY="107.0" style="-fx-background-color: transparent" text="4" />
-                        <Button fx:id="N0" layoutX="92.0" layoutY="106.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="O0" layoutX="113.0" layoutY="106.0" style="-fx-background-color: transparent" text="11" />
-                        <Button fx:id="P0" layoutX="140.0" layoutY="106.0" style="-fx-background-color: transparent" text="9" />
-                        <Button fx:id="Q0" layoutX="79.0" layoutY="131.0" style="-fx-background-color: transparent" text="3" />
-                        <Button fx:id="R0" layoutX="99.0" layoutY="131.0" style="-fx-background-color: transparent" text="12" />
-                        <Button fx:id="S0" layoutX="128.0" layoutY="131.0" style="-fx-background-color: transparent" text="4" />
+                        <Button fx:id="A2" layoutX="81.0" layoutY="34.0" style="-fx-background-color: transparent" text="6" />
+                        <Button fx:id="B2" layoutX="103.0" layoutY="34.0" style="-fx-background-color: transparent" text="2" />
+                        <Button fx:id="C2" layoutX="128.0" layoutY="34.0" style="-fx-background-color: transparent" text="5" />
+                        <Button fx:id="D2" layoutX="67.0" layoutY="59.0" style="-fx-background-color: transparent" text="6" />
+                        <Button fx:id="E2" layoutX="91.0" layoutY="58.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="F2" layoutX="116.0" layoutY="58.0" style="-fx-background-color: transparent" text="8" />
+                        <Button fx:id="G2" layoutX="140.0" layoutY="58.0" style="-fx-background-color: transparent" text="3" />
+                        <Button fx:id="H2" layoutX="55.0" layoutY="83.0" style="-fx-background-color: transparent" text="5" />
+                        <Button fx:id="I2" layoutX="77.0" layoutY="83.0" style="-fx-background-color: transparent" text="12" />
+                        <Button fx:id="J2" layoutX="100.0" layoutY="83.0" style="-fx-background-color: transparent" text="10" />
+                        <Button fx:id="K2" layoutX="128.0" layoutY="82.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="L2" layoutX="154.0" layoutY="82.0" style="-fx-background-color: transparent" text="2" />
+                        <Button fx:id="M2" layoutX="66.0" layoutY="107.0" style="-fx-background-color: transparent" text="4" />
+                        <Button fx:id="N2" layoutX="92.0" layoutY="106.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="O2" layoutX="113.0" layoutY="106.0" style="-fx-background-color: transparent" text="11" />
+                        <Button fx:id="P2" layoutX="140.0" layoutY="106.0" style="-fx-background-color: transparent" text="9" />
+                        <Button fx:id="Q2" layoutX="79.0" layoutY="131.0" style="-fx-background-color: transparent" text="3" />
+                        <Button fx:id="R2" layoutX="99.0" layoutY="131.0" style="-fx-background-color: transparent" text="12" />
+                        <Button fx:id="S2" layoutX="128.0" layoutY="131.0" style="-fx-background-color: transparent" text="4" />
                         <Circle fill="DODGERBLUE" layoutX="141.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="117.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="93.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
@@ -5771,25 +5771,25 @@
                         <Line endX="180" endY="192" layoutX="9.0" layoutY="-18.0" startX="168" startY="200" stroke="TRANSPARENT" strokeWidth="3.0" />
                         <Line endX="192" endY="200" layoutX="9.0" layoutY="-18.0" startX="180" startY="192" stroke="TRANSPARENT" strokeWidth="3.0" />
 
-                        <Button fx:id="A0" layoutX="81.0" layoutY="34.0" style="-fx-background-color: transparent" text="6" />
-                        <Button fx:id="B0" layoutX="103.0" layoutY="34.0" style="-fx-background-color: transparent" text="2" />
-                        <Button fx:id="C0" layoutX="128.0" layoutY="34.0" style="-fx-background-color: transparent" text="5" />
-                        <Button fx:id="D0" layoutX="67.0" layoutY="59.0" style="-fx-background-color: transparent" text="6" />
-                        <Button fx:id="E0" layoutX="91.0" layoutY="58.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="F0" layoutX="116.0" layoutY="58.0" style="-fx-background-color: transparent" text="8" />
-                        <Button fx:id="G0" layoutX="140.0" layoutY="58.0" style="-fx-background-color: transparent" text="3" />
-                        <Button fx:id="H0" layoutX="55.0" layoutY="83.0" style="-fx-background-color: transparent" text="5" />
-                        <Button fx:id="I0" layoutX="77.0" layoutY="83.0" style="-fx-background-color: transparent" text="12" />
-                        <Button fx:id="J0" layoutX="100.0" layoutY="83.0" style="-fx-background-color: transparent" text="10" />
-                        <Button fx:id="K0" layoutX="128.0" layoutY="82.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="L0" layoutX="154.0" layoutY="82.0" style="-fx-background-color: transparent" text="2" />
-                        <Button fx:id="M0" layoutX="66.0" layoutY="107.0" style="-fx-background-color: transparent" text="4" />
-                        <Button fx:id="N0" layoutX="92.0" layoutY="106.0" style="-fx-background-color: transparent" text="7" />
-                        <Button fx:id="O0" layoutX="113.0" layoutY="106.0" style="-fx-background-color: transparent" text="11" />
-                        <Button fx:id="P0" layoutX="140.0" layoutY="106.0" style="-fx-background-color: transparent" text="9" />
-                        <Button fx:id="Q0" layoutX="79.0" layoutY="131.0" style="-fx-background-color: transparent" text="3" />
-                        <Button fx:id="R0" layoutX="99.0" layoutY="131.0" style="-fx-background-color: transparent" text="12" />
-                        <Button fx:id="S0" layoutX="128.0" layoutY="131.0" style="-fx-background-color: transparent" text="4" />
+                        <Button fx:id="A3" layoutX="81.0" layoutY="34.0" style="-fx-background-color: transparent" text="6" />
+                        <Button fx:id="B3" layoutX="103.0" layoutY="34.0" style="-fx-background-color: transparent" text="2" />
+                        <Button fx:id="C3" layoutX="128.0" layoutY="34.0" style="-fx-background-color: transparent" text="5" />
+                        <Button fx:id="D3" layoutX="67.0" layoutY="59.0" style="-fx-background-color: transparent" text="6" />
+                        <Button fx:id="E3" layoutX="91.0" layoutY="58.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="F3" layoutX="116.0" layoutY="58.0" style="-fx-background-color: transparent" text="8" />
+                        <Button fx:id="G3" layoutX="140.0" layoutY="58.0" style="-fx-background-color: transparent" text="3" />
+                        <Button fx:id="H3" layoutX="55.0" layoutY="83.0" style="-fx-background-color: transparent" text="5" />
+                        <Button fx:id="I3" layoutX="77.0" layoutY="83.0" style="-fx-background-color: transparent" text="12" />
+                        <Button fx:id="J3" layoutX="100.0" layoutY="83.0" style="-fx-background-color: transparent" text="10" />
+                        <Button fx:id="K3" layoutX="128.0" layoutY="82.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="L3" layoutX="154.0" layoutY="82.0" style="-fx-background-color: transparent" text="2" />
+                        <Button fx:id="M3" layoutX="66.0" layoutY="107.0" style="-fx-background-color: transparent" text="4" />
+                        <Button fx:id="N3" layoutX="92.0" layoutY="106.0" style="-fx-background-color: transparent" text="7" />
+                        <Button fx:id="O3" layoutX="113.0" layoutY="106.0" style="-fx-background-color: transparent" text="11" />
+                        <Button fx:id="P3" layoutX="140.0" layoutY="106.0" style="-fx-background-color: transparent" text="9" />
+                        <Button fx:id="Q3" layoutX="79.0" layoutY="131.0" style="-fx-background-color: transparent" text="3" />
+                        <Button fx:id="R3" layoutX="99.0" layoutY="131.0" style="-fx-background-color: transparent" text="12" />
+                        <Button fx:id="S3" layoutX="128.0" layoutY="131.0" style="-fx-background-color: transparent" text="4" />
                         <Circle fill="DODGERBLUE" layoutX="141.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="117.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
                         <Circle fill="DODGERBLUE" layoutX="93.0" layoutY="31.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
