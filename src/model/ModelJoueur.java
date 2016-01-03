@@ -18,6 +18,8 @@ public class ModelJoueur {
 	private int compteurJeu=0;
 	private int compteurDev=0;
 
+	private int comptfinal = compteurJeu+compteurDev;
+
 	public boolean playing=false;//true : the player is currently playing
 
 

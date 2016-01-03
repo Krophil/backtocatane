@@ -1,15 +1,11 @@
 package src.view;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.event.ActionEvent;
-import javafx.application.Application;
-
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javafx.fxml.FXML;
-import javafx.scene.layout.AnchorPane;
 import src.model.ModelDeveloppement;
 import src.model.ModelGestPlat;
 import src.model.ModelJoueur;
@@ -17,7 +13,6 @@ import src.model.ModelPlateau;
 import src.model.ModelRoute;
 import src.model.ModelSommet;
 import src.model.ModelTown;
-import src.model.ModelTuile;
 import src.model.MyAliases;
 
 /**
@@ -28,6 +23,24 @@ import src.model.MyAliases;
  */
 
 public class AppCataneController {
+
+	@FXML
+	private Label PtVictoire;
+	@FXML
+	private Label resultDes;
+
+	@FXML
+	private Button Joueursuiv;
+	@FXML
+	private Button Lancerdes;
+	@FXML
+	private Button UseDev;
+	@FXML
+	private Button ConstruireR;
+	@FXML
+	private Button ConstruireV;
+
+
 
 	@FXML
 	private Button A0;
@@ -199,7 +212,7 @@ public class AppCataneController {
 	public AppCataneController(){
 
 	}
-	//IICICICICICI
+
 	@FXML
 	private void initialize(){
 	}
@@ -259,6 +272,7 @@ public class AppCataneController {
 
 
 	}
+
 
 
 	/**
@@ -374,34 +388,34 @@ public class AppCataneController {
 
 
 			break;
-			case 2:
-				/**
-				 * interaction pour la création de 2 routes
-				 */
-				ModelRoute i = new ModelRoute(J.getIDJoueur());
-				i.construire(J, a, b, GP);
-				//ajouter répercution ok
+		case 2:
+			/**
+			 * interaction pour la création de 2 routes
+			 */
+			ModelRoute i = new ModelRoute(J.getIDJoueur());
+			i.construire(J, a, b, GP);
+			//ajouter répercution ok
 
-				ModelRoute j = new ModelRoute(J.getIDJoueur());
-				j.construire(J, a, b, GP);
-				//ajouter repercution ok
-				break;
-			case 3:
-				/**
-				 * interaction pour récupérer 2 ressources supplémentaires
-				 */
-				int x = ThreadLocalRandom.current().nextInt(1,4);
-				int y = ThreadLocalRandom.current().nextInt(1,4);
+			ModelRoute j = new ModelRoute(J.getIDJoueur());
+			j.construire(J, a, b, GP);
+			//ajouter repercution ok
+			break;
+		case 3:
+			/**
+			 * interaction pour récupérer 2 ressources supplémentaires
+			 */
+			int x = ThreadLocalRandom.current().nextInt(1,4);
+			int y = ThreadLocalRandom.current().nextInt(1,4);
 
-				ArrayList<String> s = new ArrayList <>();
-				s.add(GP.getTabResSup(x));
-				s.add(GP.getTabResSup(y));
+			ArrayList<String> s = new ArrayList <>();
+			s.add(GP.getTabResSup(x));
+			s.add(GP.getTabResSup(y));
 
-				J.getRessources().addAll(s);
+			J.getRessources().addAll(s);
 
-				break;
-			case 4:
-				J.setCompteurDev(J.getCompteurDev()+1);
+			break;
+		case 4:
+			J.setCompteurDev(J.getCompteurDev()+1);
 		}
 	}
 
