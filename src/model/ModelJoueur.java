@@ -17,14 +17,14 @@ public class ModelJoueur {
 
 	private int compteurJeu=0;
 	private int compteurDev=0;
-    private String compteurGen=String.valueOf(compteurDev+compteurJeu);
+	private String compteurGen=String.valueOf(compteurDev+compteurJeu);
 
 	private boolean playing=false;//true : the player is currently playing
 
 
 	//Accesseurs
-    public boolean isPlaying(){return playing;}
-    public void setPlaying(boolean b){playing=b;}
+	public boolean isPlaying(){return playing;}
+	public void setPlaying(boolean b){playing=b;}
 
 	public boolean getGarageDelorean(){
 		return garageDelorean;
@@ -62,14 +62,18 @@ public class ModelJoueur {
 		return Ressources;
 	}
 
+	public String getRessources(int i){
+		return Ressources.get(i);
+	}
+
 	public void setRessources(String R){
 		Ressources.add(R);
 	}
 
-    public void setRessources(ArrayList<String> s)
-    {
-        Ressources = new ArrayList<>(s);
-    }
+	public void setRessources(ArrayList<String> s)
+	{
+		Ressources = new ArrayList<>(s);
+	}
 
 	public int getIDPlateauJoueur(){
 		return IDPlateauJoueur;
@@ -234,10 +238,10 @@ public class ModelJoueur {
 		return str;
 	}
 
-    public String toStringComp(){
-        int total = compteurDev+compteurJeu;
-        return ""+total;
-    }
+	public String toStringComp(){
+		int total = compteurDev+compteurJeu;
+		return ""+total;
+	}
 	public void changerPlateau(int newIDPlateau){
 		setIDPlateauJoueur(newIDPlateau); //changement de plateau opéré
 		setGarageDelorean(false);	//Delorean Cassé (comme dans les films)

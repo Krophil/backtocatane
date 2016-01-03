@@ -265,14 +265,16 @@ public class AppCataneController {
 		for(int i=0; i<GP.getTabJ().size(); i++){
 			GP.getTabJ().get(i).setPlaying(true);
 			if(i>0 && i<4){
-				GP.getTabJ().get(i-1).setPLaying(false);
+				GP.getTabJ().get(i-1).setPlaying(false);
 			} else {
-				GP.getTabJ().get(i+4).setPLaying(false);
+				GP.getTabJ().get(i+4).setPlaying(false);
 			}
 			//donne les pt de victoire du joueur actuel
 			PtVictoire.setText(GP.getTabJ().get(i).toStringComp()); 
 			//affiche le tableau de resources du joueur actuel
-
+			for (int i=0; i < GP.getTabJ().get(i).getRessources().size(); i++) {
+				listRes.getItems().add(GP.getTabJ().get(i).getRessources(i));
+			}
 
 		}
 	}
