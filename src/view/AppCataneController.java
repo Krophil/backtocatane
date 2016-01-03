@@ -1,14 +1,18 @@
 package src.view;
 
-import java.awt.Button;
-import java.awt.Label;
-import java.awt.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javax.sound.sampled.Line;
-import javax.swing.text.html.ListView;
-
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Line;
+import javafx.scene.control.ListView;
+import javafx.fxml.FXML;
+import javafx.application.Application;
+import javafx.scene.shape.Circle;
 import src.model.ModelDeveloppement;
 import src.model.ModelGestPlat;
 import src.model.ModelJoueur;
@@ -1270,19 +1274,19 @@ public class AppCataneController {
 	 * Called when the user clicks on the "Joueur suivant" button
 	 */
 	@FXML
-	public void joueurSuivant(ModelGestPlat GP){
-		for(int i=0; i<GP.getTabJ().size(); i++){
-			GP.getTabJ().get(i).setPlaying(true);
+	public void joueurSuivant(ModelGestPlat gestPlat){
+		for(int i=0; i<gestPlat.getTabJ().size(); i++){
+			gestPlat.getTabJ().get(i).setPlaying(true);
 			if(i>0 && i<4){
-				GP.getTabJ().get(i-1).setPlaying(false);
+				gestPlat.getTabJ().get(i-1).setPlaying(false);
 			} else {
-				GP.getTabJ().get(i+4).setPlaying(false);
+				gestPlat.getTabJ().get(i+4).setPlaying(false);
 			}
 			//donne les pt de victoire du joueur actuel
-			PtVictoire.setText(GP.getTabJ().get(i).toStringComp()); 
+			PtVictoire.setText(gestPlat.getTabJ().get(i).toStringComp()); 
 			//affiche le tableau de resources du joueur actuel
-			for (int j=0; j < GP.getTabJ().get(i).getRessources().size(); j++) {
-				listRes.getItems().add(GP.getTabJ().get(i).getRessources(j));
+			for (int j=0; j < gestPlat.getTabJ().get(i).getRessources().size(); j++) {
+				listRes.getItems().add(gestPlat.getTabJ().get(i).getRessources(j));
 			}
 
 		}
@@ -1292,10 +1296,10 @@ public class AppCataneController {
 	 * Called when the user clicks on the "Lancer Dés" button
 	 */
 	@FXML
-	private void lancerDes(ModelGestPlat GP) {
+	private void lancerDes(ModelGestPlat gestPlat) {
 
-		GP.lancerDes();
-		resultDes.setText(GP.lancerDes());
+		gestPlat.lancerDes();
+		resultDes.setText(gestPlat.lancerDes());
 	}
 
 
@@ -1316,100 +1320,100 @@ public class AppCataneController {
 	 * Called when the user clicks on the "construire Route" button
 	 */
 	@FXML
-	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat GP){
+	private void construireRoute(ModelJoueur J, ModelSommet a, ModelSommet b, ModelGestPlat gestPlat){
 		ModelRoute r = new ModelRoute(J.getIDJoueur());
-		r.construire(J,a,b,GP);
+		r.construire(J,a,b,gestPlat);
 	}
 
 	/**
 	 * Called when the user clicks on the "Activer Developpement" button
 	 */
 	@FXML
-	private void activateDev(ModelJoueur J, ModelDeveloppement d, ModelGestPlat GP, ModelSommet a, ModelSommet b){
+	private void activateDev(ModelJoueur J, ModelDeveloppement d, ModelSommet a, ModelSommet b){
 		switch (d.getIDDeveloppement()){
 		case 1:
 			/**
 			 * interaction avec le joueur pour déplacer le Tannen
 			 */
-			A0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); GP.repercutTannen(19);});
-			B0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); GP.repercutTannen(20);});
-			C0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); GP.repercutTannen(21);});
-			D0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); GP.repercutTannen(26);});
-			E0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); GP.repercutTannen(27);});
-			F0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); GP.repercutTannen(28);});
-			G0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); GP.repercutTannen(29);});
-			H0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); GP.repercutTannen(34);});
-			I0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); GP.repercutTannen(35);});
-			J0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); GP.repercutTannen(36);});
-			K0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); GP.repercutTannen(37);});
-			L0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); GP.repercutTannen(38);});
-			M0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); GP.repercutTannen(42);});
-			N0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); GP.repercutTannen(43);});
-			O0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); GP.repercutTannen(44);});
-			P0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); GP.repercutTannen(45);});
-			Q0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); GP.repercutTannen(51);});
-			R0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); GP.repercutTannen(52);});
-			S0.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); GP.repercutTannen(53);});
+			A0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); gestPlat.repercutTannen(19);});
+			B0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); gestPlat.repercutTannen(20);});
+			C0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); gestPlat.repercutTannen(21);});
+			D0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); gestPlat.repercutTannen(26);});
+			E0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); gestPlat.repercutTannen(27);});
+			F0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); gestPlat.repercutTannen(28);});
+			G0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); gestPlat.repercutTannen(29);});
+			H0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); gestPlat.repercutTannen(34);});
+			I0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); gestPlat.repercutTannen(35);});
+			J0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); gestPlat.repercutTannen(36);});
+			K0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); gestPlat.repercutTannen(37);});
+			L0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); gestPlat.repercutTannen(38);});
+			M0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); gestPlat.repercutTannen(42);});
+			N0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); gestPlat.repercutTannen(43);});
+			O0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); gestPlat.repercutTannen(44);});
+			P0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); gestPlat.repercutTannen(45);});
+			Q0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); gestPlat.repercutTannen(51);});
+			R0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); gestPlat.repercutTannen(52);});
+			S0.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); gestPlat.repercutTannen(53);});
 
-			A1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); GP.repercutTannen(19);});
-			B1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); GP.repercutTannen(20);});
-			C1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); GP.repercutTannen(21);});
-			D1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); GP.repercutTannen(26);});
-			E1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); GP.repercutTannen(27);});
-			F1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); GP.repercutTannen(28);});
-			G1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); GP.repercutTannen(29);});
-			H1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); GP.repercutTannen(34);});
-			I1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); GP.repercutTannen(35);});
-			J1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); GP.repercutTannen(36);});
-			K1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); GP.repercutTannen(37);});
-			L1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); GP.repercutTannen(38);});
-			M1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); GP.repercutTannen(42);});
-			N1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); GP.repercutTannen(43);});
-			O1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); GP.repercutTannen(44);});
-			P1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); GP.repercutTannen(45);});
-			Q1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); GP.repercutTannen(51);});
-			R1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); GP.repercutTannen(52);});
-			S1.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); GP.repercutTannen(53);});
+			A1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); gestPlat.repercutTannen(19);});
+			B1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); gestPlat.repercutTannen(20);});
+			C1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); gestPlat.repercutTannen(21);});
+			D1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); gestPlat.repercutTannen(26);});
+			E1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); gestPlat.repercutTannen(27);});
+			F1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); gestPlat.repercutTannen(28);});
+			G1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); gestPlat.repercutTannen(29);});
+			H1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); gestPlat.repercutTannen(34);});
+			I1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); gestPlat.repercutTannen(35);});
+			J1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); gestPlat.repercutTannen(36);});
+			K1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); gestPlat.repercutTannen(37);});
+			L1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); gestPlat.repercutTannen(38);});
+			M1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); gestPlat.repercutTannen(42);});
+			N1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); gestPlat.repercutTannen(43);});
+			O1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); gestPlat.repercutTannen(44);});
+			P1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); gestPlat.repercutTannen(45);});
+			Q1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); gestPlat.repercutTannen(51);});
+			R1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); gestPlat.repercutTannen(52);});
+			S1.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); gestPlat.repercutTannen(53);});
 
-			A2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); GP.repercutTannen(19);});
-			B2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); GP.repercutTannen(20);});
-			C2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); GP.repercutTannen(21);});
-			D2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); GP.repercutTannen(26);});
-			E2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); GP.repercutTannen(27);});
-			F2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); GP.repercutTannen(28);});
-			G2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); GP.repercutTannen(29);});
-			H2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); GP.repercutTannen(34);});
-			I2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); GP.repercutTannen(35);});
-			J2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); GP.repercutTannen(36);});
-			K2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); GP.repercutTannen(37);});
-			L2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); GP.repercutTannen(38);});
-			M2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); GP.repercutTannen(42);});
-			N2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); GP.repercutTannen(43);});
-			O2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); GP.repercutTannen(44);});
-			P2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); GP.repercutTannen(45);});
-			Q2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); GP.repercutTannen(51);});
-			R2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); GP.repercutTannen(52);});
-			S2.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); GP.repercutTannen(53);});
+			A2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); gestPlat.repercutTannen(19);});
+			B2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); gestPlat.repercutTannen(20);});
+			C2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); gestPlat.repercutTannen(21);});
+			D2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); gestPlat.repercutTannen(26);});
+			E2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); gestPlat.repercutTannen(27);});
+			F2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); gestPlat.repercutTannen(28);});
+			G2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); gestPlat.repercutTannen(29);});
+			H2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); gestPlat.repercutTannen(34);});
+			I2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); gestPlat.repercutTannen(35);});
+			J2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); gestPlat.repercutTannen(36);});
+			K2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); gestPlat.repercutTannen(37);});
+			L2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); gestPlat.repercutTannen(38);});
+			M2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); gestPlat.repercutTannen(42);});
+			N2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); gestPlat.repercutTannen(43);});
+			O2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); gestPlat.repercutTannen(44);});
+			P2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); gestPlat.repercutTannen(45);});
+			Q2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); gestPlat.repercutTannen(51);});
+			R2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); gestPlat.repercutTannen(52);});
+			S2.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); gestPlat.repercutTannen(53);});
 
-			A3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); GP.repercutTannen(19);});
-			B3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); GP.repercutTannen(20);});
-			C3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); GP.repercutTannen(21);});
-			D3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); GP.repercutTannen(26);});
-			E3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); GP.repercutTannen(27);});
-			F3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); GP.repercutTannen(28);});
-			G3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); GP.repercutTannen(29);});
-			H3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); GP.repercutTannen(34);});
-			I3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); GP.repercutTannen(35);});
-			J3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); GP.repercutTannen(36);});
-			K3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); GP.repercutTannen(37);});
-			L3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); GP.repercutTannen(38);});
-			M3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); GP.repercutTannen(42);});
-			N3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); GP.repercutTannen(43);});
-			O3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); GP.repercutTannen(44);});
-			P3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); GP.repercutTannen(45);});
-			Q3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); GP.repercutTannen(51);});
-			R3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); GP.repercutTannen(52);});
-			S3.setOnAction((ActionEvent e) -> {GP.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); GP.repercutTannen(53);});
+			A3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(19), J); gestPlat.repercutTannen(19);});
+			B3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(20), J); gestPlat.repercutTannen(20);});
+			C3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(21), J); gestPlat.repercutTannen(21);});
+			D3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(26), J); gestPlat.repercutTannen(26);});
+			E3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(27), J); gestPlat.repercutTannen(27);});
+			F3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(28), J); gestPlat.repercutTannen(28);});
+			G3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(29), J); gestPlat.repercutTannen(29);});
+			H3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(34), J); gestPlat.repercutTannen(34);});
+			I3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(35), J); gestPlat.repercutTannen(35);});
+			J3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(36), J); gestPlat.repercutTannen(36);});
+			K3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(37), J); gestPlat.repercutTannen(37);});
+			L3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(38), J); gestPlat.repercutTannen(38);});
+			M3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(42), J); gestPlat.repercutTannen(42);});
+			N3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(43), J); gestPlat.repercutTannen(43);});
+			O3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(44), J); gestPlat.repercutTannen(44);});
+			P3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(45), J); gestPlat.repercutTannen(45);});
+			Q3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(51), J); gestPlat.repercutTannen(51);});
+			R3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(52), J); gestPlat.repercutTannen(52);});
+			S3.setOnAction((ActionEvent e) -> {gestPlat.deplacerVoleur(gestPlat.getTabPlat(J.getIDPlateauJoueur()).getTuile(53), J); gestPlat.repercutTannen(53);});
 
 
 			break;
@@ -1418,11 +1422,11 @@ public class AppCataneController {
 			 * interaction pour la création de 2 routes
 			 */
 			ModelRoute i = new ModelRoute(J.getIDJoueur());
-			i.construire(J, a, b, GP);
+			i.construire(J, a, b, gestPlat);
 			//ajouter répercution ok
 
 			ModelRoute j = new ModelRoute(J.getIDJoueur());
-			j.construire(J, a, b, GP);
+			j.construire(J, a, b, gestPlat);
 			//ajouter repercution ok
 			break;
 		case 3:
@@ -1433,8 +1437,8 @@ public class AppCataneController {
 			int y = ThreadLocalRandom.current().nextInt(1,4);
 
 			ArrayList<String> s = new ArrayList <>();
-			s.add(GP.getTabResSup(x));
-			s.add(GP.getTabResSup(y));
+			s.add(gestPlat.getTabResSup(x));
+			s.add(gestPlat.getTabResSup(y));
 
 			J.getRessources().addAll(s);
 
@@ -1444,6 +1448,320 @@ public class AppCataneController {
 		}
 	}
 
+    @FXML
+    private void construireVille(){
+        int i=0;
+        while(!gestPlat.getTabJ().get(i).isPlaying()){
+            i++;
+        }
+        ModelTown t = new ModelTown(gestPlat.getTabJ().get(i).getIDJoueur());
+        final int ok = i;
+        SS0.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(0), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS1.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(1), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS2.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(2), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS3.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(3), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS4.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(4), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS5.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(5), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS6.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(6), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS7.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(7), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS8.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(8), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS9.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(9), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS10.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(10), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS11.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(11), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS12.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(12), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS13.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(13), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS14.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(14), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS15.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(15), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS16.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(16), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS17.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(17), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS18.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(18), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS19.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(19), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS20.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(20), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS21.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(21), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS22.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(22), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS23.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(23), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS24.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(24), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS25.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(25), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS26.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(26), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS27.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(27), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS28.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(28), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS29.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(29), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS30.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(30), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS31.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(31), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS32.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(32), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS33.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(33), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS34.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(34), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS35.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(35), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS36.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(36), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS37.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(37), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS38.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(38), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS39.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(39), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS40.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(40), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS41.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(41), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS42.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(42), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS43.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(43), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS44.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(44), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS45.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(45), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS46.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(46), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS47.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(47), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS48.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(48), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS49.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(49), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS50.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(50), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS51.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(51), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS52.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(52), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS53.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(53), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS54.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(54), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS55.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(55), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS56.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(56), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS57.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(57), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS58.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(58), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS59.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(59), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS60.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(60), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS61.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(61), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS62.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(62), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS63.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(63), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS64.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(64), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS65.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(65), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS66.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(66), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS67.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(67), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS68.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(68), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS69.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(69), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS70.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(70), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        SS71.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(71), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+
+        T0.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(0), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T1.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(1), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T2.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(2), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T3.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(3), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T4.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(4), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T5.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(5), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T6.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(6), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T7.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(7), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T8.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(8), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T9.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(9), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T10.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(10), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T11.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(11), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T12.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(12), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T13.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(13), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T14.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(14), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T15.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(15), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T16.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(16), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T17.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(17), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T18.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(18), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T19.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(19), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T20.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(20), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T21.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(21), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T22.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(22), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T23.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(23), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T24.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(24), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T25.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(25), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T26.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(26), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T27.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(27), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T28.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(28), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T29.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(29), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T30.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(30), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T31.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(31), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T32.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(32), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T33.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(33), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T34.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(34), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T35.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(35), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T36.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(36), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T37.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(37), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T38.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(38), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T39.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(39), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T40.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(40), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T41.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(41), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T42.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(42), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T43.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(43), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T44.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(44), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T45.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(45), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T46.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(46), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T47.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(47), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T48.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(48), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T49.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(49), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T50.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(50), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T51.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(51), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T52.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(52), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T53.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(53), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T54.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(54), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T55.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(55), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T56.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(56), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T57.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(57), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T58.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(58), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T59.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(59), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T60.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(60), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T61.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(61), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T62.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(62), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T63.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(63), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T64.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(64), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T65.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(65), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T66.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(66), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T67.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(67), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T68.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(68), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T69.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(69), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T70.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(70), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        T71.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(71), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+
+        U0.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(0), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U1.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(1), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U2.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(2), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U3.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(3), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U4.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(4), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U5.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(5), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U6.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(6), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U7.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(7), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U8.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(8), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U9.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(9), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U10.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(10), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U11.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(11), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U12.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(12), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U13.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(13), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U14.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(14), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U15.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(15), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U16.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(16), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U17.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(17), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U18.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(18), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U19.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(19), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U20.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(20), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U21.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(21), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U22.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(22), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U23.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(23), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U24.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(24), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U25.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(25), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U26.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(26), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U27.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(27), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U28.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(28), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U29.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(29), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U30.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(30), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U31.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(31), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U32.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(32), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U33.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(33), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U34.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(34), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U35.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(35), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U36.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(36), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U37.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(37), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U38.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(38), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U39.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(39), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U40.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(40), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U41.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(41), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U42.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(42), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U43.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(43), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U44.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(44), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U45.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(45), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U46.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(46), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U47.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(47), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U48.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(48), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U49.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(49), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U50.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(50), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U51.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(51), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U52.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(52), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U53.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(53), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U54.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(54), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U55.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(55), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U56.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(56), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U57.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(57), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U58.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(58), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U59.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(59), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U60.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(60), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U61.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(61), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U62.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(62), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U63.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(63), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U64.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(64), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U65.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(65), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U66.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(66), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U67.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(67), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U68.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(68), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U69.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(69), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U70.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(70), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        U71.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(71), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+
+        V0.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(0), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V1.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(1), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V2.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(2), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V3.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(3), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V4.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(4), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V5.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(5), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V6.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(6), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V7.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(7), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V8.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(8), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V9.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(9), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V10.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(10), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V11.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(11), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V12.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(12), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V13.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(13), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V14.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(14), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V15.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(15), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V16.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(16), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V17.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(17), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V18.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(18), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V19.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(19), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V20.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(20), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V21.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(21), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V22.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(22), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V23.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(23), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V24.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(24), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V25.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(25), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V26.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(26), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V27.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(27), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V28.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(28), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V29.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(29), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V30.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(30), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V31.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(31), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V32.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(32), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V33.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(33), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V34.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(34), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V35.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(35), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V36.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(36), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V37.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(37), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V38.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(38), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V39.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(39), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V40.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(40), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V41.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(41), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V42.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(42), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V43.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(43), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V44.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(44), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V45.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(45), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V46.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(46), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V47.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(47), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V48.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(48), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V49.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(49), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V50.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(50), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V51.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(51), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V52.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(52), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V53.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(53), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V54.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(54), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V55.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(55), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V56.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(56), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V57.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(57), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V58.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(58), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V59.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(59), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V60.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(60), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V61.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(61), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V62.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(62), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V63.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(63), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V64.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(64), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V65.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(65), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V66.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(66), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V67.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(67), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V68.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(68), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V69.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(69), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V70.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(70), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+        V71.setOnMouseClicked((MouseEvent e)->{t.construire(gestPlat.getTabJ().get(ok), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()).getSommet(71), gestPlat.getTabPlat().get(gestPlat.getTabJ().get(ok).getIDJoueur()));});
+
+
+    }
+
+    @FXML
+    private void construireRoute(){
+        int i=0;
+        while(!gestPlat.getTabJ().get(i).isPlaying()){
+            i++;
+        }
+        ModelRoute r = new ModelRoute(gestPlat.getTabJ().get(i).getIDJoueur());
+        final int ok = i;
+        W0.setOnMouseClicked((MouseEvent e)->{r.construire()});
+    }
+    
 
 	public Button getA0() {
 		return A0;
