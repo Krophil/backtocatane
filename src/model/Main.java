@@ -92,18 +92,19 @@ public class Main {
 
 
         GestPlat.lancerDes();
-
+        System.out.println("Le joueur 2 a placé une vile sur le sommet 2 de la tuile 21 sur le plateau de 1985.");
         System.out.println(J1);
         System.out.println(J2);
         System.out.println(J3);
         System.out.println(J4);
         J2.setIDPlateauJoueur(2);
+        System.out.println("Y a-t-il une ville sur les sommets des plateaux 1885, 1985 et 2015 ?");
         System.out.println(p1885.getTuile(21).getMysommet().get(2).getBusy());
         System.out.println(p1985.getTuile(21).getMysommet().get(2).getBusy());
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getBusy());
 
         GestPlat.repercution(colonie,J2,p1985,p1985.getTuile(21).getMysommet().get(2));
-
+        System.out.println("Après répercution, y a-t-il une ville sur les sommets des plateaux 1885, 1985 et 2015 ?");
         System.out.println(p1885.getTuile(21).getMysommet().get(2).getBusy());
         System.out.println(p1985.getTuile(21).getMysommet().get(2).getBusy());
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getBusy());
@@ -117,7 +118,7 @@ public class Main {
         p1985.getTuile(37).getMysommet().get(3).displayVoisin();
 
         route.construire(J2,p1985.getTuile(21).getMysommet().get(2), p1985.getTuile(37).getMysommet().get(3), GestPlat);
-        System.out.println("Avant répercution");
+        System.out.println("Les routes avant répercution");
         System.out.println(p1885.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p1985.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());
@@ -125,7 +126,7 @@ public class Main {
         System.out.println(p1985.getTuile(21).getMysommet().get(2));
         System.out.println(p1885.getTuile(21).getMysommet());
         GestPlat.repercution(colonie,J2,p1985,p1985.getTuile(21).getMysommet().get(2));
-        System.out.println("Après répercution");
+        System.out.println("Les routes après répercution");
         System.out.println(p1885.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p1985.getTuile(21).getMysommet().get(2).getMystructure());
         System.out.println(p2015.getTuile(21).getMysommet().get(2).getMystructure());
